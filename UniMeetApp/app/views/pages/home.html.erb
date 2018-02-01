@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>UniMeet Home</title>
+    <%= csrf_meta_tags %>
+    <% if !user_signed_in? %>
+  		<meta http-equiv="refresh" content="0; url=http://localhost:3000/users/sign_in"> 
+  	<% end %> 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  	<% if user_signed_in? %>
+  	 <div>
+		    <h1> Welcome to UniMeet!</h1>
+		    <p> test</p>
+	   </div>
+	  <% end %>
+  <%= yield %>
+  </body>
+</html>
+
+
