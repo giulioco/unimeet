@@ -1,0 +1,97 @@
+//@import "node_modules/bootstrap/scss/bootstrap";
+
+$font-family-base: 'Montserrat', sans-serif;
+
+
+
+$accent-color: #FF895D;
+$light-color: #D5EEFF;
+$mid-color: #78BBE6;
+$dark-color: #1B435D;
+
+container {
+    
+}
+
+body {
+    color: $light-color;
+    font-weight: 400;
+    
+    background: url('https://github.com/gcollelu/unimeet/blob/master/BackgroundImages/Background1.jpg?raw=true') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    
+}
+
+a {
+    color: $mid-color;
+    &:hover {
+        color: $accent-color;
+    }
+    &:visited {
+        color: $light-color;
+    }
+}
+
+span {
+    font-weight: 800;
+}
+
+
+#main{
+    background-color: $light-color;
+    a{
+        color: $dark-color;
+        &:hover {
+            color: $accent-color;
+            text-decoration: none;
+        }
+        &:visited {
+            color: $dark-color;
+        }
+    }
+}
+
+.sub-title {
+    border-bottom: 1px solid $dark-color;
+    font-size: 3em;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+label {
+    text-align: right;
+}
+
+.alert {
+    color: $accent-color;
+}
+
+.actions {
+    input {
+        height: 50px;
+        width: 200px;
+        
+        //font-family: $font-stack;
+        color: $light-color;
+        
+        background-color: transparent;
+        
+        border-style: solid;
+        border-color: $light-color;
+        
+        &:hover {
+            color: $accent-color;
+            border-color: $accent-color;
+        }
+    }
+}

@@ -6,16 +6,25 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
   </head>
 
   <body>
-  	<% if user_signed_in? %>
-  		<div class="buttons">
-  			<button class ="button"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
-  		</div>
-  	<% end %>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  
+  	
+<!--    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+    <div class="container">
+    	<% if user_signed_in? %>
+    		<div class="buttons">
+    			<button class ="button"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
+    		</div>
+  	  <% end %>
+  	  <div class="row" id="main">
+  	    <a href="/"><h1><span>Uni</span>Meet</h1></a>
+	   </div>
     <%= yield %>
+    
+    </div>
   </body>
 </html>
