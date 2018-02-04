@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20180201062400) do
     t.references "project_owner", null:false
     t.string "name", null:false
     t.text "description", null:false
-    t.datetime "recruitment_deadline"
-    t.integer "max_size"
-    t.string "activity_id"
+    t.datetime "recruitment_deadline", null: true
+    t.integer "max_size", null: false #we don't want to allow 0 as a max size
+    t.integer "activity_id" #if it's an id, wouldn't we want int?
     t.text "activity_logo_url"
     t.string "requirements", array:true, default: []
     t.references "members", array:true, default: []
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20180201062400) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.string "first_name", null: false
+    t.string "middle_name", default: "", null: false
+    t.string "last_name", null:false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -53,9 +56,18 @@ ActiveRecord::Schema.define(version: 20180201062400) do
     t.string "college_location", default: "", null: false
     t.string "interests", array:true, default:[]
     t.references "matches", array:true, default:[]
-    t.integer "age"
+    t.integer "age", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  #table for different categories of activities
+  create_table "categories", force: :cascade do |t|
+    t.references "activity_id", null: false
+    t.string "category_name", default:"other", null:false
+    t.integer "id", null: false
+    
+    t.index["id"], name: "index_categories_of_activities_on_category_id", unique: true
+  end   
 
 end
