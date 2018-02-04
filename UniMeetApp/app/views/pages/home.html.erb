@@ -1,8 +1,10 @@
 <html>
   <head>
     <title>UniMeet Home</title>
-    <%= csrf_meta_tags %>
-    
+	<% if !user_signed_in? %>
+      <META HTTP-EQUIV="refresh" CONTENT="0, http://localhost:3000/users/sign_in"> <%= 
+csrf_meta_tags %>
+    <% end %>    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
