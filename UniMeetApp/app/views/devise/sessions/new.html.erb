@@ -1,5 +1,5 @@
 <div class="sub-title row justify-content-center">
-  <h2><span>Log</span> In</h2>
+  <h2><span class="font-weight-bold">Log</span> In</h2>
 </div>
 
 <div class="row">
@@ -13,7 +13,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group row">
-    <label for="example-text-input" class="col-3 col-form-label">Email: </label>
+    <label class="col-3 col-form-label">Email: </label>
     <div class="col-7">
        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
@@ -36,7 +36,7 @@
     </div>
   </div>
   
-  <div class="actions row justify-content-center">
+  <div class="action row justify-content-center">
       <%= f.submit "Log in" %>
   </div>
 <% end %>
