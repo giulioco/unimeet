@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-7">
-    <p class="notice"><%= notice %></p>
+    <!--<p class="notice"><%= notice %></p>-->
     <p class="alert"><%= alert %></p>
   </div>
 </div>
@@ -20,7 +20,7 @@
   </div>
   
   <div class="form-group row">
-    <label for="example-text-input" class="col-3 col-form-label">Password: </label>
+    <label class="col-3 col-form-label">Password: </label>
     <div class="col-7">
        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
     </div>
@@ -47,3 +47,4 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
