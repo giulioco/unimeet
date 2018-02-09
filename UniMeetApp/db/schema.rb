@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204224955) do
+ActiveRecord::Schema.define(version: 20180205201317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "project_owner_id", null: false
+    t.text "description", null: false
+    t.datetime "recruitment_deadline"
+    t.integer "max_size", null: false
+    t.string "activity_id"
+    t.text "activity_logo_url"
+    t.string "requirements", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_owner_id"], name: "index_activities_on_project_owner_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string "match_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.index ["activity_id"], name: "index_matches_on_activity_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
