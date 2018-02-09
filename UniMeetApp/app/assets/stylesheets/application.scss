@@ -24,6 +24,7 @@ $secondary:     #FF895D;
 $light:         #D5EEFF;
 $dark:          #1B435D;
 
+$h2-font-size: 3em;
 
 
 //forms
@@ -39,8 +40,9 @@ body {
     -o-background-size: cover;
 }
 
-#main{
-    background-color: $light;
+header{
+   // background-color: $light;
+    margin-bottom: 30px;
     a{
         color: $dark;
         &:hover {
@@ -56,7 +58,7 @@ body {
 .form-group {
     color: $light;
     input {
-        background-color: rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.8);
         
         &:focus {
             background-color: rgba(255,255,255,0.8);
@@ -64,18 +66,35 @@ body {
     }
 }
 
-.notice, .alert {
+.notice, .alert, .errors{
     color: $secondary;
 }
 
 label {
     text-align: right;
-}
-
-h2 {
     color: $light;
 }
 
-action {
-    
+.sub-title {
+    color: $light;
+    border-bottom-style: solid;
+    border-bottom-color: $light;
+}
+
+
+.action {
+    input {
+        color: $light;
+        background-color: transparent;
+        border-color: $light;
+        border-style: solid;
+        height: 50px;
+        width: auto;
+        border-radius: $border-radius;
+        &:hover {
+            color: $secondary;
+            border-color: $secondary;
+        }
+        
+    }
 }
