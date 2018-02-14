@@ -19,7 +19,9 @@
          <a href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
          <% if user_signed_in? %>
     		  <div class="buttons">
-    			  <button class ="button"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
+            <%= button_to "Home", { :action => 'home', :controller=>'pages' }, :method => :get %>
+            <%= button_to "My Profile", { :action => 'show', :controller=>'users' }, :method => :get %>
+            <%= button_to "Logout", destroy_user_session_path, :method => :delete %>    			  
       		</div>
     	  <% end %>
       </header>

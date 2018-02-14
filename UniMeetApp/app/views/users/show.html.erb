@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<html>
+  <head>
+    <title>UniMeet Show</title>
+    <%= csrf_meta_tags %>  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+  <body>
+  	 <div>
+  			<%= link_to "Edit Profile", { :controller=>"users", :action => "edit" }  %> <br />
+			<h1>Users#show</h1>
+			<p>Find me in app/views/users/show.html.erb</p>
+	 </div>
+  <%= yield %>
+  </body>
+</html>
+
+
+
+
