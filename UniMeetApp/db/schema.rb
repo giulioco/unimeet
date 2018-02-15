@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(version: 20180212190827) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
+    t.string "first_name", null: false
     t.string "middle_name", default: ""
-    t.string "last_name"
+    t.string "last_name", null: false
     t.string "profile_pic_url", default: ""
     t.text "bio", default: ""
     t.string "college_location", default: ""
     t.string "interests", default: [], array: true
-    t.integer "age"
+    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
