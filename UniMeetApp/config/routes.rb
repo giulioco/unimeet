@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'activities/show'
+
+  get 'activities/edit'
+
+  get 'activities/update'
+
   get 'users/show'
 
   devise_for :users
