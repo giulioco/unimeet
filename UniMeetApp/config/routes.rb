@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/update'
 
-  get 'users/edit'
 
   get 'users/show'
 

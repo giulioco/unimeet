@@ -7,10 +7,13 @@
     
   </head>
   <body>
-  	 <div>
-  			<%= link_to "Edit Profile", { :controller=>"users", :action => "edit" }  %> <br />
-			<h1>Users#show</h1>
-			<p>Find me in app/views/users/show.html.erb</p>
+  	<div>	
+			<h1><%= full_name %></h1>
+			<p><%= @user.birthday %></p>
+      <p><%= @user.bio %></p>
+      <p><%= @user.college_location %></p>
+      <p><%= @user.interests %></p>
+      <%= link_to('Edit Profile', edit_user_registration_path(@user)) %>.
 	 </div>
   <%= yield %>
   </body>
