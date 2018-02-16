@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20180216013348) do
     t.text "description", null: false
     t.datetime "recruitment_deadline"
     t.integer "max_size", null: false
-    t.string "activity_id"
     t.text "activity_logo_url"
     t.string "requirements", default: [], array: true
     t.datetime "created_at", null: false
