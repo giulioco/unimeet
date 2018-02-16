@@ -9,16 +9,13 @@
   <body>
   	<div>	
 			<h1><%= full_name %></h1>
-			<p><%= @user.birthday %></p>
+			<p><%= age %></p>
       <p><%= @user.bio %></p>
       <p><%= @user.college_location %></p>
-      <p><%= @user.interests %></p>
-      <%= link_to('Edit Profile', edit_user_registration_path(@user)) %>.
+      <p><%= @user.interest_list %></p>
+      
+      <%= link_to('Edit Profile', edit_user_registration_path(@user)) %>
 	 </div>
   <%= yield %>
   </body>
 </html>
-
-
-
-

@@ -82,6 +82,8 @@ GEM
     ffi (1.9.21)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (2.5.3)
+      activesupport (>= 3)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -241,6 +243,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise (~> 4.4, >= 4.4.1)
+  groupdate (~> 2.5, >= 2.5.2)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

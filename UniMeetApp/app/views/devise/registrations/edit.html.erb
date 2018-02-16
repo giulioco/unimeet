@@ -31,15 +31,28 @@
     <%= f.label :bio %><br />
     <%= f.text_area :bio, autofocus: true %>
   </div>
-
+  
   <div class="field">
-    <%= f.label :college_location %><br />
-    <%= f.text_field :college_location, autofocus: true %>
+    <%= f.label :college_location %><br>
+   <%= f.select :college_location, [
+        ['Please Select One',''],
+        ['Cowell','Cowell'],
+        ['Stevenson','Stevenson'],
+        ['Crown','Crown'],
+        ['Merrill','Merrill'],
+        ['POOOOOOORRRRRRTTTTEEEEERRRRRRR','POOOOOOORRRRRRTTTTEEEEERRRRRRR'],
+        ['Kresge','Kresge'],
+        ['Oakes','Oakes'],
+        ['Rachel Carson','Rachel Carson'],
+        ['College Nine','College Nine'],
+        ['College Ten','College Ten'],
+        ['Off Campus','Off Campus']
+      ] %>
   </div>
 
   <div class="field">
     <%= f.label :interests %><br />
-    <%= f.text_field :interests, autofocus: true %>
+    <%= f.text_area :interest_list, autofocus: true %>
   </div>
   
   <div class="field">
