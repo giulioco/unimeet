@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   def show
+    @activity = Activities.find(params[:id])
   end
 
   def edit

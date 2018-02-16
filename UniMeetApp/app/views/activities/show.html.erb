@@ -1,2 +1,16 @@
-<h1>Activities#show</h1>
-<p>Find me in app/views/activities/show.html.erb</p>
+<html>
+  <head>
+    <title>UniMeet - @activity.name</title>
+    <%= csrf_meta_tags %>  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+  <body>
+  	<div>	
+	  <h1><%= @activity.name %></h1>
+      <p><%= @activity.description %></p>
+	 </div>
+  <%= yield %>
+  </body>
+</html>
