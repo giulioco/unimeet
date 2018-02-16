@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   has_many :interests, dependent: :destroy
 
-  has_many :interests, dependent: :destroy
-
   def interest_list
     interests.collect { |i| i.interest_name }.join(', ')
   end

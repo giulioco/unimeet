@@ -14,7 +14,9 @@
       <p><%= @user.college_location %></p>
       <p><%= @user.interest_list %></p>
       
-      <%= link_to('Edit Profile', edit_user_registration_path(@user)) %>
+      <% if  @user==current_user %>
+        <%= link_to 'Edit', edit_user_registration_path(@user) %>  
+      <% end %>
 	 </div>
   <%= yield %>
   </body>
