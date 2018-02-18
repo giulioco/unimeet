@@ -1,23 +1,13 @@
-<html>
-  <head>
-    <title>UniMeet Show</title>
-    <%= csrf_meta_tags %>  
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+	<div>	
+		<h1><%= full_name %></h1>
+		<p><%= age %></p>
+    <p><%= @user.bio %></p>
+    <p><%= @user.college_location %></p>
+    <p><%= @user.interest_list %></p>
     
-  </head>
-  <body>
-  	<div>	
-			<h1><%= full_name %></h1>
-			<p><%= age %></p>
-      <p><%= @user.bio %></p>
-      <p><%= @user.college_location %></p>
-      <p><%= @user.interest_list %></p>
-      
-      <% if  @user==current_user %>
-        <%= link_to 'Edit', edit_user_registration_path(@user) %>  
-      <% end %>
-	 </div>
-  <%= yield %>
-  </body>
-</html>
+    <% if  @user==current_user %>
+      <%= link_to 'Edit', edit_user_registration_path(@user) %>  
+    <% end %>
+ </div>
+<%= yield %>
