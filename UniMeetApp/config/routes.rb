@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-
+  get 'activities/new' => 'activities#new'
   get 'activities/:id' => 'activities#show'
-
   #get 'activities/edit'
 
   #get 'activities/update'
