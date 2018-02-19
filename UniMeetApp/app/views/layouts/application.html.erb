@@ -10,28 +10,38 @@
   </head>
 
   <body>
-  
-  	
 <!--    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
-    <section class=bg-primary text-center>
+    <section class= "bg-primary">
       <header class="container">
-         <a href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
-         <% if user_signed_in? %>
-    		  <div class="buttons">
-            <%= button_to "Home", { :action => 'home', :controller=>'/pages' }, :method => :get %>
-            <%= button_to "My Profile", current_user , :method => :get%>
-            <%= button_to "Logout", destroy_user_session_path, :method => :delete %>    			  
-      		</div>
-    	  <% end %>
+        <nav class="navbar">
+          <a class="navbar-brand" href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
+          <ul class="nav justify-content-end">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <%#= current_user.first_name %>
+                  <%= display_image_menu(:thumb) %>
+                </a>
+                <div class="dropdown-menu">
+                  <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>
+                  <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
+                </div>
+              </li>
+              
+          <% end %>
+          </ul>
+        </nav>
       </header>
     </section>
     
     <div class="container">
     	
-  	  <div class="row" id="main">
-  	    
-	   </div>
     <%= yield %>
     
     </div>

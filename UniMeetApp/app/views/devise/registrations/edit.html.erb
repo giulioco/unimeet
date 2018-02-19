@@ -1,4 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="sub-title row justify-content-center">
+  <h2><span class="font-weight-bold">Edit</span> <%= resource_name.to_s.humanize %></h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -6,6 +8,11 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
 
   <div class="field">
     <%= f.label :first_name %><br />
@@ -40,7 +47,7 @@
         ['Stevenson','Stevenson'],
         ['Crown','Crown'],
         ['Merrill','Merrill'],
-        ['POOOOOOORRRRRRTTTTEEEEERRRRRRR','POOOOOOORRRRRRTTTTEEEEERRRRRRR'],
+        ['Porter','Porter'],
         ['Kresge','Kresge'],
         ['Oakes','Oakes'],
         ['Rachel Carson','Rachel Carson'],

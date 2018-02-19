@@ -1,19 +1,11 @@
-<html>
-  <head>
-    <title>UniMeet Home</title>
-    <%= csrf_meta_tags %>  
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-  	<% if user_signed_in? %>
-  	 <div>
-		    <h1> Welcome to UniMeet!</h1>
-		    <p> test</p>
-	   </div>
-	  <% end %>
-  <%= yield %>
-  </body>
-</html>
 
+<body>
+	<% if user_signed_in? %>
+	 <div>
+	    <h2> Welcome to UniMeet!</h2>
+	    <p> test</p>
+   </div>
+	<%= render "users/user_card" %>
 
+  <% end %>
+</body>

@@ -1,0 +1,109 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+$font-family-base: 'Montserrat', sans-serif;
+
+// colors
+$primary:       #78BBE6;
+$secondary:     #FF895D;
+
+$light:         #D5EEFF;
+$dark:          #1B435D;
+
+$h2-font-size: 3em;
+
+
+//forms
+
+@import "bootstrap";
+
+
+body {
+    background: image-url("Background1-min.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+header{
+   // background-color: $light;
+    margin-bottom: 30px;
+    a{
+        color: $dark;
+        &:hover {
+            color: $secondary;
+            text-decoration: none;
+        }
+        &:visited {
+            color: $dark;
+        }
+    }
+}
+
+.form-group {
+    color: $light;
+    input {
+        background-color: rgba(255,255,255,0.8);
+        
+        &:focus {
+            background-color: rgba(255,255,255,0.8);
+        }
+    }
+}
+
+.notice, .alert, .errors{
+    color: $secondary;
+}
+
+label {
+    text-align: right;
+    color: $light;
+}
+
+.sub-title {
+    color: $light;
+    border-bottom-style: solid;
+    border-bottom-color: $light;
+}
+
+
+.action {
+    input {
+        color: $light;
+        background-color: transparent;
+        border-color: $light;
+        border-style: solid;
+        height: 40px;
+        width: auto;
+        border-radius: $border-radius;
+        &:hover {
+            color: $secondary;
+            border-color: $secondary;
+        }
+    }
+}
+
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}

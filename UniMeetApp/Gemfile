@@ -39,7 +39,8 @@ gem 'jquery-rails'
 gem 'mailcatcher'
 # use groupdate for date operations converting to age
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
-
+# use paperclip for easy upload management for ActiveRecord
+gem 'paperclip', '~> 5.2', '>= 5.2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

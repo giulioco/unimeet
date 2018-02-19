@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get 'activities/new' => 'activities#new'
   get 'activities/:id' => 'activities#show'
-
   #get 'activities/edit'
   #problem: when i go to activities/new it now thinks that new is the id
   #get 'new_activity' => 'activities/new' 

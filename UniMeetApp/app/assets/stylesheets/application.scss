@@ -10,14 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
 $font-family-base: 'Montserrat', sans-serif;
 
 // colors
-
 $primary:       #78BBE6;
 $secondary:     #FF895D;
 
@@ -33,7 +30,7 @@ $h2-font-size: 3em;
 
 
 body {
-    background: url('https://github.com/gcollelu/unimeet/blob/master/BackgroundImages/Background1.jpg?raw=true') no-repeat center center fixed;
+    background: image-url("Background1-min.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -88,13 +85,29 @@ label {
         background-color: transparent;
         border-color: $light;
         border-style: solid;
-        height: 50px;
+        height: 40px;
         width: auto;
         border-radius: $border-radius;
         &:hover {
             color: $secondary;
             border-color: $secondary;
         }
-        
     }
+}
+
+
+.card {
+    background-color: $light;
+}
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
 }
