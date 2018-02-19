@@ -1,13 +1,10 @@
-
   <body>
   	<% if user_signed_in? %>
   	 <div>
-		    <h1> Welcome to UniMeet!</h1>
+		    <h2> Welcome to UniMeet!</h2>
 		    <p> test</p>
 	   </div>
+		<%= render "users/user_card" %>
+
 	  <% end %>
-  <%= yield %>
   </body>
-</html>
-
-
