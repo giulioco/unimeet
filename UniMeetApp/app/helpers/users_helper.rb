@@ -14,8 +14,8 @@ module UsersHelper
   end
 
   def display_image(size)
-    if(current_user.image_file_size != nil)
-      image_tag(current_user.image.url(size))
+    if(@user.image_file_size != nil)
+      image_tag(@user.image.url(size))
     end
   end
   
