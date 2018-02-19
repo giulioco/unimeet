@@ -1,5 +1,7 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :name, :description, :max_size
-  validates :name, :max_size => true
+  belongs_to :user
+  #attr_accessible :name, :description, :max_size
+  #validates :name, :max_size => true
+  #has_many :members
 
 end

@@ -1,22 +1,26 @@
 class ActivitiesController < ApplicationController
+  def activity_params
+      params.require(:activity).permit(:name, :description, :max_size)
+    end
+
   def show
-    @activity = Activities.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
   def edit
-  	@activity = Activities.find(params[:id])
+  	@activity = Activity.find(params[:id])
   end
 
   def new
-  	@activity = Activities.new
+  	@activity = Activity.new
   	respond_to do |format|
-    	format.html  # new.html.erb
+    	format.html # new.html.erb
     	format.json  { render :json => @activity }
   	end
   end
 
   def update
-  	@activity = Activities.find(params[:id])
+  	@activity = Activity.find(params[:id])
   	if @activity.update(params[:activity].permit(:title, :text))
     	redirect_to @activity
     else 
@@ -30,7 +34,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-  @activity = Activities.new(params[:post])
+  @activity = Activity.new(params[:post])
  
   respond_to do |format|
     if @activity.save
