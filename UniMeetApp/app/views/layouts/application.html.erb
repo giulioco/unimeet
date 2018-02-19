@@ -10,8 +10,6 @@
   </head>
 
   <body>
-  
-  	
 <!--    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <section class= "bg-primary">
@@ -25,7 +23,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  <%= @user %>
+                  <%= display_image_menu(:thumb) %>
                 </a>
                 <div class="dropdown-menu">
                   <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>

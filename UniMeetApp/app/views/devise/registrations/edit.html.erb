@@ -6,6 +6,11 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
 
   <div class="field">
     <%= f.label :first_name %><br />
@@ -40,7 +45,7 @@
         ['Stevenson','Stevenson'],
         ['Crown','Crown'],
         ['Merrill','Merrill'],
-        ['POOOOOOORRRRRRTTTTEEEEERRRRRRR','POOOOOOORRRRRRTTTTEEEEERRRRRRR'],
+        ['Porter','Porter'],
         ['Kresge','Kresge'],
         ['Oakes','Oakes'],
         ['Rachel Carson','Rachel Carson'],

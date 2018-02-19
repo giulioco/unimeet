@@ -1,13 +1,12 @@
-  
-	<div>	
-		<h1><%= full_name %></h1>
-		<p><%= age %></p>
-    <p><%= @user.bio %></p>
-    <p><%= @user.college_location %></p>
-    <p><%= @user.interest_list %></p>
-    
-    <% if  @user==current_user %>
-      <%= link_to 'Edit', edit_user_registration_path(@user) %>  
-    <% end %>
- </div>
+<div>
+  <%= display_image(:medium) %>
+  <h1><%= full_name %></h1>
+  <p><%= age %></p>
+  <p><%= @user.bio %></p>
+  <p><%= @user.college_location %></p>
+  <p><%= @user.interest_list %></p>
+  <% if  @user==current_user %>
+    <%= link_to 'Edit', edit_user_registration_path(@user) %>  
+  <% end %>
+</div>
 <%= yield %>
