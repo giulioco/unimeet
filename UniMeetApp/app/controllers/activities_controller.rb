@@ -34,8 +34,9 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-  @activity = Activity.new(params[:post])
- 
+  @activity = Activity.new(params[:activity_params])
+  @activity.project_owner_id = current_user.id
+  #@activity.user = current_user
   respond_to do |format|
     if @activity.save
       format.html  { redirect_to(@activity,

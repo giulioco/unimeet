@@ -3,7 +3,8 @@ class CreateActivities < ActiveRecord::Migration[5.1]
   	create_table :activities do |t|
       ## Database authenticatable
       t.string :name, null:false
-      t.references :project_owner, null:false
+      t.integer :project_owner_id
+      #t.references :project_owner, null:false
       t.text :description, null:false
    	  t.datetime :recruitment_deadline, null: true
       t.integer :max_size, null: false #we don't want to allow 0 as a max size
