@@ -5,7 +5,7 @@
     <h2><%= pluralize(@activity.errors.count, "error") %> prohibited
         this activity from being saved:</h2>
     <ul>
-    <% :activity.errors.full_messages.each do |msg| %>
+    <% @activity.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
