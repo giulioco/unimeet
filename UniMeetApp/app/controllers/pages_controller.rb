@@ -5,4 +5,12 @@ class PagesController < ApplicationController
 		@activity = Activity.find(6)
 	end
 
+	def like_activity
+		puts "liked! :)"
+	end
+
+	def dislike_activity
+
+	end
+
 end
