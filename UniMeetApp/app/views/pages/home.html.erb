@@ -9,12 +9,14 @@
 	
 	<div class = "row">
 		<div class = "col-3 sidebar d-inline-block">
-			<% (0..20).each do |i| %>
-				<div class= "row activity-row p-2">
-          			<h4><%= Activity.find(56).name %></h4>
-					<p><%= Activity.find(56).description %></p>
+			<% activity = Activity.all %>
+			<% activity.each do |activ| %>
+				<div class= ":row activity-row p-2">
+          			<h4><%= activ.name%></h4>
+					<p><%= activ.description%></p>
 				</div>
 			<% end %>
+
 		</div>
 		<div class = "col-4 mx-auto">
 			
