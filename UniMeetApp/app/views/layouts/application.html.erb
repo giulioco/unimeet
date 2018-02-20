@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
   </head>
 
-  <body>
+  <%= content_tag :body, class: "#{controller_name} #{action_name}" do %>
 <!--    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <section class= "bg-primary">
@@ -23,8 +23,8 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  <%#= current_user.first_name %>
                   <%= display_image_menu(:thumb) %>
+                  <%#= current_user.first_name %>
                 </a>
                 <div class="dropdown-menu">
                   <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>
@@ -45,5 +45,5 @@
     <%= yield %>
     
     </div>
-  </body>
+  <% end %>
 </html>

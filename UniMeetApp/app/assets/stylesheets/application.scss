@@ -28,8 +28,10 @@ $h2-font-size: 3em;
 
 @import "bootstrap";
 
-
 body {
+    background-color: $light;
+}
+body.new {
     background: image-url("Background1-min.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -93,21 +95,4 @@ label {
             border-color: $secondary;
         }
     }
-}
-
-
-.card {
-    background-color: $light;
-}
-.round-image-50 {
-    background-color: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    height: 50px;
-    width: 50px;
-    overflow: hidden;
-    text-align: center;
-    img { width: 100% }
 }

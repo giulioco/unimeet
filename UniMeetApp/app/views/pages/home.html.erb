@@ -5,7 +5,15 @@
 	    <h2> Welcome to UniMeet!</h2>
 	    <p> test</p>
    </div>
-	<%= render "users/user_card" %>
+	<%# @users.each do |user| %>
+		<%#= this_user = user %>
+		
+	<%# end %>
+	<div class = "row">
+		<div class = "col-4">
+			<%= render "users/user_card" %>
+		</div>
+	</div>
 
   <% end %>
 </body>
