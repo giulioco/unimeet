@@ -12,35 +12,30 @@
   <%= content_tag :body, class: "#{controller_name} #{action_name}" do %>
 <!--    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
-    <section class= "bg-primary">
-      <header class="container">
-        <nav class="navbar">
-          <a class="navbar-brand" href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
-          <ul class="nav justify-content-end">
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  <%= display_image_menu(:thumb) %>
-                  <%#= current_user.first_name %>
-                </a>
-                <div class="dropdown-menu">
-                  <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>
-                  <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: "dropdown-item" %>
-                  <div class="dropdown-divider"></div>
-                  <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
-                </div>
-              </li>
-              
-          <% end %>
-          </ul>
-        </nav>
-      </header>
-    </section>
+
+  <nav class="navbar bg-primary sticky-top flex-md-nowrap">
+    <a class="navbar-brand" id="main-title" href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
+    <ul class="nav justify-content-end">
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown mr-5">
+          <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= display_image_menu(:thumb)%>
+            <%= current_user.first_name %>
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>
+            <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        
+    <% end %>
+    </ul>
+  </nav>
+
     
-    <div class="container">
+    <div class="container-fluid">
     	
     <%= yield %>
     

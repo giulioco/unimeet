@@ -30,6 +30,7 @@ $h2-font-size: 3em;
 
 body {
     background-color: $light;
+
 }
 body.new {
     background: image-url("Background1-min.jpg") no-repeat center center fixed;
@@ -39,18 +40,12 @@ body.new {
     -o-background-size: cover;
 }
 
-header{
-   // background-color: $light;
-    margin-bottom: 30px;
-    a{
-        color: $dark;
-        &:hover {
-            color: $secondary;
-            text-decoration: none;
-        }
-        &:visited {
-            color: $dark;
-        }
+
+#main-title {
+    color: $dark;
+    &:hover {
+        color: $secondary;
+        text-decoration: none;
     }
 }
 
@@ -95,4 +90,29 @@ label {
             border-color: $secondary;
         }
     }
+}
+
+
+body.pages.home {
+    overflow-y: hidden;
+    height: 100vh;
+}
+/* SIDEBAR */
+.sidebar {
+    overflow-y: scroll;
+}
+
+
+.activity-row {
+    border-right: 1px solid $primary;
+    
+    height: 6em;
+    overflow: hidden;
+    &:hover {
+        box-shadow: 0 0 15px 0 hsla(0,0%,51%,.22);
+        border-right-color: $secondary;
+        background-color: lighten($light, 15%)
+    }
+    
+    
 }
