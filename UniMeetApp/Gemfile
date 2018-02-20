@@ -41,6 +41,8 @@ gem 'mailcatcher'
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
 # use paperclip for easy upload management for ActiveRecord
 gem 'paperclip', '~> 5.2', '>= 5.2.0'
+# use dropzone to implement drag and drop and preview functionality
+gem 'dropzonejs-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
