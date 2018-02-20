@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   #problem: when i go to activities/new it now thinks that new is the id
   #get 'new_activity' => 'activities/new' 
   get 'activities/show'
+  post 'pages/like_activity'
+  post 'pages/dislike_activity'
 
   #get 'users/show'
 

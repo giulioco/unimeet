@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <body>
 	<% if user_signed_in? %>
@@ -15,3 +16,55 @@
 	</div>
   <% end %>
 </body>
+=======
+<body>
+	<% if user_signed_in? %>
+
+	<%# @users.each do |user| %>
+		<%#= this_user = user %>
+		
+	<%# end %>
+	<div class = "row">
+		<div class = "col-3 sidebar h-100 d-inline-block">
+			<% (0..20).each do |i| %>
+				<div class= "row activity-row p-2">
+					<h4><%= Activity.find(1).name %></h4>
+					<p><%= Activity.find(1).description %></p>
+				</div>
+			<% end %>
+			<div class= "row activity-row p-2">
+				<h4><%= Activity.find(1).name %></h4>
+				<p><%= Activity.find(1).description %></p>
+			</div>
+			<div class= "row activity-row p-2">
+				<h4><%= Activity.find(1).name %></h4>
+	    		<p><%= Activity.find(1).description %></p>
+			</div>
+			<div class= "row activity-row p-2">
+				<h4><%= Activity.find(6).name %></h4>
+	    		<p><%= Activity.find(6).description %></p>
+			</div>
+			
+			
+		</div>
+		
+	<!--	
+		<nav class = "col-3 bg-dark d-none d-md-block sidebar">
+			<div class= "col-3 bg-dark sidebar-sticky">
+				<div class= "row text-light">
+					<h5><%#= Activity.find(1).name %></h5>
+		      		<p><%#= Activity.find(1).description %></p>
+				</ul>
+			</div>
+		</nav>
+	-->	
+		<div class="col">
+				<div class="col-6 mx-auto mt-3">
+					<%#= render "users/user_card" %>
+					<%= render "activities/activity_card" %>
+			</div>
+		</div>
+	</div>
+
+  <% end %>
+>>>>>>> 4b3e00d2e01f8ed5e27114ab9db4e4cb6e5790cf

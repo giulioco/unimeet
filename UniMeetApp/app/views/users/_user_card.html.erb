@@ -1,16 +1,14 @@
-
-
 <div class="card border border-dark">
     <%= image_tag(@this_user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top") %>
     <div class="card-body">
         <h5 class="card-title"><%= @this_user.first_name %></h5>
         <p class="card-text"><%= @this_user.bio %></p>
-    </div> 
-    <ul class="list-group list-group-flush">
+    </div>
+    <div class="card-body">
         <% @this_user.interests.each do |interest| %>
-            <li class="list-group-item"><%= "#{interest.interest_name}" %></li>
+            <p class="badge"><%= "#{interest.interest_name}" %></p>
         <% end %>
-    </ul>
+    </div>
     <div class="card-body">
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
