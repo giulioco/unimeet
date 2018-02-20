@@ -1,3 +1,0 @@
-class Activities < ApplicationRecord
-	
-end
