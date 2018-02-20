@@ -9,6 +9,7 @@
   <body>
   	<div>	
 	  <h1><%= @activity.name %></h1>
+    <p><%= display_activity_image(:medium) %></p>
     <p><%= @activity.description %></p>
 	 </div>
   <%= yield %>
