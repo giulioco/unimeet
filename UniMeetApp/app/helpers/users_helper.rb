@@ -17,7 +17,6 @@ module UsersHelper
     if(@user.image_file_size != nil)
       image_tag(@user.image.url(size), :alt => "300x300.png")
     end
-    
   end
   
   def display_image_menu(size)
