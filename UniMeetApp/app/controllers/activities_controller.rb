@@ -50,7 +50,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :max_size)
-  end
+      params.require(:activity).permit(:name, :description, :max_size, :image)
+    end
 
 end
