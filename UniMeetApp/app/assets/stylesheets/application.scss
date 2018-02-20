@@ -106,7 +106,7 @@ body.pages.home {
 
 .activity-card-container {
     width: 350px;
-    height: 500px;
+    height: 450px;
     margin-top: 20%;
     align-items: center;
 }
@@ -127,6 +127,13 @@ body.pages.home {
         border-right-color: $secondary;
         background-color: lighten($light, 15%)
     }
-    
-    
+}
+input[type="file"] {
+        display: none;
+    }
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }

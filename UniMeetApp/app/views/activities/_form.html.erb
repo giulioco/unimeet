@@ -1,4 +1,4 @@
-<h1>Create a new activity</h1>
+
 <%= form_for @activity, url:activities_new_path, html: { method: :post } do |f| %>
   <% if @activity.errors.any? %>
   <div id="errorExplanation">
@@ -11,25 +11,49 @@
     </ul>
   </div>
   <% end %>
- 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+  <script type="text/javascript">
+    $(function() {
+      $('#pictureInput').on('change', function(event) {
+        var files = event.target.files;
+        var image = files[0]
+        var reader = new FileReader();
+        reader.onload = function(file) {
+          var img = new Image(300, 300);
+          console.log(file);
+          img.src = file.target.result;
+          $('#target').html(img);
+        }
+        reader.readAsDataURL(image);
+        console.log(files);
+      });
+    });
+  </script>
   
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <form>
+    <label class="custom-file-upload">
+    <input type="file" id= "pictureInput"/>
+    Upload Photo
+    </label>
+  </form>
+  <div id="target">
   </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="field form-group">
+    
+    <%= f.text_field :name, placeholder: "Activity name", class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :max_size %>
-    <%= f.text_field :max_size %>
+  <div class="field form-group">
+    <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Create" %>
+  <div class="field form-group">
+    
+    <%= f.select(:max_size) do %>
+    <% [['Max Size', 0], ['2', 2], ['3', 3], ['4', 4], ['5', 5]].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <%= { class: "form-control"} %>
+<% end %>
+  </div>
+  <div class="actions" align="center">
+    <%= f.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>
