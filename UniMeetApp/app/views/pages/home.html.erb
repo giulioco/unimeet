@@ -2,6 +2,7 @@
 <body>
 	<% if user_signed_in? %>
 	 <div>
+	 	<%= display_image(:medium) %>
    </div>
 	<%# @users.each do |user| %>
 		<%#= this_user = user %>
@@ -12,6 +13,5 @@
 			<%= render "activities/activity_card" %>
 		</div>
 	</div>
-
   <% end %>
 </body>
