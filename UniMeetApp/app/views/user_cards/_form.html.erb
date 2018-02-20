@@ -1,0 +1,22 @@
+<%= form_with(model: user_card, local: true) do |form| %>
+  <% if user_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_card.errors.count, "error") %> prohibited this user_card from being saved:</h2>
+
+      <ul>
+      <% user_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :user_card_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

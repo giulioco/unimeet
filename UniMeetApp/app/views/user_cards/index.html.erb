@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_cards.each do |user_card| %>
+      <tr>
+        <td><%= user_card.user_id %></td>
+        <td><%= link_to 'Show', user_card %></td>
+        <td><%= link_to 'Edit', edit_user_card_path(user_card) %></td>
+        <td><%= link_to 'Destroy', user_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Card', new_user_card_path %>
