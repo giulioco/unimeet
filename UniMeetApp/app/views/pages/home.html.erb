@@ -11,24 +11,11 @@
 		<div class = "col-3 sidebar h-100 d-inline-block">
 			<% (0..20).each do |i| %>
 				<div class= "row activity-row p-2">
-          <p><%= Activity.find(42).name %></p>
+          			<h4><%= Activity.find(42).name %></h4>
 					<p><%= Activity.find(42).description %></p>
 				</div>
 			<% end %>
-			<div class= "row activity-row p-2">
-				<h4><%= Activity.find(42).name %></h4>
-				<p><%= Activity.find(42).description %></p>
-			</div>
-			<div class= "row activity-row p-2">
-				<h4><%= Activity.find(42).name %></h4>
-	    		<p><%= Activity.find(42).description %></p>
-			</div>
-			<div class= "row activity-row p-2">
-				<h4><%= Activity.find(42).name %></h4>
-	    		<p><%= Activity.find(42).description %></p>
-			</div>
 		</div>
-	
 		<div class = "col-20 mx-auto">
 			<%= render "activities/activity_card" %>
 		</div>
