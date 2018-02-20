@@ -1,2 +1,0 @@
-class ActivityCard < ApplicationRecord
-end

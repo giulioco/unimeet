@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :user_cards
-  resources :activity_cards
   get 'activities/new' => 'activities#new'
   get 'activities/:id' => 'activities#show'
   #get 'activities/edit'

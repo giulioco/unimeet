@@ -1,17 +1,18 @@
-<html>
   <head>
     <title>UniMeet - @activity.name</title>
-    <%= csrf_meta_tags %>  
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
   </head>
-  <body>
-  	<div>	
-	  <h1><%= @activity.name %></h1>
-    <p><%= display_activity_image(:medium) %></p>
-    <p><%= @activity.description %></p>
-	 </div>
-  <%= yield %>
-  </body>
-</html>
+  <% if user_signed_in? %>
+   <div>
+   </div>
+  <%# @users.each do |user| %>
+    <%#= this_user = user %>
+    
+  <%# end %>
+  <div class = "row">
+    <div class = "col-4 mx-auto">
+      <%= render "activities/activity_card" %>
+    </div>
+  </div>
+
+  <% end %>
+
