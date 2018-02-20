@@ -37,19 +37,23 @@
   </form>
   <div id="target">
   </div>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="field form-group">
+    
+    <%= f.text_field :name, placeholder: "Activity name", class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="field form-group">
+    <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :max_size %>
-    <%= f.text_field :max_size %>
+  <div class="field form-group">
+    
+    <%= f.select(:max_size) do %>
+    <% [['Max Size', 0], ['2', 2], ['3', 3], ['4', 4], ['5', 5]].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <%= { class: "form-control"} %>
+<% end %>
   </div>
-  <div class="actions">
-    <%= f.submit "Create" %>
+  <div class="actions" align="center">
+    <%= f.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>
