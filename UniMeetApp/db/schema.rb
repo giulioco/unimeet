@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218235455) do
+ActiveRecord::Schema.define(version: 20180220010457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20180218235455) do
     t.string "requirements", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["project_owner_id"], name: "index_activities_on_project_owner_id"
   end
 
@@ -71,7 +75,6 @@ ActiveRecord::Schema.define(version: 20180218235455) do
     t.string "first_name", null: false
     t.string "middle_name", default: ""
     t.string "last_name", null: false
-    t.string "profile_pic_url", default: ""
     t.text "bio", default: ""
     t.string "college_location", default: ""
     t.date "birthday"
@@ -79,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180218235455) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "major"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
