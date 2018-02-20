@@ -1,7 +1,4 @@
 class ActivitiesController < ApplicationController
-  def activity_params
-      params.require(:activity).permit(:name, :description, :max_size)
-    end
 
   def show
     @activity = Activity.find(params[:id])
@@ -51,4 +48,9 @@ class ActivitiesController < ApplicationController
     end
   end
   end
+
+  def activity_params
+    params.require(:activity).permit(:name, :description, :max_size)
+  end
+
 end

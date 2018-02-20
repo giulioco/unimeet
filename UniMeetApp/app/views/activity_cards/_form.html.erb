@@ -1,0 +1,22 @@
+<%= form_with(model: activity_card, local: true) do |form| %>
+  <% if activity_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activity_card.errors.count, "error") %> prohibited this activity_card from being saved:</h2>
+
+      <ul>
+      <% activity_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :activity_id %>
+    <%= form.number_field :activity_id, id: :activity_card_activity_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
