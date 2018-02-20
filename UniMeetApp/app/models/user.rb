@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :activities, through: :memberships
 
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   
   def like_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
@@ -43,4 +43,5 @@ class User < ApplicationRecord
   validates :first_name, :last_name, format: { with: /\A^[A-Za-z ,.'-]+$\z/, on: :create }
   validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@ucsc\.edu\z/,
                   message: "must be a ucsc.edu email" }
+  
 end

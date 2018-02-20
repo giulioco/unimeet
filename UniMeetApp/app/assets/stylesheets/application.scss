@@ -120,8 +120,6 @@ body.pages.home {
   &::-webkit-scrollbar { 
     display: none; 
     }
-}
-
 
 
 
@@ -133,6 +131,13 @@ body.pages.home {
         border-right-color: $secondary;
         background-color: lighten($light, 15%)
     }
-    
-    
+}
+input[type="file"] {
+        display: none;
+    }
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
