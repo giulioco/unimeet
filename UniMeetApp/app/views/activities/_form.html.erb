@@ -1,4 +1,4 @@
-<h1>Create a new activity</h1>
+
 <%= form_for @activity, url:activities_new_path, html: { method: :post } do |f| %>
   <% if @activity.errors.any? %>
   <div id="errorExplanation">
@@ -11,12 +11,32 @@
     </ul>
   </div>
   <% end %>
- 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+  <script type="text/javascript">
+    $(function() {
+      $('#pictureInput').on('change', function(event) {
+        var files = event.target.files;
+        var image = files[0]
+        var reader = new FileReader();
+        reader.onload = function(file) {
+          var img = new Image(300, 300);
+          console.log(file);
+          img.src = file.target.result;
+          $('#target').html(img);
+        }
+        reader.readAsDataURL(image);
+        console.log(files);
+      });
+    });
+  </script>
   
+  <form>
+    <label class="custom-file-upload">
+    <input type="file" id= "pictureInput"/>
+    Upload Photo
+    </label>
+  </form>
+  <div id="target">
+  </div>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
