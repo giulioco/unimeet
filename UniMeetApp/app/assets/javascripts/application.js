@@ -14,5 +14,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require_tree .
 //= require dropzone
+//= require_tree .

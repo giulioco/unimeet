@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :activities, through: :memberships
 
-  has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/missing_avatar.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   
   def like_activity!(activity)
