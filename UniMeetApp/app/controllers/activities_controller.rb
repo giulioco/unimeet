@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-
+  before_action :authenticate_user!
   def show
     @activity = Activity.find(params[:id])
   end
@@ -31,22 +31,20 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-  @activity = Activity.new(activity_params)
-  @activity.project_owner_id = current_user.id
-  #@user.activities.save
-  #@activity.user = current_user
-  respond_to do |format|
-    if @activity.save
-      format.html  { redirect_to(@activity,
-                    :notice => 'Activity was successfully created.') }
-      format.json  { render :json => @activity,
-                    :status => :created, :location => @activity }
-    else
-      format.html  { render :action => "new" }
-      format.json  { render :json => @activity.errors,
-                    :status => :unprocessable_entity }
+    @activity = Activity.new(activity_params)
+    @activity.project_owner_id = current_user.id
+    respond_to do |format|
+      if @activity.save
+        format.html  { redirect_to(@activity,
+                      :notice => 'Activity was successfully created.') }
+        format.json  { render :json => @activity,
+                      :status => :created, :location => @activity }
+      else
+        format.html  { render :action => "new" }
+        format.json  { render :json => @activity.errors,
+                      :status => :unprocessable_entity }
+      end
     end
-  end
   end
 
   def activity_params
@@ -54,11 +52,16 @@ class ActivitiesController < ApplicationController
     end
 
 def like_activity
-    puts "liked! :)"
-  end
+    @user = current_user
+    @activity = Activity.find(params[:id])
+    @user.like_activity!(@activity)
+end
 
 def dislike_activity
-
+    @user = current_user
+    @like = @user.likes.find_by_activity_id(params[:id])
+    @activity = Activity.find(params[:id])
+    @user.dislike_activity!(@activity)
 end
 
 end

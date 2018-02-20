@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #problem: when i go to activities/new it now thinks that new is the id
   #get 'new_activity' => 'activities/new' 
   get 'activities/show'
+
   post 'activities/like_activity'
   post 'activities/dislike_activity' 
   post 'pages/like_activity' => 'activities/like_activity'
@@ -23,8 +24,12 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end 
-	resources :users, only: [:show, :edit, :update]
-  resources :activities_index_path
-  resources :activities, only: [:show, :new, :create, :update]
+	#resources :users, only: [:show, :edit, :update] 
+  #resources :activities_index_path
+  #resources :activities, only: [:show, :new, :create, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :activities, only: [:show, :new, :create, :update] do
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
