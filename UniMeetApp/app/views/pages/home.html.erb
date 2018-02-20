@@ -7,30 +7,19 @@
 		
 	<%# end %>
 	
-<<<<<<< HEAD
+
 	<div class = "row d-flex">
 		
 		<div class = "col-md-3 d-none d-md-block sidebar">
 			<div class = "sidebar-sticky p-2">
-				<% (0..20).each do |i| %>
+				<% activity = Activity.all %>
+				<% activity.each do |activ| %>
 					<div class= "nav flex-column activity-row">
-	          			<h4><%= Activity.find(56).name %></h4>
-						<p><%= Activity.find(56).description %></p>
+	          			<h4><%= activ.name%></h4>
+						<p><%= activ.description%></p>
 					</div>
 				<% end %>
 			</div>
-=======
-	<div class = "row">
-		<div class = "col-3 sidebar d-inline-block">
-			<% activity = Activity.all %>
-			<% activity.each do |activ| %>
-				<div class= ":row activity-row p-2">
-          			<h4><%= activ.name%></h4>
-					<p><%= activ.description%></p>
-				</div>
-			<% end %>
-
->>>>>>> bf8256204b60b9865953115d2414874ea7578ba6
 		</div>
 		
 			<!--<div class = "container main-card-container"> -->
