@@ -107,6 +107,8 @@ body.pages.home {
 .activity-card-container {
     width: 350px;
     height: 500px;
+    margin-top: 20%;
+    align-items: center;
 }
 
 .activity-profile-picture {
@@ -114,13 +116,6 @@ body.pages.home {
     height: 300px;
 }
 
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-}
 
 .activity-row {
     border-right: 1px solid $primary;

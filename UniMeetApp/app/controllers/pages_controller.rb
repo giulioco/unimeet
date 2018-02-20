@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	before_action :authenticate_user! 
 	def home
 		@this_user = current_user
-		@activity = Activity.find(42)
+		@activity = Activity.find(56)
 	end
 
 	def like_activity
