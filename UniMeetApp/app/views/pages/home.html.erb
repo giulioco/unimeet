@@ -1,13 +1,18 @@
 <body>
 	<% if user_signed_in? %>
 		<div class = "row d-flex">
-			<div class = "col-md-3 d-none d-md-block sidebar">
+			<div class = "col-md-4 d-none d-md-block sidebar">
 				<div class = "sidebar-sticky">
 					<% activity = Activity.all %>
 					<% activity.each do |activ| %>
-						<div class= "nav flex-column activity-row p-2">
-		          			<h4><%= activ.name%></h4>
-							<p><%= activ.description%></p>
+						<div class= "nav flex-row activity-row p-2">
+							<div class = "col-3">
+								<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+							</div>
+							<div class = "col-9">
+								<h4><%= activ.name%></h4>
+								<p><%= activ.description%></p>
+							</div>
 						</div>
 					<% end %>
 				</div>
