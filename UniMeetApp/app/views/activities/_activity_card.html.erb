@@ -1,4 +1,4 @@
-<div class="card border border-dark activity-card-container">
+<div class="card border border-dark">
 	
     	<%= image_tag(@activity.image.url(:medium), :class => "card-img-top") %>
 	
@@ -6,18 +6,10 @@
     <div class="card-body">
         <h5 class="card-title badge badge-pill badge-dark"><%= @activity.name %></h5>
         <p class="card-text"><%= @activity.description %></p>
-    </div> 
-    <div class="card-body">
-    	
     </div>
-
-    <div class="row">
-    		<div class="col alight-left">
-    			<%= button_to "Like", {action: "like_activity", id: @activity.id}, {class: 'btn btn-success'} %>
-    		</div>
-    		<div class="col align-right">
-    			<%= button_to "Dislike", {action: "dislike_activity", id: @activity.id}, {class: 'btn btn-danger'} %>
-    		</div>
-    	</div>
+</div>
+<div class="row justify-content-center mt-2">
+			<%= button_to "Dislike", {action: "dislike_activity", id: @activity.id}, {class: 'btn btn-danger mr-2'} %>
+			<%= button_to "Like", {action: "like_activity", id: @activity.id}, {class: 'btn btn-success ml-2'} %>
 </div>
 
