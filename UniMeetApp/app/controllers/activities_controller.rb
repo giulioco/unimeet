@@ -53,4 +53,12 @@ class ActivitiesController < ApplicationController
       params.require(:activity).permit(:name, :description, :max_size, :image)
     end
 
+def like_activity
+    puts "liked! :)"
+  end
+
+def dislike_activity
+
+end
+
 end

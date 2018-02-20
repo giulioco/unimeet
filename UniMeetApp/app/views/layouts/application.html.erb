@@ -19,8 +19,8 @@
       <% if user_signed_in? %>
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <%= display_image_menu(:thumb)%>
             <%= current_user.first_name %>
+            <%= display_image_menu(:thumb)%> 
           </a>
           <div class="dropdown-menu">
             <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>
