@@ -1,5 +1,5 @@
 <h1>Create a new activity</h1>
-<%= form_for(@activity) do |f| %>
+<%= form_for @activity, url:activities_new_path, html: { method: :post } do |f| %>
   <% if @activity.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@activity.errors.count, "error") %> prohibited

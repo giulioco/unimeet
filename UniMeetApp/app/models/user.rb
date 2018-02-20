@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   has_many :interests, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :activities, dependent: :destroy
+  has_many :memberships, dependent: :destroy
+  has_many :activities, through: :memberships
 
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
@@ -14,14 +15,14 @@ class User < ApplicationRecord
   def like_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: true) 
-    else self.likes.create!(activity_id: activity.id, user_likes_activity: true)
+    else self.likes.create!(user_id: self.id, activity_id: activity.id, user_likes_activity: true)
     end
   end
 
   def dislike_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: false) 
-    else self.likes.create!(activity_id: activity.id, user_likes_activity: false)
+    else self.likes.create!(user_id: self.id, activity_id: activity.id, user_likes_activity: false)
     end
   end
 

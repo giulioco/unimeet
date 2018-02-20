@@ -32,24 +32,29 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.users << current_user
     @activity.project_owner_id = current_user.id
     respond_to do |format|
       if @activity.save
-        format.html  { redirect_to(@activity,
-                      :notice => 'Activity was successfully created.') }
+        membership = current_user.memberships.find_by(activity_id: @activity.id)
+        membership.ownership = true
+        membership.save
+        format.html  { redirect_to action: 'show', :id => @activity.id }
         format.json  { render :json => @activity,
                       :status => :created, :location => @activity }
       else
+
         format.html  { render :action => "new" }
         format.json  { render :json => @activity.errors,
                       :status => :unprocessable_entity }
       end
     end
+
   end
 
   def activity_params
       params.require(:activity).permit(:name, :description, :max_size, :image)
-    end
+  end
 
 def like_activity
     @user = current_user
