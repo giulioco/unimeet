@@ -7,19 +7,24 @@
 		
 	<%# end %>
 	
-	<div class = "row">
-		<div class = "col-3 sidebar d-inline-block">
-			<% (0..20).each do |i| %>
-				<div class= "row activity-row p-2">
-          			<h4><%= Activity.find(56).name %></h4>
-					<p><%= Activity.find(56).description %></p>
-				</div>
-			<% end %>
+	<div class = "row d-flex">
+		
+		<div class = "col-md-3 d-none d-md-block sidebar">
+			<div class = "sidebar-sticky p-2">
+				<% (0..20).each do |i| %>
+					<div class= "nav flex-column activity-row">
+	          			<h4><%= Activity.find(56).name %></h4>
+						<p><%= Activity.find(56).description %></p>
+					</div>
+				<% end %>
+			</div>
 		</div>
-		<div class = "col-4 mx-auto">
-			
+		
+			<!--<div class = "container main-card-container"> -->
+		<div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
+			<div class = "col-5 mx-auto">
 				<%= render "activities/activity_card" %>
-			
+			</div>
 		</div>
 	</div>
 		
