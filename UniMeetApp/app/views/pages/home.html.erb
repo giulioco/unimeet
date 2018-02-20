@@ -6,6 +6,10 @@
 		<%#= this_user = user %>
 		
 	<%# end %>
+<<<<<<< HEAD
+=======
+	
+>>>>>>> eb61f5f9dbfcbcb7277f664a202ba4d63f23e42a
 
 	<div class = "row d-flex">
 		
@@ -13,8 +17,8 @@
 			<div class = "sidebar-sticky p-2">
 				<% activity = Activity.all %>
 				<% activity.each do |activ| %>
-					<div class= ":row activity-row p-2">
-          				<h4><%= activ.name%></h4>
+					<div class= "nav flex-column activity-row">
+	          			<h4><%= activ.name%></h4>
 						<p><%= activ.description%></p>
 					</div>
 				<% end %>
