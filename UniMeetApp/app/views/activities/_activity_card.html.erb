@@ -1,0 +1,12 @@
+<div class="card border border-dark">
+    <%= image_tag(@this_user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top") %>
+    <div class="card-body">
+        <h5 class="card-title"><%= @activity.name %></h5>
+        <p class="card-text"><%= @activity.description %></p>
+    </div> 
+</div>
+
+<div class="card-body mxauto">
+        <a href="#" class="card-link">Like</a>
+        <a href="#" class="card-link">Dislike</a>
+    </div>

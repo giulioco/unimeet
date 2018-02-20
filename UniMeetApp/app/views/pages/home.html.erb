@@ -2,8 +2,6 @@
 <body>
 	<% if user_signed_in? %>
 	 <div>
-	    <h2> Welcome to UniMeet!</h2>
-	    <p> test</p>
    </div>
 	<%# @users.each do |user| %>
 		<%#= this_user = user %>
@@ -11,7 +9,7 @@
 	<%# end %>
 	<div class = "row">
 		<div class = "col-4 mx-auto">
-			<%= render "users/user_card" %>
+			<%= render "activities/activity_card" %>
 		</div>
 	</div>
 
