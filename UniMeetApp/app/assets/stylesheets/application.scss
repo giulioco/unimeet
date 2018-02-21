@@ -121,6 +121,11 @@ body.pages.home {
     }
 }
 
+.vertical-center {
+
+  display: flex;
+  align-items: center;
+}
 
 .activity-row {
     border-right: 2px solid $primary;
