@@ -20,4 +20,8 @@ module UsersHelper
   def display_image_menu(size)
     image_tag(current_user.image.url(size), :class => "rounded-circle border border-light") 
   end
+
+  def display_activity_image_menu(size)
+    image_tag(Activity.find(session[:current_activity_id]).image.url(size), :class => "rounded-circle border border-light") 
+  end
 end

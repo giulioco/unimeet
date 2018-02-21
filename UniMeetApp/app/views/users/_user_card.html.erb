@@ -1,16 +1,17 @@
 <div class="card border border-dark">
     <%= image_tag(@user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top") %>
     <div class="card-body">
-        <h5 class="card-title"><%= @user.first_name %></h5>
-        <p class="card-text"><%= @user.bio %></p>
-    </div>
-    <div class="card-body">
+        <h5 class="card-title btn btn-dark"><%= @user.first_name %></h5>
+        <p class="card-text btn-light activity-description"><%= @user.bio %></p>
         <% @user.interests.each do |interest| %>
             <p class="badge"><%= "#{interest.interest_name}" %></p>
         <% end %>
     </div>
-    <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-    </div>
+</div>
+
+
+<!-- Buttons -->
+<div class="row justify-content-center mt-2">
+            <%= button_to "Dislike", {action: "dislike_profile", id: @user.id}, {class: 'btn btn-danger mr-2'} %>
+            <%= button_to "Like", {action: "like_profile", id: @user.id}, {class: 'btn btn-success ml-2'} %>
 </div>

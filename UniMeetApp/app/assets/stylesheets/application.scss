@@ -140,6 +140,13 @@ body.pages.home {
     border-radius: .25rem;
 }
 
+a.owned-activities-links {
+    text-decoration:  none;
+    &:hover, &:link, &:active, &:visited {
+        text-decoration:  none;
+    }
+} 
+
 input[type="file"] {
         
     }

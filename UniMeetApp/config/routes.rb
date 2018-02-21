@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   post 'activities/dislike_activity' 
   post 'pages/like_activity' => 'activities/like_activity'
   post 'pages/dislike_activity' => 'activities/dislike_activity'
-
+  post 'pages/like_profile' => 'users/like_profile'
+  post 'pages/dislike_profile' => 'users/dislike_profile'
+  get  'pages/home_activity_perspective' => 'pages#home_activity_perspective'
+  get  'pages/home' => 'pages#home'
   get 'users/show'
 
   devise_for :users
