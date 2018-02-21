@@ -3,18 +3,39 @@
 		<div class = "row d-flex">
 			<div class = "col-md-3 d-none d-md-block sidebar">
 				<div class = "sidebar-sticky">
-					<% activity = Activity.all %>
-					<% activity.each do |activ| %>
-						<div class= "nav flex-row activity-row p-2">
-							<div class = "col-2">
-								<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
-							</div>
-							<div class = "col-10">
-								<h4><%= activ.name%></h4>
-								<p><%= activ.description%></p>
-							</div>
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<% activity = Activity.all %>
+							<% activity.each do |activ| %>
+								<div class= "nav flex-row activity-row p-2">
+									<div class = "col-2">
+										<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+									</div>
+									<div class = "col-10">
+										<h4><%= activ.name%></h4>
+										<p><%= activ.description%></p>
+									</div>
+								</div>
+							<% end %>
 						</div>
-					<% end %>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							
+						</div>
+						
+					</div>	
+						
+						
+					
+					
+					
 				</div>
 			</div>
 			<div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">

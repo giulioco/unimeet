@@ -1,12 +1,36 @@
 <div>
-  <%= display_image(:medium) %>
-  <h1><%= full_name %></h1>
-  <p><%= age %></p>
-  <p><%= @user.bio %></p>
-  <p><%= @user.college_location %></p>
-  <p><%= @user.major %></p>
-  <p><%= @user.interest_list %></p>
-  <% if  @user==current_user %>
-    <%= link_to 'Edit', edit_user_registration_path(@user) %>  
-  <% end %>
+  <div class = "row justify-content-md-center">
+    <div class = "col-3 m-2">
+      <% if  @user==current_user %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+        <div class="card border border-dark">
+          <%= image_tag(@user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top card-edit") %>
+          <div class = "hidden"><%= f.file_field :image %></div>
+          
+          <div class="card-body">
+              <h5 class="card-title"><%= @user.first_name %></h5>
+              <p class="card-text"><%= @user.bio %></p>
+          </div>
+          <div class="card-body">
+              <% @user.interests.each do |interest| %>
+                  <p class="badge"><%= "#{interest.interest_name}" %></p>
+              <% end %>
+          </div>
+          <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      
+      
+      <% end %>
+        <%= link_to 'Edit', edit_user_registration_path(@user) %>
+      <% else %>
+      <%= render "users/user_card" %>
+      <% end %>
+    </div>
+    </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="card border border-dark p-1">
+<div class="card border border-dark p-1" ontouchstart="this.classList.toggle('hover');" >
     <%= image_tag(@activity.image.url(:medium), :class => "card-img-top") %>
     <div class="card-body">
         <h5 class="card-title btn btn-dark"><%= @activity.name %></h5>
