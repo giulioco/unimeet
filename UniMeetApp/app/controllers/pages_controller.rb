@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def home_activity_perspective
-    @user = User.find(1)
+    @user = User.find(7)
     session[:current_activity_id] = params[:id]
     session[:is_swiping_as_user] = false
     render "pages/home_activity_perspective"
