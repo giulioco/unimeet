@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20180220080512) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.string "match_id", null: false
     t.bigint "user_id", null: false
     t.bigint "activity_id", null: false
     t.index ["activity_id"], name: "index_matches_on_activity_id"

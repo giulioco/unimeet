@@ -2,6 +2,7 @@ class Activity < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
+  has_many :matches, dependent: :destroy
   #attr_accessible :name, :description, :max_size
   #validates :name, :max_size => true
   validates :name, :description, :max_size, :presence => true

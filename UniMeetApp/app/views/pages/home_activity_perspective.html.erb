@@ -13,7 +13,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <% profiles = User.all %>
+            <% profiles = User.joins(:matches).where({ "matches.activity_id" => session[:current_activity_id]}) %>
           <% profiles.each do |profile| %>
             <div class= "nav flex-row activity-row p-2">
               <div class = "col-2">

@@ -8,17 +8,25 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :activities, through: :memberships
+  has_many :matches, dependent: :destroy
 
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/missing_avatar.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   
   def like_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
-      self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: true) 
+      like = self.likes.find_by(user_id: self.id, activity_id: activity.id)
+      like.update(user_likes_activity: true) 
+       if like.user_likes_activity
+        if not self.matches.exists?(user_id: self.id, activity_id: activity.id)
+          self.matches.create!(user_id: self.id, activity_id: activity.id)
+      end
+      end
     else self.likes.create!(user_id: self.id, activity_id: activity.id, user_likes_activity: true)
     end
   end
 
+#there's never going to be a match through dislike activity
   def dislike_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: false) 
@@ -28,7 +36,13 @@ class User < ApplicationRecord
 
   def like_profile!(profile, activity)
     if activity.likes.exists?(user_id: profile.id, activity_id: activity.id)
-      activity.likes.update(user_id: profile.id, activity_id: activity.id, activity_likes_user: true) 
+      like = activity.likes.find_by(user_id: profile.id, activity_id: activity.id)
+      like.update(activity_likes_user: true) 
+      if like.user_likes_activity
+        if not activity.matches.exists?(user_id: profile.id, activity_id: activity.id)
+          activity.matches.create!(user_id: profile.id, activity_id: activity.id)
+      end
+      end
     else activity.likes.create!(user_id: profile.id, activity_id: activity.id, activity_likes_user: true)
     end
   end

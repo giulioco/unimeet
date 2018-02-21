@@ -1,3 +1,0 @@
-class Matches < ApplicationRecord
-	
-end
