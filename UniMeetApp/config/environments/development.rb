@@ -31,10 +31,10 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => 'https://0f1c739aac974994a8934857b69a064d.vfs.cloud9.us-west-2.amazonaws.com' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: "localhost", port: 8082 }
+  config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
