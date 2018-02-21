@@ -15,8 +15,32 @@
 
   <nav class="navbar bg-primary sticky-top flex-md-nowrap">
     <a class="navbar-brand" id="main-title" href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
-    <ul class="nav justify-content-end">
+    
       <% if user_signed_in? %>
+      <ul class="nav justify-content-between">
+        <li >
+          <h4>Swipe as: </h4>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= display_image_menu(:thumb)%> 
+          </a>
+          <div class="dropdown-menu">
+            <% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
+            <% activity.each do |activ| %>
+            <div class= "dropdown-item">
+                <%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+                <span><%= activ.name%></span>
+            </div>
+          <% end %>
+            <div class="dropdown-divider">
+            </div>
+            <%= link_to "New Activity", activities_new_path, :method => :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      </ul>
+
+  <ul class="nav justify-content-end">
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <%= current_user.first_name %>
