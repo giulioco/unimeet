@@ -1,15 +1,21 @@
-<h2>Resend confirmation instructions</h2>
+<div class = "text-white">
+  <h2>Resend confirmation instructions</h2>
+  <p>Please enter your email below to resend the confirmation instructions.</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  <div class="form-group row">
+  <div class="col-2">
+    <%= f.email_field :email, placeholder: "email@ucsc.edu",  autofocus: true, autocomplete: "email", class: "form-control", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  </div>
   </div>
 
-  <div class="actions">
+  <div class="action row justify-content">
+  <div class="col-3">
     <%= f.submit "Resend confirmation instructions" %>
+  </div>
   </div>
 <% end %>
 
