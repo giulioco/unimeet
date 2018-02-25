@@ -15,4 +15,16 @@
 //= require popper
 //= require bootstrap
 //= require dropzone
+//= require imagedrop
 //= require_tree .
+ImageDrop.checkFileType = function(file) {
+      var ext, fileTypes;
+      ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+      fileTypes = ".jpeg , .jpg , .png , .bmp, .gif , .webp , .svg";
+      if (fileTypes.toLowerCase().indexOf(ext) < 0) {
+        alert("That doesn't appear to be an image file.");
+        return false;
+      } else {
+        return true;
+      }
+    };
