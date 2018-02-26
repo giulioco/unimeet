@@ -2,71 +2,78 @@
   <h2><span class="font-weight-bold">Edit</span> <%= resource_name.to_s.humanize %></h2>
 </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class = "row">
+    <div class = "col-4 mx-auto">
+    <div class="card border border-dark">
+        <div class="card-body">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
- <div class="field form-group">
-    
-    <%= f.file_field :image %>
-  </div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+              <p>Drop an image here</p>
+              <div data-imagedrop style='background-image: url(<%= image_url(:medium)%>)'>
+                <%= f.file_field :image %>
+              </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+              <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :middle_name %><br />
-    <%= f.text_field :middle_name, autofocus: true %>
-  </div>
+              <div class="field">
+                <%= f.label :middle_name %><br />
+                <%= f.text_field :middle_name, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
+              <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_field :birthday, autofocus: true %>
-  </div>
+              <div class="field">
+                <%= f.label :birthday %><br />
+                <%= f.date_field :birthday, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :college_location %><br>
-   <%= f.select :college_location, [
-        ['Please Select One',''],
-        ['Cowell','Cowell'],
-        ['Stevenson','Stevenson'],
-        ['Crown','Crown'],
-        ['Merrill','Merrill'],
-        ['Porter','Porter'],
-        ['Kresge','Kresge'],
-        ['Oakes','Oakes'],
-        ['Rachel Carson','Rachel Carson'],
-        ['College Nine','College Nine'],
-        ['College Ten','College Ten'],
-        ['Off Campus','Off Campus']
-      ] %>
-  </div>
+              <div class="field">
+                <%= f.label :bio %><br />
+                <%= f.text_area :bio, autofocus: true %>
+              </div>
+              
+              <div class="field">
+                <%= f.label :college_location %><br>
+               <%= f.select :college_location, [
+                    ['Please Select One',''],
+                    ['Cowell','Cowell'],
+                    ['Stevenson','Stevenson'],
+                    ['Crown','Crown'],
+                    ['Merrill','Merrill'],
+                    ['Porter','Porter'],
+                    ['Kresge','Kresge'],
+                    ['Oakes','Oakes'],
+                    ['Rachel Carson','Rachel Carson'],
+                    ['College Nine','College Nine'],
+                    ['College Ten','College Ten'],
+                    ['Off Campus','Off Campus']
+                  ] %>
+              </div>
 
-  <div class="field">
-    <%= f.label :interests %><br />
-    <%= f.text_area :interest_list, autofocus: true %>
-  </div>
+              <div class="field">
+                <%= f.label :interests %><br />
+                <%= f.text_area :interest_list, autofocus: true %>
+              </div>
 
-  <div class="field">
-    <%= f.label :major %><br />
-    <%= f.text_field :major, autofocus: true %>
+              <div class="field">
+                <%= f.label :major %><br />
+                <%= f.text_field :major, autofocus: true %>
+              </div>
+        </div> 
+    </div>
   </div>
-  
-  <div class="field">
+</div>
+<div class="field">
     <label for="newpassword">New Password</label> <br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -80,12 +87,10 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
-
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>

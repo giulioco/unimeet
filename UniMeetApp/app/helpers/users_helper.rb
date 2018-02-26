@@ -16,7 +16,14 @@ module UsersHelper
   def display_image(size)
       image_tag(@user.image.url(size))
   end
-  
+
+  def image_url(size)
+    if @user.image_file_size == nil
+      default_user_image_url 
+    else @user.image.url(size)
+    end
+  end
+
   def display_image_menu(size)
     image_tag(current_user.image.url(size), :class => "rounded-circle border border-light") 
   end

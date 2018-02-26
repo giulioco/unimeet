@@ -7,9 +7,7 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
         <div class="card border border-dark">
-          <%= image_tag(@user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top card-edit") %>
-          <div class = "hidden"><%= f.file_field :image %></div>
-          
+          <%= image_tag(@user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top card-edit") %>          
           <div class="card-body">
               <h5 class="card-title"><%= @user.first_name %></h5>
               <p class="card-text"><%= @user.bio %></p>
@@ -24,8 +22,6 @@
               <a href="#" class="card-link">Another link</a>
           </div>
         </div>
-      
-      
       <% end %>
         <%= link_to 'Edit', edit_user_registration_path(@user) %>
       <% else %>

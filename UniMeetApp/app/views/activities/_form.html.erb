@@ -12,7 +12,7 @@
   </div>
   <% end %>
   <p>Drop an image here</p>
-  <div data-imagedrop style='background-image: url(/broken/link/debug)'>
+  <div data-imagedrop style='background-image: url(<%= default_activity_image_url %>)'>
     <%= f.file_field :image %>
   </div>
 
