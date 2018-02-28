@@ -27,8 +27,9 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-  	@activity = activity.find(params[:id])
+  	@activity = Activity.find(params[:id])
   	@activity.destroy
+    redirect_to 'root'
   end
 
   def create

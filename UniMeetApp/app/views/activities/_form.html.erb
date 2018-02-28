@@ -37,8 +37,9 @@
   </div>
 </div>
   <div class="actions" align="center">
-    <% if url != activities_new_path %>
+    <% if url != activities_new_path && @activity.project_owner_id == current_user.id %>
       <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= link_to "Delete", { action: "destroy", controller: "activities", id: @activity.id, method: :delete }, class: 'btn btn-danger mr-2' %>
     <% else %>
       <%= f.submit "Create", class: "btn btn-primary" %>
     <% end %>

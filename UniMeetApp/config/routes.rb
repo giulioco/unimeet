@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
   get 'activities/new' => 'activities#new'
-  get 'activities/:id' => 'activities#show'
+  #get 'activities/:id' => 'activities#show'
   post 'activities/new' => 'activities#create'
   post 'activities/edit' => 'activities#edit'
   put 'activities/edit.:id' => 'activities#update'
   post 'activities/like_activity'
   post 'activities/dislike_activity' 
+  get 'activities/destroy' => 'activities#destroy'
+  delete 'activities/destroy' => 'activities#destroy'
   #get 'activities/edit'
   #problem: when i go to activities/new it now thinks that new is the id
   #get 'new_activity' => 'activities/new' 
