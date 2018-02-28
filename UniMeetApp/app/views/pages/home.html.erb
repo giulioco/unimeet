@@ -17,7 +17,8 @@
 						<% activity.each do |activ| %>
 						<div class= "nav flex-row activity-row p-2">
 							<div class = "col-2">
-								<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+                <%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+								<%= link_to "View", { action: "show", controller: "activities", id: activ.id, method: :get }, class: 'rounded-circle' %>
 							</div>
 							<div class = "col-10">
 								<h4><%= activ.name%></h4>
@@ -32,6 +33,7 @@
 						<div class= "nav flex-row activity-row p-2">
 							<div class = "col-2">
 								<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+                <%= link_to "View", { action: "show", controller: "activities", id: activ.id, method: :get }, class: 'rounded-circle' %>
 							</div>
 							<div class = "col-10">
 								<h4><%= activ.name%></h4>
