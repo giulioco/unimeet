@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'activities/new' => 'activities#new'
-  #get 'activities/:id' => 'activities#show'
+  get 'activities/show.:id' => 'activities#show'
   post 'activities/new' => 'activities#create'
   post 'activities/edit' => 'activities#edit'
   put 'activities/edit.:id' => 'activities#update'
