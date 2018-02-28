@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
+  include ActivitiesHelper
   def show
     @activity = Activity.find(params[:id])
   end
@@ -18,8 +19,8 @@ class ActivitiesController < ApplicationController
 
   def update
   	@activity = Activity.find(params[:id])
-  	if @activity.update(params[:activity].permit(:title, :text))
-    	redirect_to @activity
+  	if @activity.update(params[:activity].permit(:name, :description, :recruitment_deadline, :max_size, :image))
+    	redirect_to action: 'home', controller: 'pages'
     else 
     	render 'edit'
     end
@@ -39,11 +40,10 @@ class ActivitiesController < ApplicationController
         membership = current_user.memberships.find_by(activity_id: @activity.id)
         membership.ownership = true
         membership.save
-        format.html  { redirect_to action: 'show', :id => @activity.id }
+        format.html  { redirect_to action: 'home', controller: 'pages'}
         format.json  { render :json => @activity,
                       :status => :created, :location => @activity }
       else
-
         format.html  { render :action => "new" }
         format.json  { render :json => @activity.errors,
                       :status => :unprocessable_entity }

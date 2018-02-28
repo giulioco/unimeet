@@ -1,13 +1,4 @@
 <h1><center>Create a new activity</center></h1>
-<div class = "row">
-    <div class = "col-4 mx-auto">
-		<div class="card border border-dark">
-    		<div class="card-body">
-       			 <%= render 'form' %>
-   			</div> 
-		</div>
-	</div>
-</div>
+<%= render 'form', { url: activities_new_path, method: :post } %>
 
- 
 

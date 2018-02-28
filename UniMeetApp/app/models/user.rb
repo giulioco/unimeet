@@ -13,6 +13,26 @@ class User < ApplicationRecord
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/missing_avatar.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   
+  def update_with_password(params={})
+    current_password = params.delete(:current_password)
+
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end 
+
+    result = if params[:password].blank? || valid_password?(current_password) 
+      update_attributes(params)
+    else
+      self.attributes = params
+      self.valid?
+      self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      false
+    end 
+
+    clean_up_passwords
+    result
+  end
   def like_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       like = self.likes.find_by(user_id: self.id, activity_id: activity.id)

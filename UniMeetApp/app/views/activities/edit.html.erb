@@ -1,2 +1,2 @@
-<h1>Activities#edit</h1>
-<p>Find me in app/views/activities/edit.html.erb</p>
+<h1><center>Edit activity</center></h1>
+<%= render 'form', { url: activities_edit_path(@activity), id: @activity.id, method: :put }%>

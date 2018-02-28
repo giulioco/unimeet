@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 	before_action :authenticate_user! 
   def home
     @this_user = current_user
-    @activity = Activity.find(56)
+    @activity = Activity.find(87)
     session[:current_activity_id] = nil
     session[:is_swiping_as_user] = true
   end
