@@ -1,7 +1,7 @@
-<div class = "row">
-  <div class = "col-4 mx-auto">
-    <div class="card border border-dark">
-      <div class="card-body">
+
+<div class="card border border-dark p-1" ontouchstart="this.classList.toggle('hover');" >
+
+        <div class="card-body">
         <%= form_for @activity, url: url, html: { method: method } do |f| %>
           <% if @activity.errors.any? %>
             <div id="errorExplanation">
@@ -13,15 +13,15 @@
                 <% end %>
               </ul>
             </div>
-            <% end %>
-            <div data-imagedrop style='background-image: url(
-              <% if url != activities_new_path %>
-                <%= activity_image_url(:medium)%>)'
-              <% else %>
-                <%= activity_image_drop_url %>)'
-              <% end %>>
-              <%= f.file_field :image %>
-            </div>
+        <% end %>
+                      <div data-imagedrop style='background-image: url(
+          <% if url != activities_new_path %>
+            <%= activity_image_url(:medium)%>)'
+          <% else %>
+            <%= activity_image_drop_url %>)'
+          <% end %>>
+          <%= f.file_field :image %>
+        </div>
             <div class="field form-group">
               <%= f.text_field :name, placeholder: "Activity name", class: "form-control"%>
             </div>
@@ -32,16 +32,17 @@
               <%= f.select :max_size,
                 [['Max Size', 0], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]%>
             </div>
-      </div> 
-    </div>
-  </div>
+      </div>
 </div>
-  <div class="actions" align="center">
+
+
+<!-- Buttons -->
+<div class="row justify-content-center mt-2">
     <% if url != activities_new_path && @activity.project_owner_id == current_user.id %>
-      <%= f.submit "Update", class: "btn btn-primary" %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
         <%= link_to "Delete", { action: "destroy", controller: "activities", id: @activity.id, method: :delete }, class: 'btn btn-danger mr-2' %>
     <% else %>
       <%= f.submit "Create", class: "btn btn-primary" %>
     <% end %>
-  </div>
 <% end %>
+</div>

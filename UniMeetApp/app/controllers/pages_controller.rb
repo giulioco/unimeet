@@ -9,7 +9,13 @@ class PagesController < ApplicationController
   end
 
   def show_card
-    print "function called!"
+    @activity = Activity.find(params[:id])
+    respond_to do |format|               
+      format.js
+    end
+  end
+
+  def show_edit_activity_card
     @activity = Activity.find(params[:id])
     respond_to do |format|               
       format.js
