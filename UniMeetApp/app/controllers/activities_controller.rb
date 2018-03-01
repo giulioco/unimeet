@@ -18,7 +18,7 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-  	@activity = Activity.find(params[:id])
+  	@activity = Activity.find(params[:format])
   	if @activity.update(params[:activity].permit(:name, :description, :recruitment_deadline, :max_size, :image))
     	redirect_to action: 'home', controller: 'pages'
     else 

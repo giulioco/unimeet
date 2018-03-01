@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'activities/show.:id' => 'activities#show'
   post 'activities/new' => 'activities#create'
   post 'activities/edit' => 'activities#edit'
-  put 'activities/edit.:id' => 'activities#update'
+  post 'activities/update' => 'activities#update'
   post 'activities/like_activity'
   post 'activities/dislike_activity' 
   get 'activities/destroy' => 'activities#destroy'
@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'pages/show_card' => 'pages#show_card'
   get 'pages/show_edit_activity_card' => 'pages#show_edit_activity_card'
-  post 'pages/show_edit_activity_card' => 'pages#show_edit_activity_card'
 
   devise_for :users
   devise_scope :user do
