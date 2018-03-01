@@ -43,19 +43,20 @@
 
       <div class="form-group">
         <%= f.label :college_location %><br>
-        <select class="form-control">
-          <option>Cowell</option>
-          <option>Stevenson</option>
-          <option>Crown</option>
-          <option>Merrill</option>
-          <option>Porter</option>
-          <option>Kresge</option>
-          <option>Oakes</option>
-          <option>Rachel Carson</option>
-          <option>College Nine</option>
-          <option>College Ten</option>
-          <option>Off Campus</option>
-        </select>
+        <%= f.select(:college_location, [
+          ['Please Select One',''],
+          ['Cowell','Cowell'],
+          ['Stevenson','Stevenson'],
+          ['Crown','Crown'],
+          ['Merrill','Merrill'],
+          ['Porter','Porter'],
+          ['Kresge','Kresge'],
+          ['Oakes','Oakes'],
+          ['Rachel Carson','Rachel Carson'],
+          ['College Nine','College Nine'],
+          ['College Ten','College Ten'],
+          ['Off Campus','Off Campus']
+          ], {}, { :class => "form-control" }) %>
       </div>
 
         <div class="form-group">
