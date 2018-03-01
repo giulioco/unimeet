@@ -177,6 +177,20 @@ a.owned-activities-links {
     }
 }
 
+.swipe-card {
+    height: 600px;
+    width: 300px;
+    overflow: off;
+    
+    .activity-description {
+        background: $light;
+        height: 200px;
+        overflow-y: hidden;
+    }
+    .card-title {
+    }
+}
+
 *[data-imagedrop] {
     margin-left:auto;
     margin-right:auto;

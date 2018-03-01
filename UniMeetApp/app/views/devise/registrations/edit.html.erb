@@ -16,80 +16,87 @@
         <%= f.file_field :image %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :first_name %><br />
-        <%= f.text_field :first_name, autofocus: true %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :middle_name %><br />
-        <%= f.text_field :middle_name, autofocus: true %>
+        <%= f.text_field :middle_name, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :last_name %><br />
-        <%= f.text_field :last_name, autofocus: true %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :birthday %><br />
-        <%= f.date_field :birthday, autofocus: true %>
+        <%= f.date_field :birthday, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :bio %><br />
-        <%= f.text_area :bio, autofocus: true %>
+        <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :college_location %><br>
-        <%= f.select :college_location, [
-          ['Please Select One',''],
-          ['Cowell','Cowell'],
-          ['Stevenson','Stevenson'],
-          ['Crown','Crown'],
-          ['Merrill','Merrill'],
-          ['Porter','Porter'],
-          ['Kresge','Kresge'],
-          ['Oakes','Oakes'],
-          ['Rachel Carson','Rachel Carson'],
-          ['College Nine','College Nine'],
-          ['College Ten','College Ten'],
-          ['Off Campus','Off Campus']
-          ] %>
-        </div>
+        <select class="form-control">
+          <option>Cowell</option>
+          <option>Stevenson</option>
+          <option>Crown</option>
+          <option>Merrill</option>
+          <option>Porter</option>
+          <option>Kresge</option>
+          <option>Oakes</option>
+          <option>Rachel Carson</option>
+          <option>College Nine</option>
+          <option>College Ten</option>
+          <option>Off Campus</option>
+        </select>
+      </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= f.label :interests %><br />
-          <%= f.text_area :interest_list, autofocus: true %>
+          <%= f.text_area :interest_list, autofocus: true, autocomplete: "off", class: "form-control" %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= f.label :major %><br />
-          <%= f.text_field :major, autofocus: true %>
+          <%= f.text_field :major, autofocus: true, autocomplete: "off", class: "form-control" %>
         </div>
       </div> 
     </div>
   </div>
 </div>
-<div class="field">
-  <label for="newpassword">New Password</label> <br />
-  <%= f.password_field :password, autocomplete: "off" %>
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapsePassword" role="button" aria-expanded="false" aria-controls="collapsePassword">Change Password</a>
+</p>
+
+<div class="collapse" id="collapsePassword">
+  <div class="card card-body">
+    <label for="newpassword">New Password</label> <br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <div class="card card-body">
+    <label for="newpassword">Confirm Your New Password</label> <br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  <div class="card card-body">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
 </div>
 
-<div class="field">
-  <label for="newpassword">Confirm Your New Password</label> <br />
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
-</div>
-
-<div class="field">
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, autocomplete: "off" %>
-</div>
 <div class="actions" align="center">
   <%= f.submit "Update", class: "btn btn-primary" %>
 </div>
+
 <% end %>
+
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>

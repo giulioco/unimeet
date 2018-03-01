@@ -15,31 +15,33 @@
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 						<% activity = Activity.joins(:matches).where({ "matches.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
-						<div class= "nav flex-row activity-row p-2">
-							<div class = "col-2">
-                <%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
-								<%= link_to "View", { action: "show", controller: "activities", id: activ.id, method: :get }, class: 'rounded-circle' %>
-							</div>
-							<div class = "col-10">
-								<h4><%= activ.name%></h4>
-								<p><%= activ.description%></p>
-							</div>
-						</div>
+							<%= link_to({action: "show", controller: "activities", id: activ.id, method: :get}, class: "nav-link p-0") do %>
+								<div class= "nav flex-row activity-row p-2 text-dark">
+									<div class = "col-2 p-0">
+									<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+									</div>
+									<div class = "col-10">
+										<h4><%= activ.name%></h4>
+										<p><%= activ.description%></p>
+									</div>
+								</div>
+							<% end %>
 						<% end %>
 					</div>
 					<div class="tab-pane fade" id="my-activities" role="tabpanel" aria-labelledby="profile-tab">
 						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
-						<div class= "nav flex-row activity-row p-2">
-							<div class = "col-2">
-								<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
-                <%= link_to "View", { action: "show", controller: "activities", id: activ.id, method: :get }, class: 'rounded-circle' %>
-							</div>
-							<div class = "col-10">
-								<h4><%= activ.name%></h4>
-								<p><%= activ.description%></p>
-							</div>
-						</div>
+							<%= link_to({action: "show", controller: "activities", id: activ.id, method: :get}, class: "nav-link p-0") do %>
+								<div class= "nav flex-row activity-row p-2 text-dark">
+									<div class = "col-2 p-0">
+										<%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+									</div>
+									<div class = "col-10">
+										<h4><%= activ.name%></h4>
+										<p><%= activ.description%></p>
+									</div>
+								</div>
+							<% end %>
 						<% end %>
 					</div>
 					

@@ -1,8 +1,9 @@
-<div class="card border border-dark">
+<div class="card border border-dark swipe-card">
     <%= image_tag(@user.image.url(:medium), :alt => "300x300.png", :class => "card-img-top") %>
-    <div class="card-body">
-        <h5 class="card-title btn btn-dark"><%= @user.first_name %></h5>
-        <p class="card-text btn-light activity-description"><%= @user.bio %></p>
+    <div class="card-body p-2">
+        <h5 class = "card-title"><%= @user.first_name %></h5>
+        <h6 class = "card-text"><%= @user.major %></h6>
+        <p class = "card-text activity-description"><%= @user.bio %></p>
         <% @user.interests.each do |interest| %>
             <p class="badge"><%= "#{interest.interest_name}" %></p>
         <% end %>
