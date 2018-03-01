@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get  'pages/home_activity_perspective' => 'pages#home_activity_perspective'
   get  'pages/home' => 'pages#home'
   get 'users/show'
+  get 'pages/show_card' => 'pages#show_card'
 
   devise_for :users
   devise_scope :user do

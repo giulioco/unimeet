@@ -8,6 +8,14 @@ class PagesController < ApplicationController
     session[:is_swiping_as_user] = true
   end
 
+  def show_card
+    print "function called!"
+    @activity = Activity.find(params[:id])
+    respond_to do |format|               
+      format.js
+    end
+  end
+
   def home_activity_perspective
     @user = User.find(7)
     session[:current_activity_id] = params[:id]

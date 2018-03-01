@@ -15,7 +15,7 @@
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 						<% activity = Activity.joins(:matches).where({ "matches.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
-							<%= link_to({action: "show", controller: "activities", id: activ.id, method: :get}, class: "nav-link p-0") do %>
+							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 								<div class= "nav flex-row activity-row p-2 text-dark">
 									<div class = "col-2 p-0">
 									<%= display_activity_image(activ, :thumb, "rounded-circle") %>
@@ -31,7 +31,7 @@
 					<div class="tab-pane fade" id="my-activities" role="tabpanel" aria-labelledby="profile-tab">
 						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
-							<%= link_to({action: "show", controller: "activities", id: activ.id, method: :get}, class: "nav-link p-0") do %>
+							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 								<div class= "nav flex-row activity-row p-2 text-dark">
 									<div class = "col-2 p-0">
 										<%= display_activity_image(activ, :thumb, "rounded-circle") %>
@@ -54,9 +54,11 @@
 			</div>
 		</div>
 		<div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
-			<div class = "col-5 mx-auto">
-				<%= render "activities/activity_card" %>
-			</div>
+				<div class = "col-5 mx-auto" >
+					<div id="card-container">
+						<%= render "activities/activity_card" %>
+					</div>
+				</div>
 		</div>
 	</div>
 	<% end %>
