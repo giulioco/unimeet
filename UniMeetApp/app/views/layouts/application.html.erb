@@ -22,10 +22,10 @@
     <li class="nav-item dropdown ">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <% if session[:is_swiping_as_user] %>
-              <%= display_image_menu(:thumb)%>
+              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%>
             <% else %>
               <% if session[:current_activity_id] %>
-               <%= display_activity_image_menu(:thumb)%>
+               <%= display_activity_image_menu(Activity.find(session[:current_activity_id]), :thumb, "rounded-circle border border-light")%>
               <% end %>
         <% end %>
       </a>
@@ -33,7 +33,7 @@
         <% if not session[:is_swiping_as_user] %>
           <%= link_to pages_home_path, class: "owned-activities-links" do %>
             <div class= "dropdown-item">
-              <%= image_tag(current_user.image.url(:thumb), :class => "rounded-circle") %>
+              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light") %>
               <span>
                 <%= current_user.first_name%>
               </span>
@@ -46,7 +46,7 @@
              <% next if (activ.id == session[:current_activity_id])%>
         <%= link_to pages_home_activity_perspective_path(:id => activ.id), class: "owned-activities-links" do %>
         <div class= "dropdown-item">
-          <%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+          <%= display_activity_image(activ, :thumb, "rounded-circle") %>
           <span>
             <%= activ.name%>
           </span>
@@ -64,7 +64,7 @@
     <li class="nav-item dropdown mr-5">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <%= current_user.first_name %>
-        <%= display_image_menu(:thumb)%> 
+        <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%> 
       </a>
       <div class="dropdown-menu">
         <%= link_to "View Profile", current_user, :method => :get, class: "dropdown-item" %>

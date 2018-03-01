@@ -15,6 +15,10 @@ module ApplicationHelper
       @devise_mapping ||= Devise.mappings[:user]
   end
 
+  def activity_image_drop_url
+    "/system/default/activity_drop.png"
+  end
+
   def default_activity_image_url
     "/system/default/missing_activity_avatar.png"
   end

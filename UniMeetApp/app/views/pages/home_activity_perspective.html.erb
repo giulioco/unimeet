@@ -17,7 +17,7 @@
           <% profiles.each do |profile| %>
             <div class= "nav flex-row activity-row p-2">
               <div class = "col-2">
-                <%= image_tag(profile.image.url(:thumb), :class => "rounded-circle") %>
+                <%= activity_display_image(profile,:thumb, "rounded-circle") %>
               </div>
               <div class = "col-10">
                 <h4><%= profile.first_name%></h4>

@@ -1,6 +1,6 @@
 module ActivitiesHelper
-	def display_image(size)
-      image_tag(@activity.image.url(size))
+	def display_activity_image(activity, size, class_type)
+      image_tag(activity.image.url(size), :class => class_type)
   end
 
   def activity_image_url(size)

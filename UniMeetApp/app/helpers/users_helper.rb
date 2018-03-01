@@ -13,8 +13,8 @@ module UsersHelper
     end
   end
 
-  def display_image(size)
-      image_tag(@user.image.url(size))
+  def display_image(user, size, class_type)
+      image_tag(user.image.url(size), :class => class_type)
   end
 
   def image_url(size)
@@ -24,11 +24,11 @@ module UsersHelper
     end
   end
 
-  def display_image_menu(size)
-    image_tag(current_user.image.url(size), :class => "rounded-circle border border-light") 
+  def display_image_menu(user, size, class_type)
+    image_tag(user.image.url(size), :class => class_type) 
   end
 
-  def display_activity_image_menu(size)
-    image_tag(Activity.find(session[:current_activity_id]).image.url(size), :class => "rounded-circle border border-light") 
+  def display_activity_image_menu(activity, size, class_type)
+    image_tag(activity.image.url(size), :class => class_type) 
   end
 end

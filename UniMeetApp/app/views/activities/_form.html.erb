@@ -15,10 +15,10 @@
             </div>
             <% end %>
             <div data-imagedrop style='background-image: url(
-              <% if @activity.id != nil %>
+              <% if url != activities_new_path %>
                 <%= activity_image_url(:medium)%>)'
               <% else %>
-                <%= default_activity_image_url %>)'
+                <%= activity_image_drop_url %>)'
               <% end %>>
               <%= f.file_field :image %>
             </div>
