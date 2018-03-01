@@ -34,10 +34,10 @@
 </div>
 
 <!-- Buttons -->
-<div class="actions" align="center">
+<div class="actions row justify-content-center mt-2" align="center">
     <% if url != activities_new_path && @activity.project_owner_id == current_user.id %>
-      <%= f.submit "Save", class: "btn btn-primary" %>
-        <%= link_to "Delete", { action: "destroy", controller: "activities", id: @activity.id, method: :delete }, class: 'btn btn-danger mr-2' %>
+      <%= f.submit "Save", class: "btn btn-success mr-2" %>
+        <%= link_to "Delete", { action: "destroy", controller: "activities", id: @activity.id, method: :delete }, class: 'btn btn-danger ml-2' %>
     <% else %>
       <%= f.submit "Create", class: "btn btn-primary" %>
     <% end %>
