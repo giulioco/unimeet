@@ -22,6 +22,13 @@ class PagesController < ApplicationController
     end
   end
 
+  def show_new_activity_card
+    @activity = Activity.new
+    respond_to do |format|               
+      format.js
+    end
+  end
+
   def home_activity_perspective
     @user = User.find(7)
     session[:current_activity_id] = params[:id]
