@@ -1,0 +1,1 @@
+$('#card-container').html("<%= escape_javascript(render :partial => 'activities/new_activity_card', locals: { activity: @activity }, :remote => true) %>");
