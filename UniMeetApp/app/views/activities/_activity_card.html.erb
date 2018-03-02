@@ -1,3 +1,4 @@
+<div id="card">
 <div class="card border border-dark p-1" ontouchstart="this.classList.toggle('hover');" >
       <%= display_activity_image(activity, :medium, "card-img-top") %>
         <div class="card-body">
@@ -15,5 +16,6 @@
       <% else %>
         <%= link_to "Edit", {action: "show_edit_activity_card", :controller=>"pages", id: activity.id, :remote => true, method: :get }, {class: 'btn btn-primary'} %>
       <% end %>
+</div>
 </div>
 
