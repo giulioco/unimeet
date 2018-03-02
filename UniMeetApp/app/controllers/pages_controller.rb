@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  protect_from_forgery :except => :like_activity
   layout 'application'
 	before_action :authenticate_user! 
   def home
@@ -40,13 +41,26 @@ class PagesController < ApplicationController
     @user = current_user
     @activity = Activity.find(params[:id])
     @user.like_activity!(@activity)
+    @all = Activity.all
+    @notWanted = Activity.where(id: Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id})).or(Activity.where(id: Activity.joins(:likes).where({"likes.user_id" => current_user.id}).where.not("likes.user_likes_activity" => nil)))
+    @queue = @all - @notWanted
+    @activity = @queue.first()
+    respond_to do |format|               
+      format.js
+    end
   end
 
   def dislike_activity
-    @user = current_user
-    @like = @user.likes.find_by_activity_id(params[:id])
-    @activity = Activity.find(params[:id])
-    @user.dislike_activity!(@activity)
+  @user = current_user
+  @activity = Activity.find(params[:id])
+  @user.dislike_activity!(@activity)
+  @all = Activity.all
+  @notWanted = Activity.where(id: Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id})).or(Activity.where(id: Activity.joins(:likes).where({"likes.user_id" => current_user.id}).where.not("likes.user_likes_activity" => nil)))
+  @queue = @all - @notWanted
+  @activity = @queue.first()
+  respond_to do |format|               
+      format.js 
+    end
   end
 
   def like_profile
@@ -61,4 +75,5 @@ class PagesController < ApplicationController
     @like = @activity.likes.find_by_activity_id(params[:id])
     @user.dislike_profile!(@user, @activity)
   end
+
 end
