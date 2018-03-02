@@ -104,4 +104,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def unmatch_activity
+
+  end
+
+  def join_activity
+
+  end
+
 end

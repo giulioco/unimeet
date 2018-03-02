@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   
   post 'pages/like_activity' => 'activities/like_activity'
   post 'pages/dislike_activity' => 'activities/dislike_activity'
+  post 'pages/unmatch_activity' => 'pages/unmatch_activity'
+  post 'pages/join_activity' => 'pages/join_activity'
+  post 'pages/dislike_activity' => 'activities/dislike_activity'
   post 'pages/like_profile' => 'users/like_profile'
   post 'pages/dislike_profile' => 'users/dislike_profile'
   get  'pages/home_activity_perspective' => 'pages#home_activity_perspective'
@@ -28,6 +31,8 @@ Rails.application.routes.draw do
   get 'pages/show_profile_card' => 'pages#show_profile_card'
   get 'pages/like_profile' => 'pages/show_profile_card'
   get 'pages/dislike_profile' => 'pages/show_profile_card'
+  get 'pages/unmatch_activity' => 'pages/unmatch_activity'
+  get 'pages/join_activity' => 'pages/join_activity'
 
 
   devise_for :users
