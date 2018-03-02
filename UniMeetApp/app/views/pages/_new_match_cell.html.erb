@@ -1,0 +1,11 @@
+<%= link_to({action: "show_card", controller: "pages", id: activity.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+	<div class= "nav flex-row activity-row p-2 text-dark">
+		<div class = "col-2 p-0">
+		<%= display_activity_image(activity, :thumb, "rounded-circle") %>
+		</div>
+		<div class = "col-10">
+			<h4><%= activity.name%></h4>
+			<p><%= activity.description%></p>
+		</div>
+	</div>
+<% end %>

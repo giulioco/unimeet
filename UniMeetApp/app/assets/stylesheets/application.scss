@@ -191,6 +191,23 @@ a.owned-activities-links {
     }
 }
 
+#canvas {
+  display: block;
+  position: fixed;
+  z-index:100;
+  pointer-events: none;
+  background:transparent;
+}
+
+.modal.fade{
+  opacity:1;
+}
+.modal.fade .modal-dialog {
+   -webkit-transform: translate(0);
+   -moz-transform: translate(0);
+   transform: translate(0);
+}
+
 *[data-imagedrop] {
     margin-left:auto;
     margin-right:auto;

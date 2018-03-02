@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require dropzone
 //= require imagedrop
+//= require confetti
 //= require_tree .
 ImageDrop.checkFileType = function(file) {
       var ext, fileTypes;
