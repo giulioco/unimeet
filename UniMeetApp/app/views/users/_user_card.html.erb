@@ -13,6 +13,10 @@
 
 <!-- Buttons -->
 <div class="row justify-content-center mt-2">
-            <%= link_to "Dislike", {action: "dislike_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
-            <%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success ml-2'} %>
+    <% if user.matches.exists?(user_id: user.id, activity_id: session[:current_activity_id]) %>
+        <%= link_to "Unmatch", {action: "unmatch_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger'} %>
+    <% else %>
+        <%= link_to "Dislike", {action: "dislike_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
+        <%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success ml-2'} %>
+    <% end %>
 </div>

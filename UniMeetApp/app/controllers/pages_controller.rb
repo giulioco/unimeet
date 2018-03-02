@@ -112,4 +112,8 @@ class PagesController < ApplicationController
 
   end
 
+  def unmatch_profile
+
+  end
+
 end
