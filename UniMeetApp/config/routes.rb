@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'pages/like_activity' => 'pages/show_card'
   get 'pages/dislike_activity' => 'pages/show_card'
   get 'pages/show_profile_card' => 'pages#show_profile_card'
+  get 'pages/like_profile' => 'pages/show_profile_card'
+  get 'pages/dislike_profile' => 'pages/show_profile_card'
 
 
   devise_for :users

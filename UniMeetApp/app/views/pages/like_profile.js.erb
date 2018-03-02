@@ -1,0 +1,9 @@
+$('#card-container')
+$('#card-container').slideToggle(500, function(){
+
+$('#card-container').html("<%= escape_javascript(render :partial => 'users/user_card', locals: { user: @user }, :remote => true) %>");
+	
+});
+
+
+$('#card-container').slideDown();

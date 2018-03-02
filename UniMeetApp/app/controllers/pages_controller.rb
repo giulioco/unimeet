@@ -74,6 +74,14 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @activity = Activity.find(session[:current_activity_id])
     @user.like_profile!(@user, @activity)
+    all = User.all
+    notWanted = User.where(id: User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]})).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) 
+    queue = all - notWanted 
+    nextUserInQueue = queue.first()
+    puts nextUserInQueue.id 
+    respond_to do |format|               
+      format.js 
+    end
   end
 
   def dislike_profile
@@ -81,6 +89,13 @@ class PagesController < ApplicationController
     @activity = Activity.find(session[:current_activity_id])
     @like = @activity.likes.find_by_activity_id(params[:id])
     @user.dislike_profile!(@user, @activity)
+    all = User.all
+    notWanted = User.where(id: current_user.id).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) 
+    queue = all - notWanted 
+    nextUserInQueue = queue.first() 
+    respond_to do |format|               
+      format.js 
+    end
   end
 
 end
