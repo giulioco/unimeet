@@ -1,22 +1,33 @@
-<div class = "text-white">
-  <h2>Resend confirmation instructions</h2>
-  <p>Please enter your email below to resend the confirmation instructions.</p>
+<div class = "continer">
+  
+<!-- Subtitle -->
+  <div class="sub-title row justify-content-center">
+    <h2>Resend Confirmation Instructions</h2>
+  </div>
+  <div class=" row justify-content-center text-light">
+        <h3>Please enter your email below to resend the confirmation instructions.</h3>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+    
+    
+    <div class="form-group row pt-2">
+      <label class="col-3 col-form-label">Email: </label>
+      <div class="col-7">
+        <%= f.email_field :email, placeholder: "email@ucsc.edu",  autofocus: true, autocomplete: "email", class: "form-control", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
+    </div>
+  
+    <div class="action row justify-content-center">
+      <%= f.submit "Resend confirmation instructions" %>
+    </div>
+  <% end %>
+  
+  <div class="row pt-2">
+    <div class="col-3"></div>
+    <div class="col-7">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
 </div>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="form-group row">
-  <div class="col-2">
-    <%= f.email_field :email, placeholder: "email@ucsc.edu",  autofocus: true, autocomplete: "email", class: "form-control", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
-  </div>
-
-  <div class="action row justify-content">
-  <div class="col-3">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

@@ -1,8 +1,11 @@
 <div class="container">
+  
+<!-- Subtitle -->
   <div class="sub-title row justify-content-center">
     <h2><span class="font-weight-bold">Sign</span> Up</h2>
   </div>
   
+<!-- Errors -->
   <div class="row">
     <div class="col-3"></div>
     <div class="col-7">
@@ -11,49 +14,51 @@
       <div class="errors"><%= devise_error_messages! %></div>
     </div>
   </div>
-  
+<!-- Form -->
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    
+  <!-- Name Row -->
     <div class="form-group row">
       <label class="col-3 col-form-label">First Name: </label>
-      <div class="col-7">
+      <div class="col-3">
           <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
-    </div>
-  
-    <div class="form-group row">
-      <label class="col-3 col-form-label">Last Name: </label>
-      <div class="col-7">
+      <label class="col-1 col-form-label pr-0 pl-0">Last Name: </label>
+      <div class="col-3">
           <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control" %>
       </div>
     </div>
-  
+    
+  <!-- Email Row -->
     <div class="form-group row">
       <label class="col-3 col-form-label">Email: </label>
       <div class="col-7">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
     </div>
-  
+    
+  <!-- Password Row -->  
     <div class="form-group row">
       <label class="col-3 col-form-label">Password: </label>
       <div class="col-7">
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
     </div>
-    
+   
+  <!-- Password Confirmation Row --> 
     <div class="form-group row">
       <label class="col-3 col-form-label">Confirm Password: </label>
       <div class="col-7">
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
     </div>
-  
+    
+  <!-- Button -->
      <div class="action row justify-content-center">
        <%= f.submit "Sign Up" %>
     </div>
   <% end %>
   
+<!-- Shared Links -->
   <div class="row">
     <div class="col-3"></div>
     <div class="col-7">
