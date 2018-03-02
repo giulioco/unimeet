@@ -52,7 +52,7 @@
 <!-- Card -->
 		<div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
 			<div class = "col-5 mx-auto" >
-				<div id="card border border-dark swipe-card  card-container">
+				<div id="card-container">
 					<% all = Activity.all%>
 					<% notWanted = Activity.where(id: Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id})).or(Activity.where(id: Activity.joins(:likes).where({"likes.user_id" => current_user.id}).where.not("likes.user_likes_activity" => nil))) %>
 					<% queue = all - notWanted %>

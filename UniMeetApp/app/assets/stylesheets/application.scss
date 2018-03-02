@@ -30,9 +30,9 @@ $h2-font-size: 3em;
 @import "bootstrap";
 
 body {
-    background-color: $light;
-
+    background-color: $white;
 }
+
 body.new {
     background: image-url("Background1-min.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -41,6 +41,9 @@ body.new {
     -o-background-size: cover;
 }
 
+body.home_activity_perspective {
+    background-color: $light;
+}
 
 #main-title {
     color: $dark;
@@ -103,38 +106,38 @@ body.pages.home {
 
 /* SIDEBAR */
 .sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 0;
 }
 
 .sidebar-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 84px; /* Height of navbar */
-  height: calc(100vh - 84px);
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  &::-webkit-scrollbar { 
-    display: none; 
+    border-right: 2px solid $primary;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 84px; /* Height of navbar */
+    height: calc(100vh - 84px);
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    &::-webkit-scrollbar { 
+        display: none; 
     }
 }
 
 .vertical-center {
-
   display: flex;
   align-items: center;
 }
 
 .activity-row {
-    border-right: 2px solid $primary;
+    outline-right: 2px solid $primary;
     
     &:hover {
         box-shadow: 0 0 15px 0 hsla(0,0%,51%,.22);
-        border-right-color: $secondary;
+        outline-right-color: $secondary;
         background-color: lighten($light, 15%)
     }
 }
