@@ -52,14 +52,14 @@ class User < ApplicationRecord
   end
 
 #there's never going to be a match through dislike activity
-  def dislike_activity(activity)
+  def dislike_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: false) 
     else self.likes.create!(user_id: self.id, activity_id: activity.id, user_likes_activity: false)
     end
   end
 
-  def like_profile(profile, activity)
+  def like_profile!(profile, activity)
     if activity.likes.exists?(user_id: profile.id, activity_id: activity.id)
       like = activity.likes.find_by(user_id: profile.id, activity_id: activity.id)
       like.update(activity_likes_user: true) 
