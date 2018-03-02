@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
-  protect_from_forgery :except => :like_activity
   layout 'application'
 	before_action :authenticate_user! 
+  
+
+  
   def home
     @this_user = current_user
     @activity = Activity.find(88)
