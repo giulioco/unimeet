@@ -13,12 +13,12 @@
               </ul>
           </div>
   <% end %>
-        <div data-imagedrop class="card-img-top" style='background-image: url(
-  <% if url != activities_new_path %>
-            <%= activity_image_url(:medium)%>)'
-  <% else %>
-            <%= activity_image_drop_url %>)'
-  <% end %>>
+        <div data-imagedrop style='background-image: url(
+        <% if url != activities_new_path %>
+          <%= activity_image_url(:medium)%>)'>
+        <% else %>
+          <%= activity_image_drop_url %>)'>
+        <% end %> 
           <%= f.file_field :image %>
         </div>
         <div class="field form-group">
@@ -28,7 +28,7 @@
           <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
         </div>
         <div class="field form-group">
-          <%= f.select :max_size, [['Max Size', 0], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]%>
+          <%= f.select(:max_size, [['Max Size', 0], ['2', 2], ['3', 3], ['4', 4], ['5', 5]], {}, { :class => "form-control" })%>
         </div>
   </div>
 </div>
