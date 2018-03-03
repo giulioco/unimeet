@@ -60,10 +60,12 @@ class User < ApplicationRecord
   end
 
   def like_profile!(profile, activity)
+    itsMatch = false
     if activity.likes.exists?(user_id: profile.id, activity_id: activity.id)
       like = activity.likes.find_by(user_id: profile.id, activity_id: activity.id)
       like.update(activity_likes_user: true) 
       if like.user_likes_activity
+        itsMatch = true
         if not activity.matches.exists?(user_id: profile.id, activity_id: activity.id)
           #it's a new match!
           activity.matches.create!(user_id: profile.id, activity_id: activity.id)

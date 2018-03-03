@@ -79,12 +79,18 @@ class PagesController < ApplicationController
   def like_profile
     @user = User.find(params[:id])
     @activity = Activity.find(session[:current_activity_id])
-    @user.like_profile!(@user, @activity)
-    all = User.all
-    notWanted = User.where(id: User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]})).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) 
-    queue = all - notWanted 
-    nextUserInQueue = queue.first()
-    puts nextUserInQueue.id 
+    @itsMatch = @user.like_profile!(@user, @activity)
+    @all = User.all
+    @notWanted = User.where(id: User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]})).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) 
+    @queue = @all - @notWanted 
+    @oldUser = @user
+    @user = @queue.first()
+    puts @user.id 
+    if @itsMatch
+      respond_to do |format|           
+        format.js { render :action => "match_animation_activity" }
+      end
+    end
     respond_to do |format|               
       format.js 
     end
