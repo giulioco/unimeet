@@ -11,4 +11,10 @@ class Activity < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/activity_avatar.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   #has_many :members
+
+  def self.queue(user_id)
+    member_of = Activity.joins(:memberships).where(memberships: {user_id: user_id})
+    already_liked = Activity.joins(:likes).where(likes: {user_id: user_id, user_likes_activity: [true, false]})
+    where.not(id: member_of).where.not(id: already_liked)
+  end
 end

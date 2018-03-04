@@ -53,9 +53,7 @@
 		<div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
 			<div class = "col-5 mx-auto" >
 				<div id="card-container">
-					<% all = Activity.all%>
-					<% notWanted = Activity.where(id: Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id})).or(Activity.where(id: Activity.joins(:likes).where({"likes.user_id" => current_user.id}).where.not("likes.user_likes_activity" => nil))) %>
-					<% queue = all - notWanted %>
+					<% queue = Activity.queue(current_user.id) %>
 					<% if queue.count > 0 %>
 						<% nextActivityInQueue = queue.first() %>
 						<%= render 'activities/activity_card', activity: nextActivityInQueue%>
