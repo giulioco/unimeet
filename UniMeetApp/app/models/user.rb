@@ -82,6 +82,16 @@ class User < ApplicationRecord
     end
   end
 
+  def join_activity!(activity_id)
+    self.memberships.create!(user_id: self.id, activity_id: activity_id, ownership: false)
+  end
+
+  def leave_activity!(activity_id)
+    membership = self.memberships.where(user_id: self.id, activity_id: activity_id, ownership: false)
+    puts membership
+    membership.delete
+  end
+
   def interest_list
     interests.collect { |i| i.interest_name }.join(', ')
   end

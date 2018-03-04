@@ -146,7 +146,19 @@ class PagesController < ApplicationController
   end
 
   def join_activity
+    @activity = Activity.find(params[:id])
+    current_user.join_activity!(params[:id])
+    respond_to do |format|           
+      format.js { render :action => "show_card" }
+    end
+  end
 
+  def leave_activity
+    @activity = Activity.find(params[:id])
+    current_user.leave_activity!(params[:id])
+    respond_to do |format|           
+      format.js { render :action => "show_card" }
+    end
   end
 
   def unmatch_profile

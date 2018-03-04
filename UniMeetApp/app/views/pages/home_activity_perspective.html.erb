@@ -56,18 +56,6 @@
         <% membersOfActivity = User.where(id: User.joins(:memberships).where("activity_id = ?", session[:current_activity_id])) %>
         <% usersIAlreadyLiked = User.where(id: User.joins(:likes).where("activity_id = ? AND activity_likes_user IS NOT NULL", session[:current_activity_id])) %>
         <% queue = all - membersOfActivity - usersIAlreadyLiked %>
-        <% puts "Activity ID: " %>
-        <% puts session[:current_activity_id]%>
-        <% puts "Here's the users I already liked: " %>
-        <% usersIAlreadyLiked.each do |element| %>
-        <% puts element.id %>
-        <% end %>
-        <% puts "Here's the users we should show: " %>
-        <% queue.each do |element| %>
-        <% puts element.id %>
-        <% end %>
-        <% puts "Here's the first user we should show: " %>
-        <% puts queue.first.id %>
         <% if queue.count > 0 %>
           <% nextUserInQueue = queue.first %>
           <%= render "users/user_card", user: nextUserInQueue %>

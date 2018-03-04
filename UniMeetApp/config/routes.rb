@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'pages/like_activity' => 'activities/like_activity'
   post 'pages/dislike_activity' => 'activities/dislike_activity'
   post 'pages/unmatch_activity' => 'pages/unmatch_activity'
+  post 'pages/leave_activity' => 'pages/leave_activity'
   post 'pages/join_activity' => 'pages/join_activity'
   post 'pages/unmatch_profile' => 'pages/unmatch_profile'
   post 'pages/dislike_activity' => 'activities/dislike_activity'
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   get 'pages/unmatch_activity' => 'pages/unmatch_activity'
   get 'pages/join_activity' => 'pages/join_activity'
   get 'pages/unmatch_profile' => 'pages/unmatch_profile'
+  get 'pages/leave_activity' => 'pages/leave_activity'
 
 
   devise_for :users
