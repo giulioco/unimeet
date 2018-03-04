@@ -65,10 +65,16 @@
             canvas.height = H;
         });
 
-    }).delay(3000).queue(function() {
+    }).delay(3000).queue(function() {   
+        $(document).on('show.bs.modal','#myModal', function () {
+            $('.modal .modal-dialog').attr('class', 'modal-dialog tada animated');
+        });
+        $(document).on('hide.bs.modal','#myModal', function () {
+            $('.modal .modal-dialog').attr('class', 'modal-dialog lightSpeedOut animated');
+        });
+        $('#myModal').modal('show');
         StopConfetti();
         DeactivateConfetti();
-        $('#myModal').modal('show');
         $('#card-container').slideToggle(600, function(){
         $('#card-container').html("<%= escape_javascript(render :partial => 'users/user_card', locals: { user: @user }, :remote => true) %>");
         //var $newMatch = "<%= link_to({action: 'show_card', controller: 'pages', id: @activity.id, method: :get, :remote => true}, class: 'nav-link p-0') do %><div class= 'nav flex-row activity-row p-2 text-dark'><div class = 'col-2 p-0'><%= display_activity_image(@activity, :thumb, 'rounded-circle') %></div><div class = 'col-10'><h4><%= @activity.name%></h4><p><%= @activity.description%></p></div></div><% end %>";
@@ -226,10 +232,3 @@
         };
     })();
 })();
-
-$('#myModal').on('show.bs.modal', function () {
-      $('.modal .modal-dialog').attr('class', 'modal-dialog tada animated');
-});
-$('#myModal').on('hide.bs.modal', function () {
-      $('.modal .modal-dialog').attr('class', 'modal-dialog lightSpeedOut animated');
-});

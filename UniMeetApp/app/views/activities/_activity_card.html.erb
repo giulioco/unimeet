@@ -12,11 +12,11 @@
 <div class="row justify-content-center mt-2">
       <% if activity.project_owner_id != current_user.id  %>
         <% if activity.matches.exists?(user_id: current_user.id, activity_id: activity.id) %>
-         <%= link_to "Unmatch", {action: "unmatch_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
-        <%= link_to "Join", {action: "join_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-primary ml-2'} %>
+          <%= link_to "Unmatch", {action: "unmatch_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
+          <%= link_to "Join", {action: "join_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-primary ml-2'} %>
         <% else %>
-        <%= link_to "Dislike", {action: "dislike_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
-  			<%= link_to "Like", {action: "like_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-success ml-2'} %>
+          <%= link_to "Dislike", {action: "dislike_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
+  			  <%= link_to "Like", {action: "like_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-success ml-2'} %>
         <% end %>
       <% else %>
         <%= link_to "Edit", {action: "show_edit_activity_card", :controller=>"pages", id: activity.id, :remote => true, method: :get }, {class: 'btn btn-primary'} %>
