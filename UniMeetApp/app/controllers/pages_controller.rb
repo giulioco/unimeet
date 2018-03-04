@@ -99,17 +99,18 @@ class PagesController < ApplicationController
     @membersOfActivity = User.where(id: User.joins(:memberships).where("activity_id = ?", session[:current_activity_id])) 
     @usersIAlreadyLiked = User.where(id: User.joins(:likes).where("activity_id = ? AND activity_likes_user IS NOT NULL", session[:current_activity_id])) 
     @queue = @all - @membersOfActivity - @usersIAlreadyLiked 
-    @oldUser = @user
-    @user = @queue.first()
     puts @user.id 
     if @queue.count > 0 
+      @oldUser = @user
+      @user = @queue.first()
       if @itsMatch
         respond_to do |format|           
           format.js { render :action => "match_animation_activity" }
         end
-      end
-      respond_to do |format|               
-        format.js 
+      else
+        respond_to do |format|               
+          format.js 
+        end
       end
     else 
       @type = 'user'
@@ -155,7 +156,9 @@ class PagesController < ApplicationController
 
   def leave_activity
     @activity = Activity.find(params[:id])
-    current_user.leave_activity!(params[:id])
+    @membership = Membership.where(user_id: current_user.id, activity_id: params[:id], ownership: false).first
+    @membership.destroy(@membership.id)
+    #current_user.leave_activity!(params[:id])
     respond_to do |format|           
       format.js { render :action => "show_card" }
     end

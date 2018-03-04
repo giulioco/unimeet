@@ -13,6 +13,13 @@ class User < ApplicationRecord
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   
+  def self.queue(current_activity_id)
+    members = User.joins(:memberships).where(memberships: {activity_id: current_activity_id})
+    already_liked = User.joins(:likes).where(likes: {activity_id: current_activity_id, activity_likes_user: [true, false]})
+
+    where.not(id: members).where.not(id: already_liked)
+  end
+
   def update_with_password(params={})
     current_password = params.delete(:current_password)
 
@@ -73,6 +80,7 @@ class User < ApplicationRecord
       end
     else activity.likes.create!(user_id: profile.id, activity_id: activity.id, activity_likes_user: true)
     end
+    return itsMatch
   end
 
   def dislike_profile!(profile, activity)
@@ -87,9 +95,8 @@ class User < ApplicationRecord
   end
 
   def leave_activity!(activity_id)
-    membership = self.memberships.where(user_id: self.id, activity_id: activity_id, ownership: false)
-    puts membership
-    membership.delete
+    membership = Membership.where(user_id: current_user.id, activity_id: activity_id, ownership: false)
+    Membership.destroy(membership.id)
   end
 
   def interest_list

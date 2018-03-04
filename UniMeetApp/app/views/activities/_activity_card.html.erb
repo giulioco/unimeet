@@ -13,7 +13,7 @@
       <% if activity.project_owner_id != current_user.id  %>
         <% if activity.matches.exists?(user_id: current_user.id, activity_id: activity.id) %>
           <% if activity.memberships.exists?(user_id: current_user.id, activity_id: activity.id) %>
-            <%= link_to "Leave", {action: "leave_activity", :controller=>"pages", id: activity.id, :remote => true, method: :get }, {class: 'btn btn-warning'} %>
+            <%= link_to "Leave", {action: "leave_activity", controller: "pages", id: activity.id, :remote => true},  {class: 'btn btn-warning'} %>
           <% else %>
             <%= link_to "Unmatch", {action: "unmatch_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
             <%= link_to "Join", {action: "join_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-primary ml-2'} %>

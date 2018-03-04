@@ -52,10 +52,7 @@
 
       <div class = "col-5 mx-auto">
         <div id="card-container">
-        <% all = User.all%>
-        <% membersOfActivity = User.where(id: User.joins(:memberships).where("activity_id = ?", session[:current_activity_id])) %>
-        <% usersIAlreadyLiked = User.where(id: User.joins(:likes).where("activity_id = ? AND activity_likes_user IS NOT NULL", session[:current_activity_id])) %>
-        <% queue = all - membersOfActivity - usersIAlreadyLiked %>
+        <% queue = User.queue(session[:current_activity_id]) %>
         <% if queue.count > 0 %>
           <% nextUserInQueue = queue.first %>
           <%= render "users/user_card", user: nextUserInQueue %>
