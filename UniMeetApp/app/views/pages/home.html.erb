@@ -56,31 +56,17 @@
 					<% all = Activity.all%>
 					<% notWanted = Activity.where(id: Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id})).or(Activity.where(id: Activity.joins(:likes).where({"likes.user_id" => current_user.id}).where.not("likes.user_likes_activity" => nil))) %>
 					<% queue = all - notWanted %>
-					<% nextActivityInQueue = queue.first() %>
-					<% puts nextActivityInQueue.id %>
-					<%= render 'activities/activity_card', activity: nextActivityInQueue%>
+					<% if queue.count > 0 %>
+						<% nextActivityInQueue = queue.first() %>
+						<%= render 'activities/activity_card', activity: nextActivityInQueue%>
+					<% else %>
+						<%= render 'pages/empty_deck', type: 'activity'%>
+					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
 	<% end %>
-	<!-- Modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-    	<!-- Modal Header -->
-      <div class="modal-header">
-      	<h5 class="modal-title">New Match!</h5>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Congratulations, you have a new match!
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 

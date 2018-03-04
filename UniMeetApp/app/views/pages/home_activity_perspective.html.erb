@@ -55,8 +55,13 @@
         <% all = User.all%>
             <% notWanted = User.where(id: User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]})).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) %>
             <% queue = all - notWanted %>
-            <% nextUserInQueue = queue.first() %>
-        <%= render "users/user_card", user: nextUserInQueue %>
+            <% if queue.count > 0 %>
+              <% nextUserInQueue = queue.first() %>
+              <%= render "users/user_card", user: nextUserInQueue %>
+            <% else %>
+              <%= render 'pages/empty_deck', type: 'user'%>
+          <% end %>
+           
         </div>
       </div>
     </div>
