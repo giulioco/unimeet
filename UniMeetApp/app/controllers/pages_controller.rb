@@ -134,9 +134,17 @@ class PagesController < ApplicationController
   def unmatch_activity
     @oldId = params[:id]
     Match.where(user_id: current_user.id, activity_id: params[:id]).destroy_all
-    @nextInQueue = Activity.queue(current_user.id).first
-    respond_to do |format|           
-      format.js 
+    @queue = Activity.queue(current_user.id)
+    if @queue.count > 0
+      @nextInQueue = @queue.first
+      respond_to do |format|           
+        format.js 
+      end
+    else 
+      @type = 'activity'
+      respond_to do |format|           
+        format.js { render :action => "empty_deck_after_unmatch" }
+      end
     end
   end
 
@@ -160,9 +168,17 @@ class PagesController < ApplicationController
   def unmatch_profile
     @oldId = params[:id]
     Match.where(user_id: params[:id], activity_id: session[:current_activity_id]).destroy_all
-    @nextInQueue = User.queue(session[:current_activity_id]).first
-    respond_to do |format|           
-      format.js 
+    @queue = User.queue(session[:current_activity_id])
+    if @queue.count > 0
+      @nextInQueue = @queue.first
+      respond_to do |format|           
+        format.js 
+      end
+    else 
+      @type = 'user'
+      respond_to do |format|           
+        format.js { render :action => "empty_deck_after_unmatch" }
+      end
     end
   end
 

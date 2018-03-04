@@ -1,0 +1,6 @@
+$('a[href*="/pages/show_card?id=<%=@oldId%>&method=get"]').hide('slow', function(){ $target.remove();});
+$('#card-container')
+$('#card-container').slideToggle(500, function(){
+	$('#card-container').html("<%= escape_javascript(render :partial => 'pages/empty_deck', locals: { type: @type }, :remote => true) %>");
+});
+$('#card-container').slideDown();
