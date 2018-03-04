@@ -132,7 +132,12 @@ class PagesController < ApplicationController
   end
 
   def unmatch_activity
-
+    @activity = Activity.find(params[:id])
+    Match.where(user_id: current_user.id, activity_id: params[:id]).destroy_all
+    #current_user.leave_activity!(params[:id])
+    respond_to do |format|           
+      format.js { render :action => "show_card" }
+    end
   end
 
   def join_activity
@@ -153,12 +158,7 @@ class PagesController < ApplicationController
   end
 
   def unmatch_profile
-    @activity = Activity.find(params[:id])
-    Match.where(user_id: current_user.id, activity_id: params[:id]).destroy_all
-    #current_user.leave_activity!(params[:id])
-    respond_to do |format|           
-      format.js { render :action => "show_card" }
-    end
+
   end
 
 end
