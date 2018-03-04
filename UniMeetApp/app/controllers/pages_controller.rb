@@ -96,8 +96,9 @@ class PagesController < ApplicationController
     @activity = Activity.find(session[:current_activity_id])
     @itsMatch = @user.like_profile!(@user, @activity)
     @all = User.all
-    @notWanted = User.where(id: User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]})).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) 
-    @queue = @all - @notWanted 
+    @membersOfActivity = User.where(id: User.joins(:memberships).where("activity_id = ?", session[:current_activity_id])) 
+    @usersIAlreadyLiked = User.where(id: User.joins(:likes).where("activity_id = ? AND activity_likes_user IS NOT NULL", session[:current_activity_id])) 
+    @queue = @all - @membersOfActivity - @usersIAlreadyLiked 
     @oldUser = @user
     @user = @queue.first()
     puts @user.id 
@@ -124,8 +125,9 @@ class PagesController < ApplicationController
     @like = @activity.likes.find_by_activity_id(params[:id])
     @user.dislike_profile!(@user, @activity)
     @all = User.all
-    @notWanted = User.where(id: current_user.id).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) 
-    @queue = @all - @notWanted 
+    @membersOfActivity = User.where(id: User.joins(:memberships).where("activity_id = ?", session[:current_activity_id])) 
+    @usersIAlreadyLiked = User.where(id: User.joins(:likes).where("activity_id = ? AND activity_likes_user IS NOT NULL", session[:current_activity_id])) 
+    @queue = @all - @membersOfActivity - @usersIAlreadyLiked 
     if @queue.count > 0
       @nextUserInQueue = @queue.first() 
       respond_to do |format|               

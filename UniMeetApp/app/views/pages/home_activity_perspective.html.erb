@@ -53,14 +53,27 @@
       <div class = "col-5 mx-auto">
         <div id="card-container">
         <% all = User.all%>
-            <% notWanted = User.where(id: User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]})).or(User.where(id: User.joins(:likes).where({"likes.activity_id" => session[:current_activity_id]}).where.not("likes.activity_likes_user" => nil))) %>
-            <% queue = all - notWanted %>
-            <% if queue.count > 0 %>
-              <% nextUserInQueue = queue.first() %>
-              <%= render "users/user_card", user: nextUserInQueue %>
-            <% else %>
-              <%= render 'pages/empty_deck', type: 'user'%>
-          <% end %>
+        <% membersOfActivity = User.where(id: User.joins(:memberships).where("activity_id = ?", session[:current_activity_id])) %>
+        <% usersIAlreadyLiked = User.where(id: User.joins(:likes).where("activity_id = ? AND activity_likes_user IS NOT NULL", session[:current_activity_id])) %>
+        <% queue = all - membersOfActivity - usersIAlreadyLiked %>
+        <% puts "Activity ID: " %>
+        <% puts session[:current_activity_id]%>
+        <% puts "Here's the users I already liked: " %>
+        <% usersIAlreadyLiked.each do |element| %>
+        <% puts element.id %>
+        <% end %>
+        <% puts "Here's the users we should show: " %>
+        <% queue.each do |element| %>
+        <% puts element.id %>
+        <% end %>
+        <% puts "Here's the first user we should show: " %>
+        <% puts queue.first.id %>
+        <% if queue.count > 0 %>
+          <% nextUserInQueue = queue.first %>
+          <%= render "users/user_card", user: nextUserInQueue %>
+        <% else %>
+          <%= render 'pages/empty_deck', type: 'user'%>
+        <% end %>
            
         </div>
       </div>
