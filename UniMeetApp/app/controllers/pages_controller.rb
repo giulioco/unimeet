@@ -158,7 +158,12 @@ class PagesController < ApplicationController
   end
 
   def unmatch_profile
-
+    @oldId = params[:id]
+    Match.where(user_id: params[:id], activity_id: session[:current_activity_id]).destroy_all
+    @nextInQueue = User.queue(current_user.id).first
+    respond_to do |format|           
+      format.js 
+    end
   end
 
 end
