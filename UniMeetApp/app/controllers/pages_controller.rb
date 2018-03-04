@@ -91,7 +91,7 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @activity = Activity.find(session[:current_activity_id])
     @itsMatch = @user.like_profile!(@user, @activity)
-    @query = User.query(session[:current_activity_id])
+    @queue = User.query(session[:current_activity_id])
     if @queue.count > 0 
       @oldUser = @user
       @user = @queue.first()
@@ -117,7 +117,7 @@ class PagesController < ApplicationController
     @activity = Activity.find(session[:current_activity_id])
     @like = @activity.likes.find_by_activity_id(params[:id])
     @user.dislike_profile!(@user, @activity)
-    @query = User.query(session[:current_activity_id])
+    @queue = User.query(session[:current_activity_id])
     if @queue.count > 0
       @nextUserInQueue = @queue.first() 
       respond_to do |format|               
@@ -132,11 +132,11 @@ class PagesController < ApplicationController
   end
 
   def unmatch_activity
-    @activity = Activity.find(params[:id])
+    @oldId = params[:id]
     Match.where(user_id: current_user.id, activity_id: params[:id]).destroy_all
-    #current_user.leave_activity!(params[:id])
+    @nextInQueue = Activity.queue(current_user.id).first
     respond_to do |format|           
-      format.js { render :action => "show_card" }
+      format.js 
     end
   end
 
