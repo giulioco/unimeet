@@ -69,7 +69,7 @@
         <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%> 
       </a>
       <div class="dropdown-menu">
-        <%= link_to("View Profile", {action: "show_profile_card", controller: "pages", id: current_user.id, method: :get, :remote => true}, class: "dropdown-item") %>
+        <%= link_to("View Profile", {action: "show_profile_card", controller: "/pages", id: current_user.id, method: :get, :remote => true}, class: "dropdown-item") %>
         <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: "dropdown-item" %>
         <div class="dropdown-divider"></div>
         <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
