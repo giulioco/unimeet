@@ -117,7 +117,7 @@ class PagesController < ApplicationController
     @activity = Activity.find(session[:current_activity_id])
     @like = @activity.likes.find_by_activity_id(params[:id])
     @user.dislike_profile!(@user, @activity)
-    @queue = User.query(session[:current_activity_id])
+    @queue = User.queue(session[:current_activity_id])
     if @queue.count > 0
       @nextUserInQueue = @queue.first() 
       respond_to do |format|               
