@@ -1,6 +1,8 @@
-<div>
+<div class = "container">
   <div class = "row justify-content-md-center">
     <div class = "col-3 m-2">
+       <!-- This needs to work -->
+      <%#= render "users/user_card" %>
       <% if  @user==current_user %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

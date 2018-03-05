@@ -1,4 +1,4 @@
-<div class="card-flipper">
+<div class="card-flipper mx-auto">
     <div class="card border border-dark swipe-card m-0" onclick="flip()">
         <div class="front">
             <%= display_image(user, :medium, "card-img-top p-2") %>
@@ -12,11 +12,11 @@
             <div class="card-body py-0 px-2">
                 <h5 class = "card-title m-1"><%= user.first_name %></h5>
                 <h6 class = "card-text btn btn-warning"><%= user.major %></h6>
+                <p class = "card-text"><%= user.college_location %></p>
                 <% user.interests.each do |interest| %>
                     <p class="badge"><%= "#{interest.interest_name}" %></p>
                 <% end %>
-                <p class = "card-text activity-description"><%= user.bio %></p>
-                <p class = "card-text activity-description"><%= user.bio %></p>
+                <p class = "card-text"><%= user.bio %></p>
             </div>
         </div>
     </div>
