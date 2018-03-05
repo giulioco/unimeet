@@ -29,3 +29,7 @@ ImageDrop.checkFileType = function(file) {
         return true;
       }
     };
+    
+  function flip() {
+    $('.swipe-card').toggleClass('flipped');
+}

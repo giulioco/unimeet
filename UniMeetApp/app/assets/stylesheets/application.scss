@@ -25,7 +25,6 @@ $dark:          #1B435D;
 $h2-font-size: 3em;
 
 
-//forms
 
 @import "bootstrap";
 
@@ -51,6 +50,10 @@ body.home_activity_perspective {
         color: $secondary;
         text-decoration: none;
     }
+}
+
+nav {
+    height: 84px;
 }
 
 .form-group {
@@ -165,6 +168,7 @@ a.owned-activities-links {
     cursor: pointer;
 }
 
+// Cards
 .card-edit {
     -webkit-filter: brightness(100%);
     -webkit-transition: all .25s ease;
@@ -181,11 +185,8 @@ a.owned-activities-links {
         transition: all .25s ease;
     }
 }
-
 .swipe-card {
-    height: 600px;
-    width: 300px;
-    overflow: off;
+
     
     .activity-description {
         background: $light;
@@ -195,6 +196,61 @@ a.owned-activities-links {
     .card-title {
     }
 }
+
+//cards flip
+.card-flipper {
+    height: 600px;
+    width: 300px;
+    overflow: off;
+    
+    position: relative;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+.swipe-card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+.swipe-card div {
+    display: block;
+    width: 100%;
+
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.swipe-card .front {
+  
+}
+.swipe-card .back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.swipe-card.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}    
+
+
+
 
 #canvas {
   display: block;
@@ -230,4 +286,9 @@ a.owned-activities-links {
     width: 50%;
     bottom: 0%;
     left: 40%;
+}
+
+.border {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
