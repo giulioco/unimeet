@@ -1,15 +1,14 @@
 <div class="card-flipper mx-auto">
   <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
     <div class="front">
-      <%= display_activity_image(activity, :medium, "card-img-top p-2") %>
+      <%= display_activity_image(activity, :medium, "card-img-top") %>
       <div class="card-body py-0 px-2">
         <h5 class="card-title m-1"><%= activity.name %></h5>
-        <h5 class="card-title btn btn-dark"><%= capacity(activity) %></h5>
         <p class="card-text btn-light activity-description"><%= activity.description %></p>
       </div>
     </div>
     <div class="back">
-      
+      <h5 class="card-title btn btn-dark"><%= capacity(activity) %></h5>
     </div>
   </div>
 </div>

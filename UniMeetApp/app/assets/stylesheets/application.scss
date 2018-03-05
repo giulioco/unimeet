@@ -40,6 +40,12 @@ body.new {
     -o-background-size: cover;
 }
 
+body.home body.home_activity_perspective {
+    overflow-y: hidden;
+}
+
+
+
 body.home_activity_perspective {
     background-color: $light;
     transition:color 0.25s ease;
@@ -103,8 +109,8 @@ label {
 
 
 body.pages.home {
-    //overflow-y: hidden;
-   // height: 100vh;
+   overflow-y: hidden;
+   height: 100%;
 }
 
 
@@ -125,10 +131,15 @@ body.pages.home {
     top: 84px; /* Height of navbar */
     height: calc(100vh - 84px);
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
     &::-webkit-scrollbar { 
         display: none; 
     }
+}
+
+.tab-content {
+    height: 100%;
+    overflow-y: auto;
 }
 
 .vertical-center {
@@ -148,7 +159,6 @@ body.pages.home {
 
 .activity-description {
     border: 1px solid transparent;
-    padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
@@ -188,17 +198,29 @@ a.owned-activities-links {
 .swipe-card {
     .activity-description {
         background: $light;
-        max-height: 200px;
         overflow-y: hidden;
     }
     .card-title {
+
     }
+}
+
+.card-title {
+    height: 3vh;
+    font-size: 3vh;
+}
+
+.card-text {
+    max-height: 8vh;
+    font-size: 2vh;
+    margin-top: 1vh;
+    padding: .75rem;
 }
 
 //cards flip
 .card-flipper {
-    height: 37.5em;
-    width: 18.75em;
+    height: 55vh;
+    width: 40vh;
     overflow: off;
     
     position: relative;
