@@ -39,6 +39,9 @@ body.new {
     background-size: cover;
     -o-background-size: cover;
 }
+body.home body.home_activity_perspective {
+    overflow: hidden;
+}
 
 body.home body.home_activity_perspective {
     overflow-y: hidden;
@@ -132,8 +135,13 @@ body.pages.home {
     height: calc(100vh - 84px);
     overflow-x: hidden;
     overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
-    &::-webkit-scrollbar { 
-        display: none; 
+    
+    .tab-content {
+        height: 100%;
+        overflow-y: auto;
+        &::-webkit-scrollbar { 
+            display: none; 
+        }
     }
 }
 
