@@ -42,6 +42,7 @@ body.new {
 
 body.home_activity_perspective {
     background-color: $light;
+    transition:color 0.25s ease;
 }
 
 #main-title {
@@ -291,4 +292,8 @@ a.owned-activities-links {
 .border {
     margin-bottom: 1rem;
     margin-top: 1rem;
+}
+
+#changePass {
+    padding: 1rem;
 }
