@@ -25,7 +25,6 @@ class PagesController < ApplicationController
   end
 
   def show_edit_profile_card
-    @user = User.find(params[:id])
     respond_to do |format|               
       format.js
     end
