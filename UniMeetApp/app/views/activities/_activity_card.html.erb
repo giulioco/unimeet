@@ -22,7 +22,11 @@
             <%= link_to "Leave", {action: "leave_activity", controller: "pages", id: activity.id, :remote => true},  {class: 'btn btn-warning'} %>
           <% else %>
             <%= link_to "Unmatch", {action: "unmatch_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
-            <%= link_to "Join", {action: "join_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-primary ml-2'} %>
+            <% if activity.max_size == activity.team_count %>
+              <!-- ADD NEW BUTTON SAYING SEND NOTIFICATION WHEN MEMBERSHIP SPOT OPENS OR SOMETHING-->
+            <% else %>
+              <%= link_to "Join", {action: "join_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-primary ml-2'} %>
+            <% end %>
           <% end %>
         <% else %>
           <%= link_to "Dislike", {action: "dislike_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
