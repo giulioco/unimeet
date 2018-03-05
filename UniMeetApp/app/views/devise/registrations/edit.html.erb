@@ -80,18 +80,18 @@
     
     <div class="collapse" id="collapsePassword">
       <div class="card border border-dark">
-        <div class"card-body">
+        <div class"card-body" id="changePass">
           <div class="form-group">
             <label for="newpassword">New Password</label> <br />
-            <%= f.password_field :password, autocomplete: "off", autofocus: true, class: "form-control" %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
           </div>
           <div class="form-group">
             <label for="newpassword">Confirm Your New Password</label> <br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, class: "form-control" %>
           </div>
           <div class-"form-group">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "off" %>
+            <%= f.label :current_password %> <h6><small>(we need your current password to confirm your changes)</small></h6><br />
+            <%= f.password_field :current_password, autocomplete: "off", autofocus: true, class: "form-control" %>
           </div>
         </div>
       </div>
@@ -102,8 +102,6 @@
     </div>
   
     <% end %>
-    
-    <h3>Cancel my account</h3>
     
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
     
