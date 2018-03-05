@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'pages/show_card' => 'pages#show_card'
   get 'pages/show_edit_activity_card' => 'pages#show_edit_activity_card'
+  get 'pages/show_edit_profile_card' => 'pages#show_edit_profile_card'
   get 'pages/show_new_activity_card' => 'pages#show_new_activity_card'
   get 'pages/like_activity' => 'pages/show_card'
   get 'pages/dislike_activity' => 'pages/show_card'
