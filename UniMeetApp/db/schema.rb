@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220080512) do
+ActiveRecord::Schema.define(version: 20180305032317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "project_owner_id", null: false
+    t.bigint "project_owner_id"
     t.text "description", null: false
     t.datetime "recruitment_deadline"
     t.integer "max_size", null: false
-    t.text "activity_logo_url"
     t.string "requirements", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180220080512) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "team_count", default: 1
     t.index ["project_owner_id"], name: "index_activities_on_project_owner_id"
   end
 

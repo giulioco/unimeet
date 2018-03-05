@@ -3,6 +3,7 @@
       <%= display_activity_image(activity, :medium, "card-img-top") %>
         <div class="card-body">
         <h5 class="card-title btn btn-dark"><%= activity.name %></h5>
+        <h5 class="card-title btn btn-dark"><%= capacity(activity) %></h5>
         <p class="card-text btn-light activity-description"><%= activity.description %></p>
     </div>
 </div>

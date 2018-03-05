@@ -9,4 +9,7 @@ module ActivitiesHelper
     else @activity.image.url(size)
     end
   end
+  def capacity(activity)
+      activity.team_count.to_s + " / " + activity.max_size.to_s + " Members"
+  end
 end
