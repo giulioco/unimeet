@@ -67,6 +67,7 @@
         });
 
     }).delay(3000).queue(function() {
+        $('#myModal').modal('show');
         StopConfetti();
         DeactivateConfetti();
         $('#card-container').slideToggle(600, function(){
