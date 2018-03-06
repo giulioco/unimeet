@@ -1,12 +1,10 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
-  def notify_to 
-  end
   devise :database_authenticatable, :registerable, :confirmable,
   :recoverable, :rememberable, :trackable, :validatable
-  include ActivityNotification::Models
   acts_as_target
+
   has_many :interests, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :memberships, dependent: :destroy
