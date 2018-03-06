@@ -77,6 +77,14 @@ nav {
     }
 }
 
+.name_field {
+    margin-left: 2vh;
+}
+
+.name_field.last_name {
+    margin-right:2vh;
+}
+
 .notice, .alert, .errors{
     color: $secondary;
 }
@@ -275,10 +283,23 @@ a.owned-activities-links {
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
-}    
+}  
 
+@-webkit-keyframes spin {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(2520deg);
+    }
+}
 
-
+.swipe-card.rolled {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
 
 #canvas {
   display: block;

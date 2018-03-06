@@ -32,4 +32,8 @@ ImageDrop.checkFileType = function(file) {
     
   function flip() {
     $('.swipe-card').toggleClass('flipped');
-}
+};
+
+  function roll() {
+    $('.swipe-card').toggleClass('rolled');
+};

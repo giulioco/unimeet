@@ -12,9 +12,11 @@
               <%= f.file_field :image %>
             </div>
           <div class="card-body py-0 px-2">
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control" %>
-              <%= f.text_field :middle_name, autofocus: true, autocomplete: "off", class: "form-control" %>
-              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control" %>
+            <div class="row">
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control col-md name_field" %>
+              <%= f.text_field :middle_name, autofocus: true, autocomplete: "off", class: "form-control col-md name_field" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control col-md name_field last_name" %>
+            </div>
               <%= f.text_field :major, autofocus: true, autocomplete: "off", class: "card-text btn btn-secondary" %>
               <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control" %>
           </div>
