@@ -97,7 +97,7 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @activity = Activity.find(session[:current_activity_id])
     @itsMatch = @user.like_profile!(@user, @activity)
-    @queue = User.query(session[:current_activity_id])
+    @queue = User.queue(session[:current_activity_id])
     if @queue.count > 0 
       @oldUser = @user
       @user = @queue.first()
@@ -125,7 +125,8 @@ class PagesController < ApplicationController
     @user.dislike_profile!(@user, @activity)
     @queue = User.queue(session[:current_activity_id])
     if @queue.count > 0
-      @nextUserInQueue = @queue.first() 
+      @oldUser = @user
+      @user = @queue.first() 
       respond_to do |format|               
         format.js 
       end

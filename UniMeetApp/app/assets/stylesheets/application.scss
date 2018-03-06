@@ -237,8 +237,8 @@ a.owned-activities-links {
 .card-flipper {
     height: 55vh;
     width: 40vh;
-    overflow: off;
-    
+    overflow-x: off;
+    overflow-y: auto;
     position: relative;
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
@@ -296,6 +296,21 @@ a.owned-activities-links {
 
 .swipe-card.rolled {
     -webkit-animation-name: spin;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
+
+@-webkit-keyframes spinOpposite {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(-2520deg);
+    }
+}
+.swipe-card.unrolled {
+    -webkit-animation-name: spinOpposite;
     -webkit-animation-duration: 2800ms;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: ease;
@@ -383,3 +398,4 @@ a.owned-activities-links {
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
+
