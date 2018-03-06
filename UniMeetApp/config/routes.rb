@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get 'pages/join_activity' => 'pages/join_activity'
   get 'pages/unmatch_profile' => 'pages/unmatch_profile'
   get 'pages/leave_activity' => 'pages/leave_activity'
-
+  get 'pages/show_chat' => 'pages/show_chat'
 
   devise_for :users
   devise_scope :user do

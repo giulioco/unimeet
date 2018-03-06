@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @this_user = current_user
     session[:current_activity_id] = nil
     session[:is_swiping_as_user] = true
+    session[:is_swiping] = true
   end
 
   def show_card
@@ -31,6 +32,13 @@ class PagesController < ApplicationController
   end
 
   def show_edit_activity_card
+    @activity = Activity.find(params[:id])
+    respond_to do |format|               
+      format.js
+    end
+  end
+
+  def show_chat
     @activity = Activity.find(params[:id])
     respond_to do |format|               
       format.js

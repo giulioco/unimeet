@@ -24,6 +24,6 @@ module ApplicationHelper
   end
 
   def default_user_image_url
-    "/system/default/missing_user_avatar2.png"
+    "/system/default/user_avatar.png"
   end
 end
