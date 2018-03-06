@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :activities, through: :memberships, dependent: :destroy
 
-  has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.png"
+  has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.jpg"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   
   def self.queue(current_activity_id)
