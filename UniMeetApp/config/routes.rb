@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  notify_to :users
+  
   get 'activities/new' => 'activities#new'
   get 'activities/show.:id' => 'activities#show'
   post 'activities/new' => 'activities#create'
@@ -37,7 +39,6 @@ Rails.application.routes.draw do
   get 'pages/join_activity' => 'pages/join_activity'
   get 'pages/unmatch_profile' => 'pages/unmatch_profile'
   get 'pages/leave_activity' => 'pages/leave_activity'
-
 
   devise_for :users
   devise_scope :user do

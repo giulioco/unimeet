@@ -1,9 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
+  def notify_to 
+  end
   devise :database_authenticatable, :registerable, :confirmable,
   :recoverable, :rememberable, :trackable, :validatable
-
+  include ActivityNotification::Models
+  acts_as_target
   has_many :interests, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :memberships, dependent: :destroy
@@ -49,6 +52,8 @@ class User < ApplicationRecord
         itsMatch = true
         if not self.matches.exists?(user_id: self.id, activity_id: activity.id)
           self.matches.create!(user_id: self.id, activity_id: activity.id)
+          @match = Match.find(params[user_id: self.id, activity_id: activity.id])
+          #@match.notify :users, key: "match.create"
           #it's a match!
 
       end
