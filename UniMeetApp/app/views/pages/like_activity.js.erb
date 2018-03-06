@@ -1,10 +1,21 @@
-$('#card-container')
-$('#card-container').slideToggle(500, function(){
+$('.like_button').prop("disabled",true);
+$('.dislike_button').prop("disabled",true);
+$('#new').html("<%= escape_javascript(render :partial => 'pages/swipe_card', locals: { activity: @activity }, :remote => true) %>");
+$('.swipe-card').toggleClass('rolled');
+$('#old').toggleClass('hidden');
+$('#new').toggleClass('shown');
 
-$('#card-container').html("<%= escape_javascript(render :partial => 'activities/activity_card', locals: { activity: @activity }, :remote => true) %>");
-	
-});
+setTimeout(function() {
+	$('.like_button').prop("disabled",false);
+	$('.dislike_button').prop("disabled",false);
+	$('.swipe-card').removeClass('rolled');
+	$('#old').removeClass('hidden');
+	$('#new').removeClass('shown');
+	$('#old').attr("id","temp");
+	$('#new').attr("id","old");
+	$('#temp').attr("id","new");
+}, 2800);
 
+$('.like_button').attr("href", "/pages/like_activity?id=<%= @activity.id %>")
+$('.dislike_button').attr("href", "/pages/dislike_activity?id=<%= @activity.id %>")
 
-
-$('#card-container').slideDown();

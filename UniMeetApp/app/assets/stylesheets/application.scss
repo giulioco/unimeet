@@ -301,6 +301,47 @@ a.owned-activities-links {
     -webkit-animation-timing-function: ease;
 }
 
+#new {
+    opacity:0;
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+#new.shown {
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
+
+
+#old {
+    opacity:1;
+}
+
+@-webkit-keyframes hide {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
+#old.hidden {
+    -webkit-animation-name: hide;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
+
 #canvas {
   display: block;
   position: fixed;

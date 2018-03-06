@@ -1,0 +1,10 @@
+    <div class="front">
+      <%= display_activity_image(activity, :medium, "card-img-top") %>
+      <div class="card-body py-0 px-2">
+        <span class="card-title m-1"><%= activity.name %></span>
+        <p class="card-text btn-light activity-description"><%= activity.description %></p>
+      </div>
+    </div>
+    <div class="back">
+      <span class="card-title btn btn-dark"><%= capacity(activity) %></span>
+    </div>
