@@ -246,6 +246,9 @@ a.owned-activities-links {
         height: 200px;
         width: 200px;
     }
+    .circleBase {
+        margin-left: 83px;
+    }
 }
 .swipe-card {
     width: 100%;
@@ -432,13 +435,15 @@ a.owned-activities-links {
     text-overflow: clip;
     background: #000;
     text-decoration: none;
-    margin-left: 315px;
+    left: 50%;
+    margin-left: 133px;
     margin-top: -0.5em;
     position: absolute;
     &:hover {
         text-decoration: none;
     }
 }
+
 
 
 
@@ -455,4 +460,3 @@ a.owned-activities-links {
  height: 100%;
  width:100%;   
 }
-

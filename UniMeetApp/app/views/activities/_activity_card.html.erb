@@ -17,15 +17,15 @@
           <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
           <p class="card-text card-section bg-light"><%= activity.description %></p>
         </div>
+      </div>
     </div>
-      <div id="new">
-     </div>
+    <div id="new"></div>
   </div>
 </div>
 
 <!-- Buttons -->
 <div class="buttons">
-<div class="row justify-content-center mt-2">
+<div class="row justify-content-center mt-2 button-row">
       <% if activity.project_owner_id != current_user.id  %>
         <% if activity.matches.exists?(user_id: current_user.id, activity_id: activity.id) %>
           <% if activity.memberships.exists?(user_id: current_user.id, activity_id: activity.id) %>

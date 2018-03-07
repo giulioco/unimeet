@@ -70,7 +70,7 @@
 		</div>
 <!-- Card -->
 		<div id="main_view" class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
-			<div class = "col-5 mx-auto" >
+
 				<div id="card-container">
 					<% queue = Activity.queue(current_user.id) %>
 					<% if queue.count > 0 %>
@@ -92,7 +92,6 @@
 						<%= render 'pages/empty_deck', type: 'activity'%>
 					<% end %>
 				</div>
-			</div>
 		</div>
 	</div>
 	<% end %>
