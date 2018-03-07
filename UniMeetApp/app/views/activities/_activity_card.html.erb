@@ -4,16 +4,19 @@
 <div class="card-flipper mx-auto">
   <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
     <div id="old">
-    <div class="front">
-      <%= display_activity_image(activity, :medium, "card-img-top") %>
-      <div class="card-body py-0 px-2">
-        <span class="card-title m-1"><%= activity.name %></span>
-        <p class="card-text btn-light activity-description"><%= activity.description %></p>
+      <div class="front">
+        <%= display_activity_image(activity, :medium, "card-img-top") %>
+        <div class="card-body py-0 px-2">
+          <h5 class="card-title m-1"><%= activity.name %></h5>
+          <p class="card-text card-section bg-light" id="activity-description-front"><%= activity.description %></p>
+        </div>
       </div>
-    </div>
-    <div class="back">
-      <span class="card-title btn btn-dark"><%= capacity(activity) %></span>
-    </div>
+      <div class="back">
+        <div class="card-body py-0 px-2">
+          <h5 class="card-title m-1"><%= activity.name %></h5>
+          <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
+          <p class="card-text card-section bg-light"><%= activity.description %></p>
+        </div>
     </div>
       <div id="new">
      </div>
