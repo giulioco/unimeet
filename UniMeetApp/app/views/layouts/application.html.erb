@@ -63,13 +63,8 @@
   </ul>
 
   <ul class="nav justify-content-end">
-    <li class="nav-item dropdown ">
-      <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag ("notifications_icon.jpg")%>
-      </a>
-      <div class="dropdown-menu">
-        <%= render_notifications(@notifications) %>
-      </div>
+    <li class="nav-item">
+      <%= render_notifications_of current_user, index_content: :with_attributes, fallback: :default %>
     </li>
     <li class="nav-item dropdown mr-5">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
