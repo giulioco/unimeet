@@ -277,12 +277,15 @@ a.owned-activities-links {
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
+    transform-style: preserve-3d;
 }
 .swipe-card.flipped {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
 }  
 
 @-webkit-keyframes spin {
@@ -428,3 +431,13 @@ a.owned-activities-links {
     text-overflow: clip;
     background: $primary;
 }
+
+.card {
+        overflow-x: hidden;
+}
+
+#old, #new{
+ height: 100%;
+ width:100%;   
+}
+

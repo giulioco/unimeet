@@ -71,16 +71,21 @@
       </div>
     </div>
     
-    <div class="actions" align="center">
-      <%= f.submit "Update", class: "btn btn-primary" %>
-    </div>
+    
   
-    <% end %>
+
     
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
   
   </div>
+
+
+<!-- Buttons -->
+<div class="buttons">
+<div class="row justify-content-center mt-2 buttons">
+  <div class="actions" align="center">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+          <% end %>
+    </div>
 </div>
-
-
 </div>

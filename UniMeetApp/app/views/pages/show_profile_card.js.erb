@@ -1,1 +1,2 @@
+$('.buttons').remove();
 $('#card-container').html("<%= escape_javascript(render :partial => 'users/user_card', locals: { user: @user }, :remote => true) %>");
