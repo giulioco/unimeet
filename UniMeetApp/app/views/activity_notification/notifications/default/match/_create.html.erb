@@ -1,13 +1,19 @@
 <% content_for :notification_content, flush: true do %>
+  <% @match = Match.find_by(id: notification.notifiable_id) %>
+  <% matched_activity = Activity.find_by(id: @match.activity_id) %>
+  <% matched_user = User.find_by(id: @match.user_id) %>
   <div class='notification_list <%= notification.opened? ? "opened" : "unopened" %>'>
     <div class="notification_list_cover"></div>
-    <div class="list_image"></div>
+    <div class="list_image">
+      <% if current_user.id == @match.user_id %>
+        <%= display_activity_image(matched_activity, :thumb, "rounded-circle border border-light") %>
+      <% else %>
+        <%= display_image(matched_user, :thumb, "rounded-circle border border-light") %>
+      <% end %>
+    </div>
     <div class="list_text_wrapper">
       <p class="list_text">
         <% if notification.notifiable.present? %>
-          <% @match = Match.find_by(id: notification.notifiable_id) %>
-          <% matched_activity = Activity.find_by(id: @match.activity_id) %>
-          <% matched_user = User.find_by(id: @match.user_id) %>
           <% if current_user.id == @match.user_id %>
             You matched with
             <%= " activity \"" + matched_activity.name + "\"!" %>
@@ -138,7 +144,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #979797;
+    
   }
   .notification_list .list_text_wrapper {
     float: left;
