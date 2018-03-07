@@ -201,4 +201,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def back_to_swipe
+
+  end
+
 end

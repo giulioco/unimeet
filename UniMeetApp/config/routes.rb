@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'pages/unmatch_profile' => 'pages/unmatch_profile'
   get 'pages/leave_activity' => 'pages/leave_activity'
   get 'pages/show_chat' => 'pages/show_chat'
+   get 'pages/back_to_swipe' => 'pages/back_to_swipe'
 
   devise_for :users
   devise_scope :user do
