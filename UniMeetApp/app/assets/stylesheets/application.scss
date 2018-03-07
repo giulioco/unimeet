@@ -418,8 +418,7 @@ a.owned-activities-links {
     text-align: center;
     width:1em;
     height:1em;
-    right:37px;
-    top:-10px;
+
     cursor:pointer;
     z-index:1000;
     -webkit-box-sizing: content-box;
@@ -428,11 +427,14 @@ a.owned-activities-links {
     border: none;
     -webkit-border-radius: 1em;
     border-radius: 1em;
-    font-size: 1.5em;
+    font-size: 30px;
     -o-text-overflow: clip;
     text-overflow: clip;
     background: #000;
     text-decoration: none;
+    margin-left: 315px;
+    margin-top: -0.5em;
+    position: absolute;
     &:hover {
         text-decoration: none;
     }
