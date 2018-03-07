@@ -202,19 +202,37 @@ class PagesController < ApplicationController
   end
 
   def back_to_swipe
-    @queue = Activity.queue(current_user.id)
-    if @queue.count > 0 
-      @oldActivity = @activity
-      @activity = @queue.first()
-      respond_to do |format|               
-        format.js
+    puts "The user is swiping as an activity:"
+    puts session[:is_swiping_as_user].inspect
+    if session[:is_swiping_as_user] 
+      @queue = User.queue(session[:current_activity_id])
+      if @queue.count > 0 
+        @oldUser = @user
+        @user = @queue.first()
+        respond_to do |format|               
+          format.js { render :action => "back_to_swipe_profile" }
+        end
+      else 
+        @type = 'activity'
+        respond_to do |format|           
+          format.js { render :action => "empty_deck" }
+        end
       end
-    else 
-      @type = 'activity'
-      respond_to do |format|           
-        format.js { render :action => "empty_deck" }
-      end
-    end 
+    else
+      @queue = Activity.queue(current_user.id)
+      if @queue.count > 0 
+        @oldActivity = @activity
+        @activity = @queue.first()
+        respond_to do |format|               
+          format.js
+        end
+      else 
+        @type = 'activity'
+        respond_to do |format|           
+          format.js { render :action => "empty_deck" }
+        end
+      end 
+    end
   end
 
 end
