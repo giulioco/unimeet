@@ -46,6 +46,7 @@ gem 'paperclip', '~> 5.2', '>= 5.2.0'
 gem 'dropzonejs-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'render_anywhere', :require => false
 gem 'imagedrop'
 gem 'sprockets-rails', '2.3.3'
 group :development, :test do

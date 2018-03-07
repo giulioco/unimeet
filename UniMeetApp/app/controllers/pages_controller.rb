@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   layout 'application'
 	before_action :authenticate_user! 
+  protect_from_forgery except: :show_card
 
 
 

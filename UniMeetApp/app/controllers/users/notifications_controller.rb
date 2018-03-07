@@ -9,10 +9,11 @@ class Users::NotificationsController < ActivityNotification::NotificationsContro
   #   super
   # end
 
-  # GET /:target_type/:target_id/notifications/:id
-  # def show
-  #   super
-  # end
+  #GET /:target_type/:target_id/notifications/:id
+  def show
+    puts "hi"
+    super
+  end
 
   # DELETE /:target_type/:target_id/notifications/:id
   # def destroy
