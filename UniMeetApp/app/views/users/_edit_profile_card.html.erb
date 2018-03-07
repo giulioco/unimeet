@@ -5,7 +5,7 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 <div class="card-flipper mx-auto">
-    <div class="card border border-dark m-0" onclick="flip()">
+    <div class="card border border-dark m-0 swipe-card" onclick="flip()">
         <div class="front">
             <% @user = current_user %>
             <div data-imagedrop style='background-image: url(<%= image_url(:medium)%>)'>

@@ -32,4 +32,5 @@ ImageDrop.checkFileType = function(file) {
     
   function flip() {
     $('.swipe-card').toggleClass('flipped');
+    //('#card-flipper-change-scroll').css('overflow-y', 'auto' );
 };

@@ -231,7 +231,7 @@ a.owned-activities-links {
 .card-flipper {
     height: 415px;
     width: 300px;
-    overflow-x: off;
+    overflow-x: hidden;
     overflow-y: auto;
     position: relative;
     -webkit-perspective: 800px;
@@ -267,6 +267,7 @@ a.owned-activities-links {
     backface-visibility: hidden;
 }
 .swipe-card .front {
+   // overflow-x: hidden;
   
 }
 .swipe-card .back {
@@ -283,6 +284,7 @@ a.owned-activities-links {
     transform: rotateY( 180deg );
     transform-style: preserve-3d;
     transition: all 1s ease-in-out;
+    display: auto;
 }  
 
 @-webkit-keyframes spin {
