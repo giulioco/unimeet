@@ -5,10 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
-  name: Test_Activity
-  description: testing activity
-  max_size: 4
+  first_name: User
+  last_name: one
+  email: uone@ucsc.edu
 #
-two: {}
+two:
+  first_name: User
+  last_name: Two
+  email: utwo@ucsc.edu
 # column: value
