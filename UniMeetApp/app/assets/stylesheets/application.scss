@@ -221,22 +221,10 @@ a.owned-activities-links {
     }
 }
 
-.card-title {
-    height: 3vh;
-    font-size: 3vh;
-}
-
-.card-text {
-    max-height: 8vh;
-    font-size: 2vh;
-    margin-top: 1vh;
-    padding: .75rem;
-}
-
 //cards flip
 .card-flipper {
-    height: 55vh;
-    width: 40vh;
+    height: 415px;
+    width: 300px;
     overflow-x: off;
     overflow-y: auto;
     position: relative;
@@ -244,6 +232,14 @@ a.owned-activities-links {
     -moz-perspective: 800px;
     -o-perspective: 800px;
     perspective: 800px;
+    
+
+}
+@media( max-height: 600px) {
+     .card-flipper {
+        height: 100px;
+        width: 138.33;
+    }
 }
 .swipe-card {
     width: 100%;
@@ -430,10 +426,6 @@ a.owned-activities-links {
     -o-text-overflow: clip;
     text-overflow: clip;
     background: $primary;
-}
-
-.card {
-        overflow-x: hidden;
 }
 
 #old, #new{
