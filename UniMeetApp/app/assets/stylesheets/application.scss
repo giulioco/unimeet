@@ -39,9 +39,19 @@ body.new {
     background-size: cover;
     -o-background-size: cover;
 }
+body.home body.home_activity_perspective {
+    overflow: hidden;
+}
+
+body.home body.home_activity_perspective {
+    overflow-y: hidden;
+}
+
+
 
 body.home_activity_perspective {
     background-color: $light;
+    transition:color 0.25s ease;
 }
 
 #main-title {
@@ -65,6 +75,14 @@ nav {
             background-color: rgba(255,255,255,0.8);
         }
     }
+}
+
+.name_field {
+    margin-left: 2vh;
+}
+
+.name_field.last_name {
+    margin-right:2vh;
 }
 
 .notice, .alert, .errors{
@@ -102,8 +120,8 @@ label {
 
 
 body.pages.home {
-    //overflow-y: hidden;
-   // height: 100vh;
+   overflow-y: hidden;
+   height: 100%;
 }
 
 
@@ -124,10 +142,20 @@ body.pages.home {
     top: 84px; /* Height of navbar */
     height: calc(100vh - 84px);
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    &::-webkit-scrollbar { 
-        display: none; 
+    overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
+    
+    .tab-content {
+        height: 100%;
+        overflow-y: auto;
+        &::-webkit-scrollbar { 
+            display: none; 
+        }
     }
+}
+
+.tab-content {
+    height: 100%;
+    overflow-y: auto;
 }
 
 .vertical-center {
@@ -145,13 +173,17 @@ body.pages.home {
     }
 }
 
-.activity-description {
+.card-section {
     border: 1px solid transparent;
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
-    text-align: justify;
+    border-radius: 0.25rem;
+}
+
+#activity-description-front {
+    max-height: 78px; 
+    overflow-y: hidden;
 }
 
 a.owned-activities-links {
@@ -186,29 +218,30 @@ a.owned-activities-links {
     }
 }
 .swipe-card {
-
-    
     .activity-description {
         background: $light;
-        height: 200px;
         overflow-y: hidden;
     }
     .card-title {
+
     }
 }
 
 //cards flip
 .card-flipper {
-    height: 600px;
+    height: 415px;
     width: 300px;
-    overflow: off;
-    
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
     -o-perspective: 800px;
     perspective: 800px;
+    
+
 }
+
 .swipe-card {
     width: 100%;
     height: 100%;
@@ -234,6 +267,7 @@ a.owned-activities-links {
     backface-visibility: hidden;
 }
 .swipe-card .front {
+   // overflow-x: hidden;
   
 }
 .swipe-card .back {
@@ -241,16 +275,89 @@ a.owned-activities-links {
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
+    transform-style: preserve-3d;
 }
 .swipe-card.flipped {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
-}    
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    display: auto;
+}  
+
+@-webkit-keyframes spin {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(2520deg);
+    }
+}
+
+.swipe-card.rolled {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
+
+@-webkit-keyframes spinOpposite {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(-2520deg);
+    }
+}
+.swipe-card.unrolled {
+    -webkit-animation-name: spinOpposite;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
+
+#new {
+    opacity:0;
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+#new.shown {
+    -webkit-animation-name: show;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
 
 
+#old {
+    opacity:1;
+}
 
+@-webkit-keyframes hide {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
+#old.hidden {
+    -webkit-animation-name: hide;
+    -webkit-animation-duration: 2800ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+}
 
 #canvas {
   display: block;
@@ -270,6 +377,7 @@ a.owned-activities-links {
 }
 
 *[data-imagedrop] {
+    padding: 0px 0px;
     margin-left:auto;
     margin-right:auto;
     margin-bottom: 1rem;
@@ -288,7 +396,63 @@ a.owned-activities-links {
     left: 40%;
 }
 
-.border {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+.chatroom {
+    background: #000;
+    width:100%;
+    height:100%;
+}
+
+.circleBase {
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    display: inline-block;
+    text-align: center;
+    width:1em;
+    height:1em;
+
+    cursor:pointer;
+    z-index:1000;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    font-size: 30px;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: #000;
+    text-decoration: none;
+    left: 50%;
+    margin-left: 133px;
+    margin-top: -0.5em;
+    position: absolute;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+#card-container {
+  overflow-x:hidden; 
+  z-index:-1;
+}
+
+.card {
+    z-index:1000;
+}
+
+#old, #new{
+ height: 100%;
+ width:100%;   
+}
+
+@media( max-height: 600px) {
+     .card-flipper {
+        height: 200px;
+        width: 200px;
+    }
+    .circleBase {
+        margin-left: 83px;
+    }
 }

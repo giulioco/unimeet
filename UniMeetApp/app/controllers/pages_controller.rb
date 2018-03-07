@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @this_user = current_user
     session[:current_activity_id] = nil
     session[:is_swiping_as_user] = true
+    session[:is_swiping] = true
   end
 
   def show_card
@@ -18,14 +19,27 @@ class PagesController < ApplicationController
     end
   end
 
-    def show_profile_card
+  def show_profile_card
     @user = User.find(params[:id])
     respond_to do |format|               
       format.js
     end
   end
 
+  def show_edit_profile_card
+    respond_to do |format|               
+      format.js
+    end
+  end
+
   def show_edit_activity_card
+    @activity = Activity.find(params[:id])
+    respond_to do |format|               
+      format.js
+    end
+  end
+
+  def show_chat
     @activity = Activity.find(params[:id])
     respond_to do |format|               
       format.js
@@ -92,7 +106,7 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @activity = Activity.find(session[:current_activity_id])
     @itsMatch = @user.like_profile!(@user, @activity)
-    @queue = User.query(session[:current_activity_id])
+    @queue = User.queue(session[:current_activity_id])
     if @queue.count > 0 
       @oldUser = @user
       @user = @queue.first()
@@ -118,9 +132,10 @@ class PagesController < ApplicationController
     @activity = Activity.find(session[:current_activity_id])
     @like = @activity.likes.find_by_activity_id(params[:id])
     @user.dislike_profile!(@user, @activity)
-    @queue = User.query(session[:current_activity_id])
+    @queue = User.queue(session[:current_activity_id])
     if @queue.count > 0
-      @nextUserInQueue = @queue.first() 
+      @oldUser = @user
+      @user = @queue.first() 
       respond_to do |format|               
         format.js 
       end
@@ -187,6 +202,7 @@ class PagesController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def open_notification
     #check notification as open
     #render new page
@@ -194,4 +210,40 @@ class PagesController < ApplicationController
   end
 
 
+=======
+  def back_to_swipe
+    puts "The user is swiping as an activity:"
+    puts session[:is_swiping_as_user].inspect
+    if session[:is_swiping_as_user] 
+      @queue = User.queue(session[:current_activity_id])
+      if @queue.count > 0 
+        @oldUser = @user
+        @user = @queue.first()
+        respond_to do |format|               
+          format.js { render :action => "back_to_swipe_profile" }
+        end
+      else 
+        @type = 'activity'
+        respond_to do |format|           
+          format.js { render :action => "empty_deck" }
+        end
+      end
+    else
+      @queue = Activity.queue(current_user.id)
+      if @queue.count > 0 
+        @oldActivity = @activity
+        @activity = @queue.first()
+        respond_to do |format|               
+          format.js
+        end
+      else 
+        @type = 'activity'
+        respond_to do |format|           
+          format.js { render :action => "empty_deck" }
+        end
+      end 
+    end
+  end
+
+>>>>>>> master
 end

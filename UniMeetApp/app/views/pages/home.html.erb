@@ -6,11 +6,14 @@
 		<div class = "col-md-3 d-none d-md-block sidebar">
 			<div class = "sidebar-sticky">
 				<ul class="nav nav-tabs" id="myTab" role="tablist" class="row">
-					<li class="nav-item col-6">
-						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Matches</a>
+					<li class="nav-item col-4">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Matched</a>
 					</li>
-					<li class="nav-item col-6">
-						<a class="nav-link" id="activities-tab" data-toggle="tab" href="#my-activities" role="tab" aria-controls="profile" aria-selected="false">Activities</a>
+					<li class="nav-item col-4">
+						<a class="nav-link" id="activities-tab" data-toggle="tab" href="#joined-activities" role="tab" aria-controls="joined" aria-selected="false">Connect</a>
+					</li>
+					<li class="nav-item col-4">
+						<a class="nav-link" id="activities-tab" data-toggle="tab" href="#my-activities" role="tab" aria-controls="profile" aria-selected="false">Owned</a>
 					</li>
 				</ul>
 				<div class="tab-content" id="myTabContent">
@@ -46,22 +49,49 @@
 							<% end %>
 						<% end %>
 					</div>
+					<div class="tab-pane fade" id="joined-activities" role="tabpanel" aria-labelledby="joined-tab">
+						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => false, "memberships.user_id" => current_user.id}) %>
+						<% activity.each do |activ| %>
+							<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+								<div class= "nav flex-row activity-row p-2 text-dark">
+									<div class = "col-2 p-0">
+										<%= display_activity_image(activ, :thumb, "rounded-circle") %>
+									</div>
+									<div class = "col-10">
+										<h4><%= activ.name%></h4>
+										<p><%= activ.description%></p>
+									</div>
+								</div>
+							<% end %>
+						<% end %>
+					</div>
 				</div>	
 			</div>
 		</div>
 <!-- Card -->
-		<div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
-			<div class = "col-5 mx-auto" >
+		<div id="main_view" class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
+
 				<div id="card-container">
 					<% queue = Activity.queue(current_user.id) %>
 					<% if queue.count > 0 %>
-						<% nextActivityInQueue = queue.first() %>
-						<%= render 'activities/activity_card', activity: nextActivityInQueue%>
+					<% nextActivityInQueue = queue.first() %>
+						<div class="card-flipper mx-auto">
+						  <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+						    <div id="old" style="background-color: <%= '#ff0000' if nextActivityInQueue.max_size == nextActivityInQueue.team_count %>">
+									<%= render 'pages/swipe_card', activity: nextActivityInQueue%>
+								</div>
+								<div id="new">
+					     	</div>
+						  </div>
+						</div>
+						<!-- Buttons -->
+						<div class="row justify-content-center mt-2 buttons" >
+							<%= render 'pages/swipe_card_buttons', activity: nextActivityInQueue%>
+						</div>	
 					<% else %>
 						<%= render 'pages/empty_deck', type: 'activity'%>
 					<% end %>
 				</div>
-			</div>
 		</div>
 	</div>
 	<% end %>

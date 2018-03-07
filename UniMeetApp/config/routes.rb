@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'pages/show_card' => 'pages#show_card'
   get 'pages/show_edit_activity_card' => 'pages#show_edit_activity_card'
+  get 'pages/show_edit_profile_card' => 'pages#show_edit_profile_card'
   get 'pages/show_new_activity_card' => 'pages#show_new_activity_card'
   get 'pages/like_activity' => 'pages/show_card'
   get 'pages/dislike_activity' => 'pages/show_card'
@@ -39,6 +40,8 @@ Rails.application.routes.draw do
   get 'pages/join_activity' => 'pages/join_activity'
   get 'pages/unmatch_profile' => 'pages/unmatch_profile'
   get 'pages/leave_activity' => 'pages/leave_activity'
+  get 'pages/show_chat' => 'pages/show_chat'
+  get 'pages/back_to_swipe' => 'pages/back_to_swipe'
 
   devise_for :users
   devise_scope :user do

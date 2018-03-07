@@ -1,33 +1,28 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-
 <div class="card-flipper mx-auto">
-    <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+    <div class="card border border-dark m-0 swipe-card" onclick="flip()">
         <div class="front">
+            <% @user = current_user %>
             <div data-imagedrop style='background-image: url(<%= image_url(:medium)%>)'>
               <%= f.file_field :image %>
             </div>
           <div class="card-body py-0 px-2">
-            <h5 class = "card-title m-1">
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "card-title m-1" %>
-              <%= f.text_field :middle_name, autofocus: true, autocomplete: "off", class: "form-control" %>
-              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control" %>
-            </h5>
-            <h6 class = "card-text btn btn-secondary">
+            <div class="row">
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control col-md name_field" %>
+              <%= f.text_field :middle_name, autofocus: true, autocomplete: "off", class: "form-control col-md name_field" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control col-md name_field last_name" %>
+            </div>
               <%= f.text_field :major, autofocus: true, autocomplete: "off", class: "card-text btn btn-secondary" %>
-            </h6>
-            <p class = "card-text activity-description">
-              <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "card-text activity-description" %>
-            </p>
+              <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control" %>
           </div>
         </div>
         <div class="back">
             <div class="card-body py-0 px-2">
-                <p class = "card-text">
                   <%= f.select(:college_location, [
                     ['Please Select One',''],
                     ['Cowell','Cowell'],
@@ -42,10 +37,13 @@
                     ['College Ten','College Ten'],
                     ['Off Campus','Off Campus']
                     ], {}, { :class => "form-control" }) %>
-                  </p>
                   <div class="form-group">
                     <%= f.label :interests %><br />
                     <%= f.text_area :interest_list, autofocus: true, autocomplete: "off", class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :birthday %><br />
+                    <%= f.date_field :birthday, autofocus: true, autocomplete: "off", class: "form-control" %>
                   </div>
             </div>
         </div>
@@ -73,18 +71,21 @@
       </div>
     </div>
     
-    <div class="actions" align="center">
-      <%= f.submit "Update", class: "btn btn-primary" %>
-    </div>
+    
   
-    <% end %>
+
     
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, {class: "btn btn-danger"} %></p>
-    
-    <%= link_to "Back", :back %>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
   
   </div>
+
+
+<!-- Buttons -->
+<div class="buttons">
+<div class="row justify-content-center mt-2 buttons">
+  <div class="actions" align="center">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+          <% end %>
+    </div>
 </div>
-
-
 </div>

@@ -54,29 +54,44 @@
             return ctx.stroke();
         }
     }
-
-    $(document).ready(function () {
+    $('.like_button').prop("disabled",true);
+    $('.dislike_button').prop("disabled",true);
+    $('#new').html("<%= escape_javascript(render :partial => 'pages/swipe_card', locals: { activity: @activity }, :remote => true) %>");
+    $('.swipe-card').toggleClass('rolled').delay(700).queue(function() { 
         SetGlobals();
         InitializeConfetti();
-
         $(window).resize(function () {
             W = window.innerWidth;
             H = window.innerHeight;
             canvas.width = W;
             canvas.height = H;
         });
+     });
+    $('#old').toggleClass('hidden');
+    $('#new').toggleClass('shown');
 
-    }).delay(3000).queue(function() {
+    setTimeout(function() {
+        $('.like_button').prop("disabled",false);
+        $('.dislike_button').prop("disabled",false);
+        $('.swipe-card').removeClass('rolled');
+        $('#old').removeClass('hidden');
+        $('#old').html('');
+        $('#new').removeClass('shown');
+        $('#old').attr("id","temp");
+        $('#new').attr("id","old");
+        $('#temp').attr("id","new");
+        $('#home').append("<%= escape_javascript(render :partial => 'pages/new_match_cell', locals: { activity: @oldActivity }, :remote => true) %>");
+    }, 2800);
+
+    $('.like_button').attr("href", "/pages/like_activity?id=<%= @activity.id %>")
+    $('.dislike_button').attr("href", "/pages/dislike_activity?id=<%= @activity.id %>")
+
+
+    setTimeout(function() {
+        $('#myModal').modal('show');
         StopConfetti();
         DeactivateConfetti();
-        $('#card-container').slideToggle(600, function(){
-        $('#card-container').html("<%= escape_javascript(render :partial => 'activities/activity_card', locals: { activity: @activity }, :remote => true) %>");
-        //var $newMatch = "<%= link_to({action: 'show_card', controller: 'pages', id: @activity.id, method: :get, :remote => true}, class: 'nav-link p-0') do %><div class= 'nav flex-row activity-row p-2 text-dark'><div class = 'col-2 p-0'><%= display_activity_image(@activity, :thumb, 'rounded-circle') %></div><div class = 'col-10'><h4><%= @activity.name%></h4><p><%= @activity.description%></p></div></div><% end %>";
-        $('#card-container').slideDown();
-        $('#home').append("<%= escape_javascript(render :partial => 'pages/new_match_cell', locals: { activity: @oldActivity }, :remote => true) %>");
-        
-        });
-    });
+    }, 3000);
 
     $('#myModal').on('show.bs.modal', function () {
       $('.modal .modal-dialog').attr('class', 'modal-dialog tada animated');

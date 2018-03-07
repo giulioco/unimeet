@@ -1,5 +1,6 @@
 <body>
   <% if user_signed_in? %>
+  <% session[:is_swiping_as_user] = true %>
   <canvas id="canvas"></canvas>
   <div class = "row d-flex">
     <div class = "col-md-3 d-none d-md-block sidebar">
@@ -9,59 +10,78 @@
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Matches</a>
           </li>
           <li class="nav-item col-6">
-            <a class="nav-link" id="activities-tab" data-toggle="tab" href="#my-activities" role="tab" aria-controls="profile" aria-selected="false">Activities</a>
+            <a class="nav-link" id="activities-tab" data-toggle="tab" href="#activity-members" role="tab" aria-controls="members" aria-selected="false">Members</a>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <% profiles = User.joins(:matches).where({ "matches.activity_id" => session[:current_activity_id]}) %>
-          <% profiles.each do |profile| %>
-            <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-            <div class= "nav flex-row activity-row p-2">
+            <% profiles.each do |profile| %>
+              <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
+            <div class= "nav flex-row activity-row p-2 text-dark">
               <div class = "col-2">
                 <%= display_activity_image(profile,:thumb, "rounded-circle") %>
               </div>
               <div class = "col-10">
-                <h4><%= profile.first_name%></h4>
-                <h5><span class="card-title btn btn-dark ml"><%= profile.major%></span><span class="card-title btn btn-warning mr">    <%= profile.college_location%></span></h5>
+                <h5><%= profile.first_name%></h5>
+                <h5><span class="card-subtitle btn-sm btn-dark mr"><%= profile.major%></span></h5>
+                <h5><span class="card-subtitle btn-sm btn-warning mr"><%= profile.college_location%></span></h5>
               </div>
             </div>
-            <% end %>
-          <% end %>
+              <% end %>
+              <% end %>
           </div>
-          <div class="tab-pane fade" id="my-activities" role="tabpanel" aria-labelledby="profile-tab">
-            <% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
-            <% activity.each do |activ| %>
-            <div class= "nav flex-row activity-row p-2">
+          <div class="tab-pane fade" id="activity-members" role="tabpanel" aria-labelledby="members-tab">
+            <% profiles = User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]}) %>
+            <% profiles.each do |profile| %>
+              <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+            <div class= "nav flex-row activity-row p-2 text-dark">
               <div class = "col-2">
-                <%= image_tag(activ.image.url(:thumb), :class => "rounded-circle") %>
+                <%= display_activity_image(profile,:thumb, "rounded-circle") %>
               </div>
               <div class = "col-10">
-                <h4><%= activ.name%></h4>
-                <p><%= activ.description%></p>
+                <h5><%= profile.first_name%>
+                  <% if profile.id == Activity.find(session[:current_activity_id]).project_owner_id %>
+                    <span class="card-subtitle btn btn-danger mr">Owner</span>
+                  <% end %>
+                </h5>
+                <h5><span class="card-subtitle btn-sm btn-dark mr"><%= profile.major%></span></h7>
+                <h5><span class="card-subtitle btn-sm btn-warning mr"><%= profile.college_location%></span></h7>
               </div>
             </div>
-            <% end %>
+              <% end %>
+              <% end %>
           </div>
-          
-        </div>  
-        
+
+        </div>
+
       </div>
     </div>
     <div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
 
-      <div class = "col-5 mx-auto">
         <div id="card-container">
         <% queue = User.queue(session[:current_activity_id]) %>
         <% if queue.count > 0 %>
-          <% nextUserInQueue = queue.first %>
-          <%= render "users/user_card", user: nextUserInQueue %>
+          <% user = queue.first %>
+          <div class="card-flipper mx-auto">
+            <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+              <div id="old">
+              <%= render 'pages/swipe_profile_card', user: user%>
+            </div>
+            <div id="new">
+              </div>
+            </div>
+          </div>
+          <!-- Buttons -->
+          <div class="row justify-content-center mt-2 buttons" >
+            <%= link_to "Dislike", {action: "dislike_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger mr-2'} %>
+            <%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success ml-2'} %>
+          </div>
         <% else %>
           <%= render 'pages/empty_deck', type: 'user'%>
         <% end %>
-           
+
         </div>
-      </div>
     </div>
   </div>
   <% end %>

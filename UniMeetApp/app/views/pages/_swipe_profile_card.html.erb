@@ -1,0 +1,17 @@
+<div class="front">
+    <%= display_image(user, :medium, "card-img-top") %>
+    <div class="card-body py-0 px-2">                 
+        <h5 class = "card-title m-1"><%= user.first_name %></h5>
+        <p class = "card-text card-section" is="activity-description-front"><%= user.bio %></p>
+    </div>
+</div>
+<div class="back p-2">
+    <!-- DO NOT PUT IN A DIV-->             
+    <h5 class = "card-title m-1"><%= user.first_name %></h5>
+    <h6 class = "card-text card-section bg-secondary"><%= user.major %></h6>
+    <p class = "card-text card-section bg-dark text-light"><%= user.college_location %></p>
+    <% user.interests.each do |interest| %>
+        <p class="badge bg-primary text-light"><%= "#{interest.interest_name}" %></p>
+    <% end %>
+    <p class = "card-text"><%= user.bio %></p>
+</div>

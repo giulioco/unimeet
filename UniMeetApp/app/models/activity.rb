@@ -14,7 +14,7 @@ class Activity < ActiveRecord::Base
   def self.queue(user_id)
     member_of = Activity.joins(:memberships).where(memberships: {user_id: user_id})
     already_liked = Activity.joins(:likes).where(likes: {user_id: user_id, user_likes_activity: [true, false]})
-    reached_capacity = Activity.where('max_size = team_count')
-    where.not(id: member_of).where.not(id: already_liked).where.not(id: reached_capacity)
+    #reached_capacity = Activity.where('max_size = team_count')
+    where.not(id: member_of).where.not(id: already_liked)
   end
 end

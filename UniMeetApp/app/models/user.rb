@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
   has_many :matches, dependent: :destroy
   has_many :activities, through: :memberships, dependent: :destroy
 
-  has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.png"
+  has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.jpg"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
-  
+
   def self.queue(current_activity_id)
     members = User.joins(:memberships).where(memberships: {activity_id: current_activity_id})
     already_liked = User.joins(:likes).where(likes: {activity_id: current_activity_id, activity_likes_user: [true, false]})
@@ -27,16 +27,16 @@ class User < ActiveRecord::Base
     if params[:password].blank?
       params.delete(:password)
       params.delete(:password_confirmation) if params[:password_confirmation].blank?
-    end 
+    end
 
-    result = if params[:password].blank? || valid_password?(current_password) 
+    result = if params[:password].blank? || valid_password?(current_password)
       update_attributes(params)
     else
       self.attributes = params
       self.valid?
       self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
       false
-    end 
+    end
 
     clean_up_passwords
     result
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     itsMatch = false
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       like = self.likes.find_by(user_id: self.id, activity_id: activity.id)
-      like.update(user_likes_activity: true) 
+      like.update(user_likes_activity: true)
        if like.user_likes_activity
         itsMatch = true
         if not self.matches.exists?(user_id: self.id, activity_id: activity.id)
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
 #there's never going to be a match through dislike activity
   def dislike_activity!(activity)
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
-      self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: false) 
+      self.likes.update(user_id: self.id, activity_id: activity.id, user_likes_activity: false)
     else self.likes.create!(user_id: self.id, activity_id: activity.id, user_likes_activity: false)
     end
   end
@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
     itsMatch = false
     if activity.likes.exists?(user_id: profile.id, activity_id: activity.id)
       like = activity.likes.find_by(user_id: profile.id, activity_id: activity.id)
-      like.update(activity_likes_user: true) 
+      like.update(activity_likes_user: true)
       if like.user_likes_activity
         itsMatch = true
         if not activity.matches.exists?(user_id: profile.id, activity_id: activity.id)
@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
 
   def dislike_profile!(profile, activity)
     if activity.likes.exists?(user_id: profile.id, activity_id: activity.id)
-      activity.likes.update(user_id: profile.id, activity_id: activity.id, activity_likes_user: false) 
+      activity.likes.update(user_id: profile.id, activity_id: activity.id, activity_likes_user: false)
     else activity.likes.create!(user_id: profile.id, activity_id: activity.id, activity_likes_user: false)
     end
   end
@@ -115,9 +115,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  validates :first_name, :last_name, :presence => true
+  #validates :first_name, :last_name, :presence => true
   validates :first_name, :last_name, format: { with: /\A^[A-Za-z ,.'-]+$\z/, on: :create }
   validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@ucsc\.edu\z/,
     message: "must be a ucsc.edu email" }
-    
+  validates :first_name, :last_name, presence:true
+
   end
