@@ -202,7 +202,19 @@ class PagesController < ApplicationController
   end
 
   def back_to_swipe
-
+    @queue = Activity.queue(current_user.id)
+    if @queue.count > 0 
+      @oldActivity = @activity
+      @activity = @queue.first()
+      respond_to do |format|               
+        format.js
+      end
+    else 
+      @type = 'activity'
+      respond_to do |format|           
+        format.js { render :action => "empty_deck" }
+      end
+    end 
   end
 
 end

@@ -1,0 +1,13 @@
+<div class="card-flipper mx-auto">
+  <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+    <div id="old" style="background-color: <%= '#ff0000' if activity.max_size == activity.team_count %>">
+			<%= render 'pages/swipe_card', activity: activity%>
+		</div>
+		<div id="new">
+   	</div>
+  </div>
+</div>
+<!-- Buttons -->
+<div class="row justify-content-center mt-2 buttons" >
+	<%= render 'pages/swipe_card_buttons', activity: activity%>
+</div>
