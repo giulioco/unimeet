@@ -27,7 +27,7 @@ class Users::NotificationsController < ActivityNotification::NotificationsContro
 
   # GET /:target_type/:target_id/notifications/:id/move
   # def move
-  #   super
+  #  super
   # end
 
   # No action routing

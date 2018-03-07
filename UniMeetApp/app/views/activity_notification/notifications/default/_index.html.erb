@@ -21,7 +21,7 @@
     <div class="notifications">
       <%= yield :notification_index %>
     </div>
-    <%= link_to notifications_path_for(@target) do %>
+    <%= link_to notifications_path_for(@target), method: :get, remote: true do %>
       <div class="notification_link_wrapper">
         <p class="notification_link">
           See notifications

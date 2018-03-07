@@ -1,5 +1,6 @@
 require 'render_anywhere'
 class Match < ActiveRecord::Base
+
   include RenderAnywhere
 	belongs_to :user
 	belongs_to :activity
@@ -18,15 +19,11 @@ class Match < ActiveRecord::Base
     tracked: true,
     # Path to move when the notification is opened by the target user
     # This is an optional configuration since activity_notification uses polymorphic_path as default
-    notifiable_path: :article_notifiable_path
-  def article_notifiable_path
-    activity = Activity.find_by(id: self.activity_id) 
-    matched_user = User.find_by(id: self.user_id) 
-    if self.user_id == current_user.id
-      #authenticated_root_path
-      render :partial => '/activities/activity_card', locals: { activity: activity }, :remote => true
-    else
-      authenticated_root_path 
+    notifiable_path: :match_notifiable_path
+
+    def match_notifiable_path
+      #we have access to activity just as 
+      pages_home_path
     end
-  end
+  
 end

@@ -187,4 +187,11 @@ class PagesController < ApplicationController
     end
   end
 
+  def open_notification
+    #check notification as open
+    #render new page
+    
+  end
+
+
 end
