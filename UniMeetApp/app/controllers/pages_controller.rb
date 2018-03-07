@@ -170,18 +170,19 @@ class PagesController < ApplicationController
     @activity.team_count = @activity.team_count + 1
     @activity.save
     respond_to do |format|           
-      format.js { render :action => "show_card" }
+      format.js 
     end
   end
 
   def leave_activity
-    @activity = Activity.find(params[:id])
+    @activity_id = params[:id]
+    @activity = Activity.find(@activity_id)
     Membership.where(user_id: current_user.id, activity_id: params[:id], ownership: false).destroy_all
     @activity.team_count = @activity.team_count - 1
     @activity.save
     #current_user.leave_activity!(params[:id])
     respond_to do |format|           
-      format.js { render :action => "show_card" }
+      format.js
     end
   end
 
