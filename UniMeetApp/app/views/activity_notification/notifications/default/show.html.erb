@@ -1,6 +1,7 @@
 <div class="notification_wrapper">
   <div class="notification_header">
-    <h1>Notification to <%= @target.printable_target_name %></h1>
+    <% @user = User.find_by(id: @notification.target_id) %>
+    <h1>Notification to <%= @user.first_name %></h1>
   </div>
   <ul>
     <div class="notifications">
