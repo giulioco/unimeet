@@ -432,9 +432,15 @@ a.owned-activities-links {
     background: $primary;
 }
 
-.card {
-        overflow-x: hidden;
+#card-container {
+  overflow-x:hidden; 
+  z-index:-1;
 }
+
+.card {
+    z-index:1000;
+}
+
 
 #old, #new{
  height: 100%;
