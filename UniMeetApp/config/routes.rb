@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  notify_to :users
+  notify_to :users, controller: 'users/notifications'
   
   get 'activities/new' => 'activities#new'
   get 'activities/show.:id' => 'activities#show'
