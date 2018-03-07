@@ -204,7 +204,7 @@ class PagesController < ApplicationController
   def back_to_swipe
     puts "The user is swiping as an activity:"
     puts session[:is_swiping_as_user].inspect
-    if session[:is_swiping_as_user] 
+    if not session[:is_swiping_as_user] 
       @queue = User.queue(session[:current_activity_id])
       if @queue.count > 0 
         @oldUser = @user
