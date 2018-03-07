@@ -1,5 +1,6 @@
 <body>
 	<% if user_signed_in? %>
+	<% session[:is_swiping_as_user] = true %>
  	<canvas id="canvas"></canvas>
 	<div class = "row d-flex">
 <!-- Sidebar -->
