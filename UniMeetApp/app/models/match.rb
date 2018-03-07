@@ -10,8 +10,7 @@ class Match < ActiveRecord::Base
     # Notification targets as :targets is a necessary option
     # Set to notify to author and users commented to the article, except match owner self
     targets: ->(match, key) {
-      #[match.activity.project_owner_id] + 
-      ([match.user]).uniq
+      ([User.find_by(id: match.activity.project_owner_id)]+[match.user]).uniq
     },
     tracked: true,
     # Path to move when the notification is opened by the target user
