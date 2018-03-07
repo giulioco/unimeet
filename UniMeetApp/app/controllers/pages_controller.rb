@@ -202,15 +202,12 @@ class PagesController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def open_notification
     #check notification as open
     #render new page
     
   end
 
-
-=======
   def back_to_swipe
     puts "The user is swiping as an activity:"
     puts session[:is_swiping_as_user].inspect
@@ -244,6 +241,4 @@ class PagesController < ApplicationController
       end 
     end
   end
-
->>>>>>> master
 end
