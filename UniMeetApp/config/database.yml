@@ -60,7 +60,7 @@ test:
   database: UniMeetApp_test
   username: UniMeetDev
   password: cmps115w18
-  host: unimeetapp-dev.ckfbsrxa15vu.us-west-1.rds.amazonaws.com
+  host: unimeetapp-development.ckfbsrxa15vu.us-west-1.rds.amazonaws.com
   port: 5432
   reaping_frequency: 10
 # As with config/secrets.yml, you never want to store sensitive information,

@@ -4,8 +4,15 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {} 
+one:
+  name: "testing"
+  description: "testing description"
+  max_size: 5
+
 
 #
-two: {}
+two:
+  name: "testing another"
+  description: "another testing description"
+  max_size: 8
 # column: value

@@ -118,6 +118,6 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, format: { with: /\A^[A-Za-z ,.'-]+$\z/, on: :create }
   validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@ucsc\.edu\z/,
     message: "must be a ucsc.edu email" }
-  validates :first_name, :last_name, presence:true
+  validates :first_name, :last_name, :email, presence:true
 
   end

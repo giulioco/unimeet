@@ -283,6 +283,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mailcatcher
+  minitest
   paperclip (~> 5.2, >= 5.2.0)
   pg (~> 0.18)
   puma (~> 3.7)

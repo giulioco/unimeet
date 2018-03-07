@@ -276,6 +276,8 @@ a.owned-activities-links {
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
     transform-style: preserve-3d;
+    display: none;
+    
 }
 .swipe-card.flipped {
     -webkit-transform: rotateY( 180deg );
@@ -284,7 +286,10 @@ a.owned-activities-links {
     transform: rotateY( 180deg );
     transform-style: preserve-3d;
     transition: all 1s ease-in-out;
-    display: auto;
+    border: none;
+    .back {
+        display: inherit;
+    }
 }  
 
 @-webkit-keyframes spin {
