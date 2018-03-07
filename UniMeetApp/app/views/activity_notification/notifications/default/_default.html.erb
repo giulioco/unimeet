@@ -4,17 +4,29 @@
     <div class="list_image"></div>
     <div class="list_text_wrapper">
       <p class="list_text">
-        <strong><%= notification.notifier.present? ? notification.notifier.printable_notifier_name : 'Someone' %></strong>
-        <% if notification.group_member_notifier_exists? %>
-          <%= " and #{notification.group_member_notifier_count} other" %>
-          <%= notification.notifier.present? ? notification.notifier.printable_type.pluralize.downcase : 'people' %>
+        <% if false %>
+          <strong><%= notification.notifier.present? ? notification.notifier.printable_notifier_name : 'Someone' %></strong>
+          <% if notification.group_member_notifier_exists? %>
+            <%= " and #{notification.group_member_notifier_count} other" %>
+            <%= notification.notifier.present? ? notification.notifier.printable_type.pluralize.downcase : 'people' %>
+          <% end %>
         <% end %>
-        notified you of
         <% if notification.notifiable.present? %>
           <% if notification.group_member_exists? %>
             <%= " #{notification.group_notification_count} #{notification.notifiable_type.humanize.pluralize.downcase} including" %>
           <% end %>
-          <%= notification.notifiable.printable_notifiable_name(notification.target) %>
+          <% @match = Match.find_by(id: notification.notifiable_id) %>
+          <% matched_activity = Activity.find_by(id: @match.activity_id) %>
+          <% matched_user = User.find_by(id: @match.user_id) %>
+          <% if current_user.id == @match.user_id %>
+            You matched with
+            <%= " activity \"" + matched_activity.name + "\"!" %>
+          <% else %>
+            Your activity
+            <%= " " + matched_activity.name + " matched with " %>
+            <%= " user \"" + matched_user.first_name + "\"!" %>
+          <% end %>
+          <%-# <%=notification.notifiable.printable_notifiable_name(notification.target) -%>
           <%= "in #{notification.group.printable_group_name}" if notification.group.present? %>
         <% else %>
           <% if notification.group_member_exists? %>
