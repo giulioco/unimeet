@@ -26,13 +26,12 @@
         </div>
     </div>
     </div>
-</div>
 
 
 
 <!-- Buttons -->
 <div class="buttons">
-<div class="row justify-content-center mt-2 buttons">
+<div class="row justify-content-center mt-2 button-row">
     <% if user.id == current_user.id %>
     <% else %>
         <% if user.matches.exists?(user_id: user.id, activity_id: session[:current_activity_id]) %>
