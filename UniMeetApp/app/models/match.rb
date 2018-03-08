@@ -1,10 +1,8 @@
-require 'render_anywhere'
-class Match < ActiveRecord::Base
 
-  include RenderAnywhere
+class Match < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :activity
-  cattr_accessor :current_user
+  cattr_accessor :current_user, :current_user_is_matched
 	validates :user_id, uniqueness: { scope: :activity_id }
 	validates :activity_id, uniqueness: { scope: :user_id }
   # acts_as_notifiable configures your model as ActivityNotification::Notifiable

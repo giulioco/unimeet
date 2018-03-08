@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     Match.current_user = current_user
+    Match.current_user_is_matched = false
   end
 
   protected
