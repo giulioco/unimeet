@@ -20,9 +20,13 @@ class Users::NotificationsController < ActivityNotification::NotificationsContro
   # end
 
   # POST /:target_type/:target_id/notifications/:id/open
-  # def open
-  #   super
-  # end
+  def open
+     @match = Match.find_by(id: @notification.notifiable_id)
+     @matched_activity = Activity.find_by(id: @match.activity_id)
+     @matched_user = User.find_by(id: @match.user_id)
+     @activity_id = @match.activity_id
+   super
+   end
 
   # GET /:target_type/:target_id/notifications/:id/move
   # def move
