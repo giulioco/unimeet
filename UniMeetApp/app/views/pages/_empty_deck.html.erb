@@ -1,10 +1,16 @@
-<div id="card">
-<div class="card border border-dark p-1 swipe-card" ontouchstart="this.classList.toggle('hover');" >
-      <%= image_tag("medium/sad_slug.jpg", :class => "card-img-top") %>
-        <div class="card-body">
-        <h5 class="card-title btn btn-danger">Awww!</h5>
-        <p class="card-text btn-danger activity-description">Looks like there's no <%= type %> left, check back in a bit!</p>
+<div class="card-flipper mx-auto ">
+  <div class="card border border-dark m-0 " ontouchstart="this.classList.toggle('hover');" >
+        <div id="old">
+            <div class="front">
+                <%= image_tag("medium/sad_slug.jpg", :class => "card-img-top") %>
+                <div class="card-body py-0 px-2">                 
+                    <h5 class="card-title btn btn-danger">Awww! There's no <%= type %> left, check back in a bit!</h5>
+                </div>
+            </div>
+            <div class="back">
+            </div>
+        </div>
+        <div id="new">
+        </div>
     </div>
-</div>
-</div>
-
+    </div>

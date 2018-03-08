@@ -77,8 +77,16 @@ class PagesController < ApplicationController
       end
     else 
       @type = 'activity'
-      respond_to do |format|           
-        format.js { render :action => "empty_deck" }
+      @oldActivity = @activity
+      if @itsMatch
+        respond_to do |format|           
+          format.js { render :action => "match_animation_empty_deck" }
+        end
+        return
+      else
+        respond_to do |format|           
+          format.js { render :action => "empty_deck" }
+        end
       end
     end 
   end
@@ -121,8 +129,15 @@ class PagesController < ApplicationController
       end
     else 
       @type = 'user'
-      respond_to do |format|           
-        format.js { render :action => "empty_deck" }
+      if @itsMatch
+        respond_to do |format|           
+          format.js { render :action => "match_animation_empty_deck" }
+        end
+        return
+      else
+        respond_to do |format|           
+          format.js { render :action => "empty_deck" }
+        end
       end
     end 
   end

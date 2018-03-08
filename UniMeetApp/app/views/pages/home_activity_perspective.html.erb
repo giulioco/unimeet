@@ -85,7 +85,9 @@
             <%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success btn-left'} %>
           </div>
         <% else %>
+        <div id="card-container">
           <%= render 'pages/empty_deck', type: 'user'%>
+        </div>
         <% end %>
 
         </div>
