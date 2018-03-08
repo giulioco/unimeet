@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     if self.likes.exists?(user_id: self.id, activity_id: activity.id)
       like = self.likes.find_by(user_id: self.id, activity_id: activity.id)
       like.update(user_likes_activity: true)
-       if like.user_likes_activity
+       if like.activity_likes_user
         itsMatch = true
         if not self.matches.exists?(user_id: self.id, activity_id: activity.id)
           @match = self.matches.create!(user_id: self.id, activity_id: activity.id)
