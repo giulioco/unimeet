@@ -34,7 +34,7 @@
 <% if @match %>
 <div class='<%= "notification_#{notification.id}" %>'>
   <% if notification.unopened? %>
-    <%= link_to open_notification_path_for(notification, move: true), method: :post do %>
+    <%= link_to open_user_notification_path(id: notification.id, user_id: notification.target_id), method: :post, :remote => true do %>
       <%= yield :notification_content %>
     <% end %>
     <div class="unopened_wrapper"></div>

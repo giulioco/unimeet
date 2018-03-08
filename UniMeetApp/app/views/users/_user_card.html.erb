@@ -31,7 +31,6 @@
 
 <!-- Buttons -->
 <div class="buttons">
-<div class="buttons">
     <% if user.id == current_user.id %>
     <% else %>
         <% if user.matches.exists?(user_id: user.id, activity_id: session[:current_activity_id]) %>
@@ -41,6 +40,5 @@
             <%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success like_button btn-right'} %>
         <% end %>
     <% end %>
-</div>
 </div>
 

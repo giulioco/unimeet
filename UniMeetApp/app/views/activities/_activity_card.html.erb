@@ -1,4 +1,4 @@
-<%= link_to({action: "back_to_swipe", controller: "pages", method: :get, :remote => true}, class: "circleBase") do %>
+<%= link_to({action: "back_to_swipe", controller: "/pages", method: :get, :remote => true}, class: "circleBase") do %>
 &times;
 <%end%>
 <div class="card-flipper mx-auto" id="card-flipper">
@@ -29,21 +29,21 @@
     <% if activity.project_owner_id != current_user.id  %>
       <% if activity.matches.exists?(user_id: current_user.id, activity_id: activity.id) %>
         <% if activity.memberships.exists?(user_id: current_user.id, activity_id: activity.id) %>
-          <%= link_to "Leave", {action: "leave_activity", controller: "pages", id: activity.id, :remote => true},  {class: 'btn btn-warning btn-center'} %>
+          <%= link_to "Leave", {action: "leave_activity", controller: "/pages", id: activity.id, :remote => true},  {class: 'btn btn-warning btn-center'} %>
         <% else %>
-          <%= link_to "Unmatch", {action: "unmatch_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger btn-right'} %>
+          <%= link_to "Unmatch", {action: "unmatch_activity", controller: "/pages", id: activity.id, :remote => true}, {class: 'btn btn-danger btn-right'} %>
           <% if activity.max_size == activity.team_count %>
             <!-- ADD NEW BUTTON SAYING SEND NOTIFICATION WHEN MEMBERSHIP SPOT OPENS OR SOMETHING-->
           <% else %>
-            <%= link_to "Join", {action: "join_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-primary btn-left'} %>
+            <%= link_to "Join", {action: "join_activity", controller: "/pages", id: activity.id, :remote => true}, {class: 'btn btn-primary btn-left'} %>
           <% end %>
         <% end %>
       <% else %>
-        <%= link_to "Dislike", {action: "dislike_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-danger dislike_button btn-left'} %>
-        <%= link_to "Like", {action: "like_activity", controller: "pages", id: activity.id, :remote => true}, {class: 'btn btn-success like_button btn-right'} %>
+        <%= link_to "Dislike", {action: "dislike_activity", controller: "/pages", id: activity.id, :remote => true}, {class: 'btn btn-danger dislike_button btn-left'} %>
+        <%= link_to "Like", {action: "like_activity", controller: "/pages", id: activity.id, :remote => true}, {class: 'btn btn-success like_button btn-right'} %>
       <% end %>
     <% else %>
-      <%= link_to "Edit", {action: "show_edit_activity_card", :controller=>"pages", id: activity.id, :remote => true, method: :get }, {class: 'btn btn-primary btn-center'} %>
+      <%= link_to "Edit", {action: "show_edit_activity_card", :controller=>"/pages", id: activity.id, :remote => true, method: :get }, {class: 'btn btn-primary btn-center'} %>
     <% end %>
   </div>
 </div>

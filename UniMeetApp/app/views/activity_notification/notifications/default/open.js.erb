@@ -1,4 +1,5 @@
-$(".notification_count").html("<span class=\"<%= 'unopened' if @target.has_unopened_notifications?(@index_options) %>\"><%= @target.unopened_notification_count(@index_options) %></span>");
+$('#card-container').html("<%= escape_javascript(render :partial => '/activities/activity_card', locals: { activity: @matched_activity }, :remote => true) %>");
+$(".notification_wrapper").removeClass("open").removeClass("opened");
 <% if @index_options[:with_group_members] %>
   $('<%= ".notification_#{@notification.id}" %>').html("<%= escape_javascript( render_notification(@notification, fallback: :default_without_grouping, with_group_members: true) ) %>");
 <% else %>
