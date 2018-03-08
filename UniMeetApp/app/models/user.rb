@@ -49,8 +49,7 @@ class User < ActiveRecord::Base
        if like.user_likes_activity
         itsMatch = true
         if not self.matches.exists?(user_id: self.id, activity_id: activity.id)
-          self.matches.create!(user_id: self.id, activity_id: activity.id)
-          @match = Match.find(params[user_id: self.id, activity_id: activity.id])
+          @match = self.matches.create!(user_id: self.id, activity_id: activity.id)
           #@match.notify :users, key: "match.create"
           #it's a match!
 
