@@ -1,7 +1,8 @@
+<% @match = Match.find_by(id: notification.notifiable_id) %>
+<% if @match %>
+<% matched_activity = Activity.find_by(id: @match.activity_id) %>
+<% matched_user = User.find_by(id: @match.user_id) %>
 <% content_for :notification_content, flush: true do %>
-  <% @match = Match.find_by(id: notification.notifiable_id) %>
-  <% matched_activity = Activity.find_by(id: @match.activity_id) %>
-  <% matched_user = User.find_by(id: @match.user_id) %>
   <div class='notification_list <%= notification.opened? ? "opened" : "unopened" %>'>
     <div class="notification_list_cover"></div>
     <div class="list_image">
@@ -38,9 +39,16 @@
     <% end %>
     <div class="unopened_wrapper"></div>
   <% else %>
-    <%= link_to(action: "show_card", controller: "/pages", id: @match.activity_id , method: :get, :remote => true) do %>
+    <% if current_user.id == @match.user_id %>
+      <%= link_to(action: "show_card", controller: "/pages", id: matched_activity.id , method: :get, :remote => true) do %>
       <%= yield :notification_content %>
+      <% end %>
+    <% else %>
+      <%= link_to(action: "show_profile_card", controller: "/pages", id: matched_user.id, method: :get, :remote => true) do %>
+      <%= yield :notification_content %>
+      <% end %>
     <% end %>
+    
   <% end %>
 
   <%#= link_to "Move", move_notification_path_for(notification) %>
@@ -54,6 +62,7 @@
   <%#= link_to "Destroy (Ajax)", notification_path_for(notification, reload: false), method: :delete, remote: true %>
 
 </div>
+<% end %>
 <% end %>
 <style>
   /* unopned_circle */
