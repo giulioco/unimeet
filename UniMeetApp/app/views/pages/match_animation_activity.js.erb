@@ -53,7 +53,8 @@
             return ctx.stroke();
         }
     }
-
+    
+    $('#card-flipper').css('z-index', '999');
     $('.like_button').prop("disabled",true);
     $('.dislike_button').prop("disabled",true);
     $('#new').html("<%= escape_javascript(render :partial => 'pages/swipe_profile_card', locals: { user: @user }, :remote => true) %>");
@@ -80,6 +81,7 @@
         $('#old').attr("id","temp");
         $('#new').attr("id","old");
         $('#temp').attr("id","new");
+        $('#card-flipper').css('z-index', 'auto');
         $('#home').append("<%= escape_javascript(render :partial => 'pages/new_match_profile_cell', locals: { user: @oldUser }, :remote => true) %>");
     }, 2800);
 

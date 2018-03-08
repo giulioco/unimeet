@@ -28,9 +28,11 @@ ImageDrop.checkFileType = function(file) {
       } else {
         return true;
       }
-    };
+};
     
-  function flip() {
-    $('.swipe-card').toggleClass('flipped');
-    //('#card-flipper-change-scroll').css('overflow-y', 'auto' );
+function flip() {
+  $('#card-flipper').css('z-index', '999');
+  $('.swipe-card').toggleClass('flipped');
+  setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
+  
 };
