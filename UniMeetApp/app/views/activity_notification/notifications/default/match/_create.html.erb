@@ -44,9 +44,15 @@
       <%= yield :notification_content %>
       <% end %>
     <% else %>
-      <%= link_to(action: "show_profile_card", controller: "/pages", id: matched_user.id, method: :get, :remote => true) do %>
+    <% if session[:is_swiping_as_user] %>
+      <%= link_to pages_home_activity_perspective_path(:id => matched_activity.id, :user_id => matched_user.id) do %>
       <%= yield :notification_content %>
       <% end %>
+    <% else %>
+      <%= link_to(action: "show_profile_card", controller: "/pages", id: matched_user.id, method: :get, :remote => true) do %>
+        <%= yield :notification_content %>
+      <% end %>
+    <% end %>
     <% end %>
     
   <% end %>
