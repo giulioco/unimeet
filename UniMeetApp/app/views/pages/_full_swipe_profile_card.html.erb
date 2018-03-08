@@ -9,6 +9,6 @@
 </div>
 <!-- Buttons -->
 <div class="buttons" >
-	<%= link_to "Dislike", {action: "dislike_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger btn-left'} %>
-	<%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success btn-right'} %>
+	<%= link_to "Dislike", {action: "dislike_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger btn-left dislike_button'} %>
+	<%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success btn-right like_button'} %>
 </div>
