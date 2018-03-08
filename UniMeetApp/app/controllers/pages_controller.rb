@@ -66,6 +66,7 @@ class PagesController < ApplicationController
     @queue = Activity.queue(current_user.id)
     if @queue.count > 0 
       @oldActivity = @activity
+      @importantActivity = @activity
       @activity = @queue.first()
       if @itsMatch
         respond_to do |format|           
