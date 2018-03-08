@@ -59,8 +59,10 @@
     </div>
     <div class = "col-md-9 ml-sm-auto pt-5 px-auto justify-content-center">
       <% if params[:user_id] %>
+      <div id="card-container">
         <% user = User.find(params[:user_id]) %>
         <%= render 'users/user_card', user: user %>
+      </div>
       <% else %>
         <div id="card-container">
         <% queue = User.queue(session[:current_activity_id]) %>

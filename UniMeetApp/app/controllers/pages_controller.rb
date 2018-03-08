@@ -221,7 +221,7 @@ class PagesController < ApplicationController
           format.js { render :action => "back_to_swipe_profile" }
         end
       else 
-        @type = 'activity'
+        @type = 'user'
         respond_to do |format|           
           format.js { render :action => "empty_deck" }
         end
