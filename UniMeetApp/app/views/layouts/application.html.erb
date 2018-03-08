@@ -20,14 +20,6 @@
 
   <% if user_signed_in? %>
   <%= javascript_tag do %>
-    $(document).ready(function(){
-      $(document).mousemove(function(event){
-        setInterval(function(){
-          $("#notificationsitem").html("<%= escape_javascript(render_notifications_of current_user, index_content: :with_attributes, :remote => true) %>");
-          }, 30000)
-          
-      });
-    });
   <% end %>
   <ul class="nav justify-content-between">
     <li class="vertical-center">
