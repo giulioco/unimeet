@@ -4,7 +4,7 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-<p class="circleBase text-light" id="flip-button" onclick="flip()"><</p>
+<p class="circleBase text-light" id="flip-button" onclick="flip()"><i class="fas fa-sync"></i></p>
 <div class="card-flipper mx-auto">
     <div class="card border border-dark m-0 swipe-card"">
         <div class="front">

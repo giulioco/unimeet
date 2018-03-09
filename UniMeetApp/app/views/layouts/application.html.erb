@@ -11,6 +11,7 @@
   <%= stylesheet_link_tag "animate" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 
 <%= content_tag :body, class: "#{controller_name} #{action_name}" do %>
@@ -20,6 +21,11 @@
 
   <% if user_signed_in? %>
   <%= javascript_tag do %>
+    /*$(document).ready(function(){
+      $(document).mousemove(function(event){
+          $("#notificationsitem").html("<%= j render_notifications_of current_user, index_content: :with_attributes, remote: true %>");
+      });
+    });*/
   <% end %>
   <ul class="nav justify-content-between">
     <li class="vertical-center">
@@ -70,7 +76,7 @@
 
   <ul class="nav justify-content-end">
     <li class="nav-item" id="notificationsitem">
-      <%= render_notifications_of current_user, index_content: :with_attributes %>
+      <%= render_notifications_of current_user, index_content: :with_attributes, remote: true %>
     </li>
     <li class="nav-item dropdown mr-5">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
