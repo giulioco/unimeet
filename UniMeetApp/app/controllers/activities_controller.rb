@@ -29,7 +29,7 @@ class ActivitiesController < ApplicationController
   def destroy
   	@activity = Activity.find(params[:id])
   	@activity.destroy
-    redirect_to 'root'
+    redirect_to authenticated_root_path
   end
 
   def create

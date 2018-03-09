@@ -118,7 +118,15 @@ label {
     }
 }
 
-
+.oval{
+    width: 110px;
+    height: 50px;
+    margin:5px 0 0 -5px;  
+    background: white;
+    -moz-border-radius: 50px / 25px;
+    -webkit-border-radius: 50px / 25px;
+    border-radius: 50px / 25px;
+}
 body.pages.home {
    overflow-y: hidden;
    height: 100%;
