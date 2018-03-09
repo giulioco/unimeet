@@ -1,4 +1,3 @@
-$('#card-container')
 $('#card-container').slideToggle(500, function(){
 
 $('#card-container').html("<%= escape_javascript(render :partial => 'pages/empty_deck', locals: { type: @type }, :remote => true) %>");

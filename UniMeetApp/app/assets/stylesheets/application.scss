@@ -434,23 +434,21 @@ a.owned-activities-links {
 }
 
 .circleBase {
-    font-weight: 700;
     line-height: 1;
-    text-shadow: 0 1px 0 #fff;
     display: inline-block;
     text-align: center;
     width:1em;
     height:1em;
-
     cursor:pointer;
     z-index:1000;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    font-size: 30px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 10px;
     -o-text-overflow: clip;
     text-overflow: clip;
     background: #000;
