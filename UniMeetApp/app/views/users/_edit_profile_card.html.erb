@@ -6,7 +6,7 @@
         <% end %>
 <p class="circleBase text-light" id="flip-button" onclick="flip()"><</p>
 <div class="card-flipper mx-auto">
-    <div class="card border border-dark m-0 swipe-card" onclick="flip()">
+    <div class="card border border-dark m-0 swipe-card"">
         <div class="front">
             <% @user = current_user %>
             <div data-imagedrop style='background-image: url(<%= image_url(:medium)%>)'>
@@ -21,8 +21,7 @@
               <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control" %>
           </div>
         </div>
-        <div class="back">
-            <div class="card-body py-0 px-2">
+        <div class="back p-2 bg-white border border-dark">
                   <%= f.select(:college_location, [
                     ['Please Select One',''],
                     ['Cowell','Cowell'],
@@ -41,7 +40,7 @@
                     <%= f.label :interests %><br />
                     <%= f.text_area :interest_list, autofocus: true, autocomplete: "off", class: "form-control" %>
                   </div>
-            </div>
+          
         </div>
 </div>
     <p>

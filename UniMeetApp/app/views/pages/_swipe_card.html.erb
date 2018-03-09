@@ -5,10 +5,8 @@
     <p class="card-text card-section bg-light" id="activity-description-front"><%= activity.description %></p>
   </div>
 </div>
-<div class="back">
-  <div class="card-body py-0 px-2">
-    <h5 class="card-title m-1"><%= activity.name %></h5>
-    <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
-    <p class="card-text card-section bg-light"><%= activity.description %></p>
-  </div>
+<div class="back p-2 bg-white border border-dark">
+  <h5 class="card-title m-1"><%= activity.name %></h5>
+  <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
+  <p class="card-text card-section bg-light"><%= activity.description %></p>
 </div>

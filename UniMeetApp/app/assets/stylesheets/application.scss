@@ -309,7 +309,12 @@ a.owned-activities-links {
     transition: all 1s ease-in-out;
     border: none;
     .back {
+        width: 300px;
+        margin-top: -1px;
+        margin-left: -1px;
         display: inherit;
+        min-height: 415px;
+        border-radius: 0.25rem;
     }
 }  
 
