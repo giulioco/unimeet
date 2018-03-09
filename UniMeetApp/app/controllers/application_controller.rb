@@ -20,6 +20,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :image, :bio, :college_location, :major, :academic_year, :interest_list, :password, :current_password])
   end
 
+  def update_notifications
+    puts "update_notifications CALLED!!!!"
+    respond_to do |format|               
+      format.js
+    end
+  end
+
+
+
   
 
 end
