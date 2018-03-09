@@ -37,3 +37,5 @@ function flip() {
   setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
   
 };
+
+
