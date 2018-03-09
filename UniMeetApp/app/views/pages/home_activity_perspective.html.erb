@@ -36,7 +36,7 @@
             <% profiles.each do |profile| %>
               <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
             <div class= "nav flex-row activity-row p-2 text-dark">
-              <div class = "col-2">
+              <div class = "col-2 p-0">
                 <%= display_activity_image(profile,:thumb, "rounded-circle") %>
               </div>
               <div class = "col-10">
