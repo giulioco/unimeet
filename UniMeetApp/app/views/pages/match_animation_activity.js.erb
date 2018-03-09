@@ -85,8 +85,12 @@
         $('#home').append("<%= escape_javascript(render :partial => 'pages/new_match_profile_cell', locals: { user: @oldUser }, :remote => true) %>");
     }, 2800);
 
-    $('.like_button').attr("href", "/pages/like_profile?id=<%= @user.id %>")
-    $('.dislike_button').attr("href", "/pages/dislike_profile?id=<%= @user.id %>")  
+    $('.like_button').attr("href", "/pages/like_profile?id=<%= @user.id %>");
+    $('.dislike_button').attr("href", "/pages/dislike_profile?id=<%= @user.id %>");  
+    $("#notificationsitem").html("<%= escape_javascript(render_notifications_of current_user) %>");
+    $(".dropdown_notification").click(function(){
+            $(this).parent().toggleClass("open");
+          });
 
 
     setTimeout(function() {

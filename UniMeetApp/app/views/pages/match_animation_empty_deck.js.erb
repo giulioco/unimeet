@@ -88,6 +88,10 @@
         else{
             $('#home').append("<%= escape_javascript(render :partial => 'pages/new_match_profile_cell', locals: { user: @user }, :remote => true) %>");
         }
+        $("#notificationsitem").html("<%= escape_javascript(render_notifications_of current_user) %>");
+        $(".dropdown_notification").click(function(){
+            $(this).parent().toggleClass("open");
+          });
     }, 2800);
 
 
