@@ -21,4 +21,7 @@ setTimeout(function() {
 
 $('.like_button').attr("href", "/pages/like_activity?id=<%= @activity.id %>")
 $('.dislike_button').attr("href", "/pages/dislike_activity?id=<%= @activity.id %>")
-
+$("#notificationsitem").html("<%= escape_javascript(render_notifications_of current_user, {remote: true}) %>");
+$(".dropdown_notification").click(function(){
+            $(this).parent().toggleClass("open");
+          });
