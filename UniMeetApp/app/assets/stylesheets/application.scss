@@ -160,7 +160,10 @@ body.pages.home {
         }
     }
 }
-
+#myTab.nav-tabs > li > a {
+    margin-left: -14px;
+    margin-right: -15px;
+}
 .tab-content {
     height: 100%;
     overflow-y: auto;
@@ -517,6 +520,7 @@ a.owned-activities-links {
     z-index:0;
     position:absolute;
     cursor: pointer;
+    color: #1B435D;
 }
 
 .notification_wrapper {
