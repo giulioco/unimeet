@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'activity_notification', '~> 1.4', '>= 1.4.4'
 
 gem 'bootstrap', '~> 4.0.0'
+
 gem 'jquery-rails'
 # use mailcatcher to simulate mail system for confirmation emails
 gem 'mailcatcher'

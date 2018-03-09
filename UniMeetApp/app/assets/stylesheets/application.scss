@@ -282,6 +282,24 @@ a.owned-activities-links {
     display: none;
     
 }
+#flip-button {
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+#flip-button.flipped {
+    -webkit-transform: rotate( 180deg );
+    -moz-transform: rotate( 180deg );
+    -o-transform: rotate( 180deg );
+    transform: rotate( 180deg );
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+}
 .swipe-card.flipped {
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );

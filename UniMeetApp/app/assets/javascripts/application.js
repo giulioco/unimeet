@@ -33,8 +33,7 @@ ImageDrop.checkFileType = function(file) {
 function flip() {
   $('#card-flipper').css('z-index', '999');
   $('.swipe-card').toggleClass('flipped');
+  $('#flip-button').toggleClass('flipped');
   setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
   
 };
-
-

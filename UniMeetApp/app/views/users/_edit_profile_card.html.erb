@@ -4,6 +4,7 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+<p class="circleBase text-light" id="flip-button" onclick="flip()"><</p>
 <div class="card-flipper mx-auto">
     <div class="card border border-dark m-0 swipe-card" onclick="flip()">
         <div class="front">
@@ -65,22 +66,17 @@
         </div>
       </div>
     </div>
-    
-    
-  
-
-    
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  
   </div>
 
 
 <!-- Buttons _edit_prfile_card-->
+
 <div class="buttons">
-<div class="row justify-content-center mt-2 buttons">
-  <div class="actions" align="center">
-      <%= f.submit "Save", class: "btn btn-primary" %>
-          <% end %>
-    </div>
-</div>
+  <div class="row justify-content-center mt-2 buttons">
+    <div class="actions" align="center">
+        <%= f.submit "Save", class: "btn btn-primary" %>
+            <% end %>
+      </div>
+  </div>
 </div>
