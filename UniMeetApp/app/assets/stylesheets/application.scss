@@ -119,13 +119,13 @@ label {
 }
 
 .oval{
-    width: 110px;
-    height: 50px;
-    margin:5px 0 0 -5px;  
-    background: white;
-    -moz-border-radius: 50px / 25px;
-    -webkit-border-radius: 50px / 25px;
-    border-radius: 50px / 25px;
+    border-radius: 30px;
+    background: #fff;
+    width: 180px;
+    height: 65px; 
+}
+.oval-contents{
+    text-align: center;
 }
 body.pages.home {
    overflow-y: hidden;
@@ -160,12 +160,14 @@ body.pages.home {
         }
     }
 }
-
+.nav-tabs > li > a {
+    margin-left: -14px;
+    margin-right: -15px;
+}
 .tab-content {
     height: 100%;
     overflow-y: auto;
 }
-
 .vertical-center {
   display: flex;
   align-items: center;
@@ -517,6 +519,7 @@ a.owned-activities-links {
     z-index:0;
     position:absolute;
     cursor: pointer;
+    color: #1B435D;
 }
 
 .notification_wrapper {
