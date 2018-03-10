@@ -10,16 +10,25 @@ $("#new_message").bind("ajax:complete", function(event,xhr,status){
 });
 
 $('.chatinput').keypress(function(e) {
+
     if (e.keyCode == 13 && !e.shiftKey) {
-        e.preventDefault();
         var frm = $(this).closest("form"); 
-        $("#new_message").trigger('submit.rails');
+       	if (frm.data('submitted') === true) {
+      		// Previously submitted - don't submit again
+      		e.preventDefault();
+    	} else {
+      		// Mark it so that the next submit can be ignored
+      		e.preventDefault();
+      		frm.data('submitted', true);
+      		//$("#new_message").trigger('submit.rails');
+      		//$(this).find(':submit').attr('disabled','disabled');
+    	}
     }
 });
 
 $('#new_message').on('ajax:beforeSend', function(evt, xhr, settings){
   // prevent double submit
-  $('#register-button').attr('disabled', 'disabled');
+  $('#register-button').prop("disabled", "disabled");
 });
 
-$(".messages").animate({ scrollTop: $(".msgs").height() }, "fast");
+$(".messages").animate({ scrollTop: $(".messages").height() }, "fast");
