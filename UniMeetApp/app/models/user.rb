@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-  :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:cruzid]
+  attr_accessor :login
   acts_as_target devise_resource: :user
 
   has_many :interests, dependent: :destroy
@@ -13,7 +14,17 @@ class User < ActiveRecord::Base
 
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.jpg"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
+  def email_required?
+    false
+  end
+  def login=(login)
+    @login = login
+  end
 
+  def login
+    @login || self.cruzid || self.email
+  end
+  
   def self.queue(current_activity_id)
     members = User.joins(:memberships).where(memberships: {activity_id: current_activity_id})
     already_liked = User.joins(:likes).where(likes: {activity_id: current_activity_id, activity_likes_user: [true, false]})
@@ -116,8 +127,7 @@ class User < ActiveRecord::Base
 
   #validates :first_name, :last_name, :presence => true
   validates :first_name, :last_name, format: { with: /\A^[A-Za-z ,.'-]+$\z/, on: :create }
-  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@ucsc\.edu\z/,
-    message: "must be a ucsc.edu email" }
-  validates :first_name, :last_name, :email, presence:true
-
+  validates :cruzid, format: { with: /\b[A-Z0-9._%a-z\-]+\z/,
+    message: "must be a valid cruzid" }
+  validates :first_name, :last_name, :cruzid, presence:true
   end
