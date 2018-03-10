@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get 'pages/show_chat' => 'pages/show_chat'
   get 'pages/back_to_swipe' => 'pages/back_to_swipe'
 
-  devise_for :users
+  devise_for :users, :controllers => {sessions: "sessions", registrations: "registrations"}
   devise_scope :user do
     authenticated :user do
       root 'pages#home', as: :authenticated_root

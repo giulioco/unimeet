@@ -14,15 +14,13 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-group row">
-      
       <label class="col-3 col-form-label">Email: </label>
       <div class="col-7 input-group">
-         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+         <%= f.text_field :cruzid, autofocus: true, autocomplete: "email", class: "form-control" %>
         <div class="input-group-append">
           <div class="input-group-text">@ucsc.edu</div>
         </div>
       </div>
-      
     </div>
     
     <div class="form-group row">

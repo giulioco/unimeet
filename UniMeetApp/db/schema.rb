@@ -73,9 +73,12 @@ ActiveRecord::Schema.define(version: 20180310070331) do
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.integer "chatroom_id"
     t.string "content"
     t.integer "user_id"
+=======
+>>>>>>> master
   end
 
   create_table "notifications", force: :cascade do |t|
