@@ -12,10 +12,10 @@
             <div data-imagedrop style='background-image: url(<%= image_url(:medium)%>)'>
               <%= f.file_field :image %>
             </div>
-          <div class="card-body py-0 px-2">
-            <div class="row mt-5 pt-5">
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control col-sm-4 name_field mt-5" %>
-              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control col-sm-4 name_field last_name float-right" %>
+          <div class="card-body" style='padding-top: 19rem'>
+            <div class="row">
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control col-md-5 name_field float-left" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control col-md-5 name_field last_name float-right" %>
             </div>
               <%= f.select(:academic_year, [
                     ['Please Select One',''],
@@ -24,13 +24,12 @@
                     ['Junior','Junior'],
                     ['Senior','Senior'],
                     ['Graduate','Graduate']
-                    ], {}, { :class => "form-control" }) %>
-              <%= f.text_field :major, autofocus: true, autocomplete: "off", class: "card-text btn btn-secondary" %>
-              <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control" %>
+                    ], {}, { :class => "mt-5 form-control" }) %>
           </div>
         </div>
         <div class="back p-2 bg-white border border-dark">
-                  <%= f.select(:college_location, [
+                  <div class="form-group pr-4">
+                    <%= f.select(:college_location, [
                     ['Please Select One',''],
                     ['Cowell','Cowell'],
                     ['Stevenson','Stevenson'],
@@ -43,38 +42,17 @@
                     ['College Nine','College Nine'],
                     ['College Ten','College Ten'],
                     ['Off Campus','Off Campus']
-                    ], {}, { :class => "form-control" }) %>
-                  <div class="form-group">
+                    ], {}, { :class => "form-control m-1" }) %>
+                    <%= f.text_field :major, autofocus: true, autocomplete: "off", class: "card-text btn btn-secondary m-1" %>
                     <%= f.label :interests %><br />
-                    <%= f.text_area :interest_list, autofocus: true, autocomplete: "off", class: "form-control" %>
+                    <%= f.text_area :interest_list, autofocus: true, autocomplete: "off", class: "form-control m-1" %>
+                    <%= f.label :bio %><br />
+                    <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control m-1" %>
                   </div>
           
         </div>
-</div>
-    <p>
-      <a class="btn" data-toggle="collapse" href="#collapsePassword" role="button" aria-expanded="false" aria-controls="collapsePassword">Change Password</a>
-    </p>
-    
-    <div class="collapse" id="collapsePassword">
-      <div class="card border border-dark">
-        <div class="card-body">
-          <div class="form-group">
-            <label for="newpassword">New Password</label> <br />
-            <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <label for="newpassword">Confirm Your New Password</label> <br />
-            <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :current_password %> <h6><small>(we need your current password to confirm your changes)</small></h6><br />
-            <%= f.password_field :current_password, autocomplete: "off", autofocus: true, class: "form-control" %>
-          </div>
-        </div>
-      </div>
     </div>
-    <p>Unhappy? <%= link_to "Cancel my account", user_registration_path(id: current_user.id), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  </div>
+</div>
 
 
 <!-- Buttons _edit_prfile_card-->
@@ -87,3 +65,5 @@
       </div>
   </div>
 </div>
+
+
