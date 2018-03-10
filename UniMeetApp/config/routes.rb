@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  
+  mount ActionCable.server => '/cable'
+  resources :chatrooms, param: :id
+  resources :messages
   notify_to :users, with_devise: :users, controller: 'users/notifications'
   
   get 'activities/new' => 'activities#new'
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   post 'activities/dislike_activity' 
   get 'activities/destroy' => 'activities#destroy'
   delete 'activities/destroy' => 'activities#destroy'
+  get 'chatrooms/show/:id' => 'chatrooms#show'
   #get 'activities/edit'
   #problem: when i go to activities/new it now thinks that new is the id
   #get 'new_activity' => 'activities/new' 

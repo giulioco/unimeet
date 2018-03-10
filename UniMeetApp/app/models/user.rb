@@ -4,13 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
   :recoverable, :rememberable, :trackable, :validatable
   acts_as_target devise_resource: :user
-
   has_many :interests, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :matches, dependent: :destroy
   has_many :activities, through: :memberships, dependent: :destroy
+  has_many :chatrooms, through: :activities
+  has_many :messages, through: :chatrooms
 
+  
   has_attached_file :image, styles: { medium: "300x300#", thumb: "50x50#" }, default_url: ":style/user_avatar.jpg"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
 

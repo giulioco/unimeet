@@ -41,6 +41,8 @@ class ActivitiesController < ApplicationController
         membership = current_user.memberships.find_by(activity_id: @activity.id)
         membership.ownership = true
         membership.save
+        @chatroom = Chatroom.create(params[:chatroom])
+        @activity.chatroom = @chatroom
         format.html  { redirect_to action: 'home', controller: 'pages'}
         format.json  { render :json => @activity,
                       :status => :created, :location => @activity }

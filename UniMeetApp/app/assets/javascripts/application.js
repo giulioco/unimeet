@@ -18,6 +18,8 @@
 //= require imagedrop
 //= require confetti
 //= require_tree .
+//= require_tree ./channels
+
 ImageDrop.checkFileType = function(file) {
       var ext, fileTypes;
       ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
