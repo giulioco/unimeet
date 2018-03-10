@@ -4,7 +4,7 @@
 <div class="panel panel-default">
   <% if @chatroom.messages.any? %>
     <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
+      <%= render partial: 'messages/message', collection: @chatroom.messages, as: :message %>
     </div>
   <%else%>
     <div class="panel-body hidden" id="messages">
@@ -15,5 +15,3 @@
   <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
 </div>
 
-<%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
-<%= link_to 'Back', chatrooms_path %>
