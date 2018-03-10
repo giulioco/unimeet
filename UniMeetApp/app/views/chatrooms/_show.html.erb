@@ -1,18 +1,30 @@
-<div class="row col-md-8 col-md-offset-2">
+<div class="row col-md-12">
   <% @chatroom = chatroom %>
-  <h1><%= @chatroom.activity.name %></h1>
-
-<div class="panel panel-default">
-  <% if @chatroom.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @chatroom.messages, as: :message %>
+  <div id="frame">
+  <div class="content">
+    <div class="contact-profile">
+      <%= image_tag(@chatroom.activity.image.url(:thumb)) %>
+      <p><%= @chatroom.activity.name %></p>
     </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages">
+    <div class="messages panel-body" id="messages">
+      <% if @chatroom.messages.any? %>
+      <div class="panel panel-default">
+      <ul id="msgs">
+        <%= render partial: 'messages/message', collection: @chatroom.messages, as: :message %>
+      </ul>
+      <%else%>
+        <div class="panel-body hidden" id="messages">
+      </div>
+      <%end%>
     </div>
-  <%end%>
+    <div class="message-input">
+        <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 
-  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
-</div>
+
+  
 

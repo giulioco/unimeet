@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -29,7 +30,9 @@ def create
     if message.save
       ActionCable.server.broadcast 'messages',
         message: message.content,
-        user: message.user.first_name
+        user: message.user.first_name,
+        user_id: message.user.id,
+        profile_pic: message.user.image.url(:thumb)
       head :ok
     end
   end

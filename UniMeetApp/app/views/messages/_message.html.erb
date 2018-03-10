@@ -1,2 +1,9 @@
 
-<p> <b><%= message.user.first_name %>: </b>  <%= message.content %> </p>
+<% if current_user == message.user %>
+<li class="sent">
+<% else %>
+<li class="replies">
+<%end%>
+	<%= image_tag(message.user.image.url(:thumb)) %>
+	<p><%= message.content %></p>
+</li>

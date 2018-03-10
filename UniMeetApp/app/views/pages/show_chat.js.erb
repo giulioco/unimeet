@@ -1,1 +1,25 @@
 $('#main_view').html("<%= escape_javascript(render :partial => 'chatrooms/show', locals: {chatroom: @chatroom}, :remote => true) %>");
+$('.chatinput').keypress(function(e){
+      if(e.which == 13){
+           $(this).closest('form').submit();
+       }
+    });
+
+$("#new_message").bind("ajax:complete", function(event,xhr,status){
+  $('.chatinput').val('');
+});
+
+$('.chatinput').keypress(function(e) {
+    if (e.keyCode == 13 && !e.shiftKey) {
+        e.preventDefault();
+        var frm = $(this).closest("form"); 
+        $("#new_message").trigger('submit.rails');
+    }
+});
+
+$('#new_message').on('ajax:beforeSend', function(evt, xhr, settings){
+  // prevent double submit
+  $('#register-button').attr('disabled', 'disabled');
+});
+
+$(".messages").animate({ scrollTop: $(".msgs").height() }, "fast");

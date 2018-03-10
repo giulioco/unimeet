@@ -1,7 +1,10 @@
-<%= form_for message, remote: true, authenticity_token: true do |f| %>
-  <%= f.label :your_message %>:
-  <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
-
+<%= form_for message, class: "wrap", remote: true, authenticity_token: true, html: {id: "new_message"} do |f| %>
+  <%= f.text_area :content, class: "form-control chatinput", placeholder: "Write a message...", data: {textarea: "message"} %>
   <%= f.hidden_field :chatroom_id, value: chatroom.id %>
-  <%= f.submit "send", class: "btn btn-primary", style: "display: block", data: {send: "message"} %>
+  <%= button_tag type: 'submit', class: "chatmessagesubmit", id: "register-button", data: {send: "message"} do %>
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    <% end %>
+  
 <% end %>
+
+

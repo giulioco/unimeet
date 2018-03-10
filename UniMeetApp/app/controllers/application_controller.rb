@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  before_action :set_current_user 
+  before_action :set_current_user_for_match
+  before_action :set_user
   include ApplicationHelper
   if :devise_controller?
     before_action :configure_permitted_parameters
   end  
 
 
-  def set_current_user
+  def set_current_user_for_match
     Match.current_user = current_user
     Match.current_user_is_matched = false
   end
@@ -28,6 +29,11 @@ class ApplicationController < ActionController::Base
   end
 
 
+  private
+
+  def set_user
+    cookies[:user_id] = current_user.id || 'guest'
+  end
 
   
 
