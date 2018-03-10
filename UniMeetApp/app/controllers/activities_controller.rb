@@ -43,6 +43,7 @@ class ActivitiesController < ApplicationController
         membership.save
         @chatroom = Chatroom.create(params[:chatroom])
         @activity.chatroom = @chatroom
+        @activity.save
         format.html  { redirect_to action: 'home', controller: 'pages'}
         format.json  { render :json => @activity,
                       :status => :created, :location => @activity }

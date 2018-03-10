@@ -52,7 +52,7 @@
 						<% end %>
 					</div>
 					<div class="tab-pane fade" id="joined-activities" role="tabpanel" aria-labelledby="joined-tab">
-						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => false, "memberships.user_id" => current_user.id}) %>
+						<% activity = Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 								<div class= "nav flex-row activity-row p-2 text-dark">

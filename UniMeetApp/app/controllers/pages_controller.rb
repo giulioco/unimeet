@@ -40,7 +40,13 @@ class PagesController < ApplicationController
   end
 
   def show_chat
-    @activity = Activity.find(params[:id])
+    puts "Looking for chatroom... "
+    puts "Activity ID : "
+    puts params[:id]
+    @chatroom = Chatroom.find_by(activity_id: params[:id])
+    puts "CHATROOM: "
+    @message = Message.new
+    puts @chatroom.inspect
     respond_to do |format|               
       format.js
     end

@@ -1,1 +1,2 @@
-$('#main_view').html("<%= escape_javascript(render :partial => 'pages/chat_room', locals: { activity: @activity }, :remote => true) %>");
+alert("<%=@chatroom.id%>");
+$('#main_view').html("<%= escape_javascript(render :partial => 'chatrooms/show', locals: {chatroom: @chatroom}, :remote => true) %>");

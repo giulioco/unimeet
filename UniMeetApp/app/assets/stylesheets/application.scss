@@ -643,4 +643,10 @@ font-size: 14px;
     margin-right:20px;
 }
 
+.dropdown-menu.show {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 
