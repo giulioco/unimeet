@@ -3,7 +3,8 @@
 <% matched_activity = Activity.find_by(id: @match.activity_id) %>
 <% matched_user = User.find_by(id: @match.user_id) %>
 <% content_for :notification_content, flush: true do %>
-  <div class='notification_list <%= notification.opened? ? "opened" : "unopened" %>'>
+  <% @open = notification.opened? ? "opened" : "unopened" %>
+  <div class='notification_list  <%= @open %>'>
     <div class="notification_list_cover"></div>
     <div class="list_image">
       <% if current_user.id == @match.user_id %>
@@ -81,7 +82,7 @@
     display: block;
     width: 10px;
     height: 10px;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
     background-color: #27a5eb;
     z-index: 2;
@@ -127,12 +128,15 @@
     padding: 15px 10px;
     position: relative;
     border-bottom: 1px solid #e5e5e5;
+    &::-webkit-scrollbar { 
+            display: none; 
+        }
   }
   .notification_list.unopened {
-    background-color: #eeeff4;
+    background-color: #D5EEFF;
   }
   .notification_list:hover {
-    background-color: #f8f9fb;
+    background-color: #78BBE6;
   }
   .notification_list:last-child {
     border-bottom: none;

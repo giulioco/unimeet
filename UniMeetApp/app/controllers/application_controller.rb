@@ -32,7 +32,11 @@ class ApplicationController < ActionController::Base
   private
 
   def set_user
-    cookies[:user_id] = current_user.id || 'guest'
+    if current_user == nil
+      cookies[:user_id] = 'guest'
+    else
+      cookies[:user_id] = current_user.id
+    end
   end
 
   
