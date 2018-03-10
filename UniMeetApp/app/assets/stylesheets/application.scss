@@ -123,6 +123,9 @@ label {
     background: #fff;
     width: 180px;
     height: 65px; 
+    &:hover{
+        box-shadow: 0 0 20px #000;
+    }
 }
 .oval-contents{
     text-align: center;
@@ -268,11 +271,12 @@ a.owned-activities-links {
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transform-origin: 50% 50%;
+   
+
 }
 .swipe-card div {
     display: block;
     width: 100%;
-
     position: absolute;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -479,6 +483,7 @@ a.owned-activities-links {
 
 .card {
     z-index:1000;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
 #old, #new{
@@ -616,3 +621,26 @@ font-size: 14px;
 .center {
     text-align: center;
 }
+
+.oval-cell{
+    margin-top: 10px;
+    margin-left:5px;
+    margin-right:5px;
+    border-radius: 50px;
+    width:100%;
+    background: $primary;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-right:15px;
+    padding-left:15px;
+}
+
+.cell-activity_name {
+    margin-right:10px;
+}
+
+.cell-profile_name {
+    margin-right:20px;
+}
+
+

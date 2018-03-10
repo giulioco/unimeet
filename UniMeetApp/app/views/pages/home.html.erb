@@ -22,12 +22,13 @@
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 								<div class= "nav flex-row activity-row p-2 text-dark">
-									<div class = "col-2 p-0">
-									<%= display_activity_image(activ, :thumb, "rounded-circle") %>
-									</div>
-									<div class = "col-10">
-										<h4><%= activ.name%></h4>
-										<p><%= activ.description%></p>
+									<div class="oval-cell vertical-center">
+										<div class = "col-2 p-0">
+											<%= display_activity_image(activ, :thumb, "rounded-circle") %>
+										</div>
+										<div class = "col-10 vertical-center cell-activity_name">
+											<h4><%= activ.name%></h4>
+										</div>
 									</div>
 								</div>
 							<% end %>
@@ -37,15 +38,16 @@
 						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-								<div class= "nav flex-row activity-row p-2 text-dark">
+								<div class= "nav flex-row activity-row p-2 text-dark ">
+									<div class="oval-cell vertical-center">
 									<div class = "col-2 p-0">
 										<%= display_activity_image(activ, :thumb, "rounded-circle") %>
 									</div>
-									<div class = "col-10">
+									<div class = "col-10 vertical-center cell-activity_name">
 										<h4><%= activ.name%></h4>
-										<p><%= activ.description%></p>
 									</div>
 								</div>
+							</div>
 							<% end %>
 						<% end %>
 					</div>
@@ -54,12 +56,13 @@
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 								<div class= "nav flex-row activity-row p-2 text-dark">
-									<div class = "col-2 p-0">
-										<%= display_activity_image(activ, :thumb, "rounded-circle") %>
-									</div>
-									<div class = "col-10">
-										<h4><%= activ.name%></h4>
-										<p><%= activ.description%></p>
+									<div class="oval-cell vertical-center">
+										<div class = "col-2 p-0">
+											<%= display_activity_image(activ, :thumb, "rounded-circle") %>
+										</div>
+										<div class = "col-10 vertical-center cell-activity_name">
+											<h4><%= activ.name%></h4>
+										</div>
 									</div>
 								</div>
 							<% end %>
