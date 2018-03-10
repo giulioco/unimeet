@@ -49,7 +49,6 @@
                     <%= f.label :bio %><br />
                     <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control m-1" %>
                   </div>
-          
         </div>
     </div>
 </div>
@@ -59,10 +58,47 @@
 
 <div class="buttons">
   <div class="row justify-content-center mt-2 buttons">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-small mb-2" data-toggle="modal" data-target="#myModal">Change Password</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="newpassword">New Password</label> <br />
+            <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="newpassword">Confirm Your New Password</label> <br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, class: "form-control" %>
+          </div>
+          <div class-"form-group">
+            <%= f.label :current_password %> <h6><small>(we need your current password to confirm your changes)</small></h6><br />
+            <%= f.password_field :current_password, autocomplete: "off", autofocus: true, class: "form-control" %>
+          </div>
+          <div class="actions" align="center">
+          <%= f.submit "Update Password", class: "btn btn-primary mt-2" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+
+  </div>
+</div>
     <div class="actions">
         <%= f.submit "Save", class: "btn btn-primary" %>
             <% end %>
-      </div>
+    </div>
   </div>
 </div>
 
