@@ -19,13 +19,15 @@
             <% profiles.each do |profile| %>
               <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
             <div class= "nav flex-row activity-row p-2 text-dark">
-              <div class = "col-2">
-                <%= display_activity_image(profile,:thumb, "rounded-circle") %>
-              </div>
-              <div class = "col-10">
-                <h5><%= profile.first_name%></h5>
-                <h5><span class="card-subtitle btn-sm btn-dark mr"><%= profile.major%></span></h5>
-                <h5><span class="card-subtitle btn-sm btn-warning mr"><%= profile.college_location%></span></h5>
+              <div class="oval-cell vertical-center">
+                <div class = "col-2 p-0">
+                  <%= display_activity_image(profile,:thumb, "rounded-circle") %>
+                </div>
+                <div class = "col-10 cell-profile_name">
+                  <h5><%= profile.first_name%></h5>
+                  <h5><span class="card-subtitle btn-sm btn-dark mr"><%= profile.major%></span></h5>
+                  <h5><span class="card-subtitle btn-sm btn-warning mr"><%= profile.college_location%></span></h5>
+                </div>
               </div>
             </div>
               <% end %>
@@ -36,19 +38,21 @@
             <% profiles.each do |profile| %>
               <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
             <div class= "nav flex-row activity-row p-2 text-dark">
-              <div class = "col-2 p-0">
-                <%= display_activity_image(profile,:thumb, "rounded-circle") %>
-              </div>
-              <div class = "col-10">
-                <h5><%= profile.first_name%>
-                  <% if profile.id == Activity.find(session[:current_activity_id]).project_owner_id %>
-                    <span class="card-subtitle btn btn-danger mr">Owner</span>
-                  <% end %>
-                </h5>
-                <h5><span class="card-subtitle btn-sm btn-dark mr"><%= profile.major%></span></h7>
-                <h5><span class="card-subtitle btn-sm btn-warning mr"><%= profile.college_location%></span></h7>
-              </div>
+              <div class="oval-cell vertical-center">
+                <div class="col-2 p-0">
+                  <%= display_activity_image(profile,:thumb, "rounded-circle") %>
+                </div>
+                <div class = "col-10 cell-profile_name">
+                  <h5><%= profile.first_name%>
+                    <% if profile.id == Activity.find(session[:current_activity_id]).project_owner_id %>
+                      <span class="card-subtitle btn btn-danger mr">Owner</span>
+                    <% end %>
+                  </h5>
+                  <h5><span class="card-subtitle btn-sm btn-dark mr"><%= profile.major%></span></h5>
+                  <h5><span class="card-subtitle btn-sm btn-warning mr"><%= profile.college_location%></span></h5>
+                </div>
             </div>
+          </div>
               <% end %>
               <% end %>
           </div>
