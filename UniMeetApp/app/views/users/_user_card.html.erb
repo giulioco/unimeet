@@ -34,7 +34,7 @@
 
 <!-- Buttons -->
 <div class="buttons">
-    <% if user.id == current_user.id %>
+    <% if user.id == current_user.id || session[:is_swiping_as_user] == true %>
     <% else %>
         <% if user.matches.exists?(user_id: user.id, activity_id: session[:current_activity_id]) %>
             <%= link_to "Unmatch", {action: "unmatch_profile", controller: "/pages", id: user.id, :remote => true}, {class: 'btn btn-danger'} %>

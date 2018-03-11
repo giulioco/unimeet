@@ -7,6 +7,7 @@ $('.chatinput').keypress(function(e){
 
 $("#new_message").bind("ajax:complete", function(event,xhr,status){
   $('.chatinput').val('');
+  $(".messages").animate({ scrollTop: $(".panel").height() }, "fast");
 });
 
 $('.chatinput').keypress(function(e) {
@@ -31,4 +32,4 @@ $('#new_message').on('ajax:beforeSend', function(evt, xhr, settings){
   $('#register-button').prop("disabled", "disabled");
 });
 
-$(".messages").animate({ scrollTop: $(".messages").height() }, "fast");
+$(".messages").animate({ scrollTop: $(".panel").height() }, "fast");
