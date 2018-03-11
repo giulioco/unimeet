@@ -652,13 +652,13 @@ font-size: 14px;
 }
 
 #frame {
-  width: 100%;
+  width: calc(100% + 30px);
   min-width: 360px;
-  max-width: 1000px;
   height: 92vh;
   min-height: 300px;
-  max-height: 720px;
   background: #E6EAEA;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 @media screen and (max-width: 360px) {
   #frame {
@@ -703,8 +703,8 @@ font-size: 14px;
 #frame .content .messages {
   height: auto;
   width: 100%;
-  min-height: calc(100% - 93px);
-  max-height: calc(100% - 93px);
+  min-height: calc(100% - 60px);
+  max-height: calc(100% - 60px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -776,7 +776,7 @@ font-size: 14px;
 .chatinput {
     float: left;
     border: none;
-    width: calc(100% - 93px);
+    width: calc(100% - 41px);
     padding: 11px 32px 10px 8px;
     text-rendering: optimizeLegibility;
     font-size: 0.8em;
@@ -790,7 +790,7 @@ font-size: 14px;
 .chatmessagesubmit {
   float: right;
   border: none;
-  padding: 12px 0;
+  padding: 12px;
   cursor: pointer;
   background: #32465a;
   color: #f5f5f5;
@@ -798,4 +798,19 @@ font-size: 14px;
     background: #435f7a;
   }
 }
+
+#msgs {
+    padding: 0px;
+    overflow: auto;
+}
+
+#message_content {
+    line-height: 13px;
+    border: 1px solid #ced4da;
+}
+
+#new_message {
+    overflow:auto;
+}
+
 
