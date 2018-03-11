@@ -123,9 +123,7 @@ label {
     background: #fff;
     width: 180px;
     height: 65px; 
-    transition: all 0.25s ease-out;
     &:hover{
-    transition: all 0.25s ease-in;
         box-shadow: 0 0 20px #000;
     }
 }
@@ -199,6 +197,7 @@ body.pages.home {
 #activity-description-front {
     max-height: 78px; 
     overflow-y: hidden;
+    padding-top: 0px;
 }
 
 a.owned-activities-links {
@@ -238,7 +237,8 @@ a.owned-activities-links {
         overflow-y: hidden;
     }
     .card-title {
-
+        position: relative;
+        height: 20px;
     }
 }
 
@@ -799,3 +799,11 @@ font-size: 14px;
   }
 }
 
+.section-year {
+    float: right;
+    width: 48%;
+}
+
+.section-college {
+    width: 48%;
+}

@@ -51,3 +51,7 @@ function readCookie(name) {
     }
     return null;
 }
+
+$('#card-title').textfill({
+    maxFontPixels: 20
+});
