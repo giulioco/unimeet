@@ -20,12 +20,6 @@
   <a class="navbar-brand" id="main-title" href="/"><h1><span class="font-weight-bold">Uni</span>Meet</h1></a>
 
   <% if user_signed_in? %>
-  <%= javascript_tag  do -%>
-    setInterval(function() {
-      //alert("sup");
-      
-    }, 1000); // 60 * 1000 milsec
-  <% end -%>
   <ul class="nav justify-content-between">
     <li class="vertical-center">
     <li class="nav-item dropdown ">
