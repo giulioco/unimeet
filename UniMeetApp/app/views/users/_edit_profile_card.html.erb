@@ -56,45 +56,46 @@
 
 <!-- Buttons _edit_prfile_card-->
 
-<div class="buttons">
-  <div class="row justify-content-center mt-2 buttons">
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-small mb-2" data-toggle="modal" data-target="#myModal">Change Password</button>
+<div class="buttons mx-auto">
+  <div class="row mx-auto justify-content-center mt-2 buttons">
+    <div class="col m-auto">
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-small mb-2" data-toggle="modal" data-target="#myModal">Change Password</button>
+    </div>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
     
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Change Password</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="newpassword" class="text-dark">New Password</label> <br />
-            <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Change Password</h4>
           </div>
-          <div class="form-group">
-            <label for="newpassword" class="text-dark">Confirm Your New Password</label> <br />
-            <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, class: "form-control" %>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="newpassword" class="text-dark">New Password</label> <br />
+              <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <label for="newpassword" class="text-dark">Confirm Your New Password</label> <br />
+              <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, class: "form-control" %>
+            </div>
+            <div class-"form-group">
+              <%= f.label :current_password, class: "text-dark" %> <h6><small>(we need your current password to confirm your changes)</small></h6><br />
+              <%= f.password_field :current_password, autocomplete: "off", autofocus: true, class: "form-control" %>
+            </div>
+            <div class="actions" align="center">
+            <%= f.submit "Update Password", class: "btn btn-primary mt-2" %>
+            </div>
           </div>
-          <div class-"form-group">
-            <%= f.label :current_password %> <h6><small>(we need your current password to confirm your changes)</small></h6><br />
-            <%= f.password_field :current_password, autocomplete: "off", autofocus: true, class: "form-control" %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
-          <div class="actions" align="center">
-          <%= f.submit "Update Password", class: "btn btn-primary mt-2" %>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
       </div>
-
-  </div>
-</div>
-    <div class="actions">
+    </div>
+    <div class="actions col m-auto">
         <%= f.submit "Save", class: "btn btn-primary" %>
             <% end %>
     </div>
