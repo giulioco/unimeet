@@ -73,28 +73,34 @@
 		</div>
 <!-- Card -->
 		<div id="main_view" class = "col-md-9 ml-sm-auto px-auto justify-content-center">
-
-				<div id="card-container">
-					<% queue = Activity.queue(current_user.id) %>
-					<% if queue.count > 0 %>
-					<% nextActivityInQueue = queue.first() %>
-						<div class="card-flipper mx-auto" id="card-flipper">
-						  <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
-						    <div id="old" style="background-color: <%= '#ff0000' if nextActivityInQueue.max_size == nextActivityInQueue.team_count %>">
-									<%= render 'pages/swipe_card', activity: nextActivityInQueue%>
-								</div>
-								<div id="new">
-					     	</div>
-						  </div>
-						</div>
-						<!-- Buttons -->
-						<div class="row justify-content-center buttons" >
-							<%= render 'pages/swipe_card_buttons', activity: nextActivityInQueue%>
-						</div>	
-					<% else %>
-						<%= render 'pages/empty_deck', type: 'activity'%>
-					<% end %>
-				</div>
+        <% if params[:activity_id] %>
+          <div id="card-container">
+            <% activity = Activity.find(params[:activity_id]) %>
+            <%= render 'activities/activity_card', activity: activity %>
+          </div>
+        <% else %>
+  				<div id="card-container">
+  					<% queue = Activity.queue(current_user.id) %>
+  					<% if queue.count > 0 %>
+  					<% nextActivityInQueue = queue.first() %>
+  						<div class="card-flipper mx-auto" id="card-flipper">
+  						  <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+  						    <div id="old" style="background-color: <%= '#ff0000' if nextActivityInQueue.max_size == nextActivityInQueue.team_count %>">
+  									<%= render 'pages/swipe_card', activity: nextActivityInQueue%>
+  								</div>
+  								<div id="new">
+  					     	</div>
+  						  </div>
+  						</div>
+  						<!-- Buttons -->
+  						<div class="row justify-content-center buttons" >
+  							<%= render 'pages/swipe_card_buttons', activity: nextActivityInQueue%>
+  						</div>	
+  					<% else %>
+  						<%= render 'pages/empty_deck', type: 'activity'%>
+  					<% end %>
+  				</div>
+        <% end %>
 		</div>
 	</div>
 	<% end %>

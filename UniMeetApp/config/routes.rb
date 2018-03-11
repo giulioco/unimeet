@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :chatrooms, param: :id
   resources :messages
   notify_to :users, with_devise: :users, controller: 'users/notifications'
+  get '/:target_type/:target_id/notifications/:id' => :authenticated_root, controller: 'users/notifications'
+  get '/:target_type/:target_id/notifications' => :authenticated_root, controller: 'users/notifications'
   
   get 'activities/new' => 'activities#new'
   get 'activities/show.:id' => 'activities#show'
@@ -64,5 +66,6 @@ Rails.application.routes.draw do
     resources :activities, only: [:show, :new, :create, :update] do
     end
   end
+  get "*path" => redirect("/")
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

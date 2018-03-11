@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   layout 'application'
 	before_action :authenticate_user! 
   protect_from_forgery except: :show_card
-
-
+  before_action :verify_activity_exists, only: [:home_activity_perspective]
+  before_action :verify_project_owner, only: [:home_activity_perspective]
 
   def home
     @this_user = current_user
@@ -262,6 +262,20 @@ class PagesController < ApplicationController
           format.js { render :action => "empty_deck" }
         end
       end 
+    end
+  end
+  
+  private
+
+  def verify_project_owner
+    @activity = Activity.find(params[:id])
+    if current_user.id != @activity.project_owner_id
+      redirect_to authenticated_root_path
+    end 
+  end
+  def verify_activity_exists
+    if not Activity.where(id: params[:id]).exists?
+      redirect_to authenticated_root_path
     end
   end
 end
