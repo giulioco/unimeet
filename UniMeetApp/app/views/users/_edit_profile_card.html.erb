@@ -55,16 +55,12 @@
 
 
 <!-- Buttons _edit_prfile_card-->
-
-<div class="buttons mx-auto">
-  <div class="row mx-auto justify-content-center mt-2 buttons">
-    <div class="col m-auto">
-      <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-info btn-small mb-2" data-toggle="modal" data-target="#myModal">Change Password</button>
-    </div>
+<div class="row buttons justify-content-center">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-small btn-left mb-2" data-toggle="modal" data-target="#changePassword">Change Password</button>
 
     <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="changePassword" class="modal fade" role="dialog">
       <div class="modal-dialog">
     
         <!-- Modal content-->
@@ -95,11 +91,8 @@
         </div>
       </div>
     </div>
-    <div class="actions col m-auto">
-        <%= f.submit "Save", class: "btn btn-primary" %>
+    <div class="actions">
+        <%= f.submit "Save", class: "btn btn-primary btn-right" %>
             <% end %>
     </div>
-  </div>
 </div>
-
-
