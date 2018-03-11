@@ -668,7 +668,6 @@ font-size: 14px;
 }
 #frame .content {
   float: right;
-  width: 60%;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -703,8 +702,8 @@ font-size: 14px;
 #frame .content .messages {
   height: auto;
   width: 100%;
-  min-height: calc(100% - 60px);
-  max-height: calc(100% - 60px);
+  min-height: calc(100% - 120px);
+  max-height: calc(100% - 120px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -764,7 +763,6 @@ font-size: 14px;
   }
 }
 #frame .content .message-input {
-  position: absolute;
   bottom: 0;
   width: 100%;
   z-index: 99;
@@ -782,9 +780,6 @@ font-size: 14px;
     font-size: 0.8em;
     color: #32465a;
     resize: none;
-    &:focus {
-        outline: none;
-    }
 }
 
 .chatmessagesubmit {
