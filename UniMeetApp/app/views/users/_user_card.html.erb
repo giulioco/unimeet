@@ -13,7 +13,7 @@
                     <p class = "card-text card-section bg-primary section-year mb-1"><%= user.academic_year %></p>
                     <% end %>
                     <% unless user.college_location.nil? or user.college_location.empty? %>
-                    <p class = "card-text card-section bg-light section-college mb-1"><%= user.college_location %></p>
+                    <p class = "card-text card-section bg-dark section-college mb-1"><%= user.college_location %></p>
                     <% end %>
                     <% unless user.major.nil? or user.major.empty? %>
                     <p class = "card-text card-section bg-secondary section-major mb-0"><%= user.major %></p>
@@ -31,7 +31,7 @@
                 <p class = "card-text card-section bg-primary mb-1"><%= user.academic_year %></p>
                 <% end %>
                 <% unless user.college_location.nil? or user.college_location.empty? %>
-                <p class = "card-text card-section bg-dark text-light mb-1"><%= user.college_location %></p>
+                <p class = "card-text card-section bg-dark text-dark mb-1"><%= user.college_location %></p>
                 <% end %>
                 <% user.interests.each do |interest| %>
                     <p class="badge bg-primary text-light"><%= "#{interest.interest_name}" %></p>
