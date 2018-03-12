@@ -1032,6 +1032,20 @@ font-size: 14px;
     resize: none;
   box-sizing: border-box;
 }
+.flex-row.activity-row {
+  -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        transition: all .25s ease;
+  &:hover{
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+}
 
 #flip-button {
     background: $primary;
