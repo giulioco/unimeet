@@ -652,12 +652,13 @@ font-size: 14px;
 
 #frame {
   background: #E6EAEA;
-  height: 92vh;
+  height: calc(100vh - 84px);
   margin-left: -15px;
   margin-right: -15px;
   overflow-y:auto;
   overflow-x:hidden;
 }
+
 
 #frame .content {
   height: 100%;

@@ -7,7 +7,6 @@ $('.chatinput').keypress(function(e){
     });
 
 $("#new_message").bind("ajax:complete", function(event,xhr,status){
-  alert("LOL FUN");
   $('.chatinput').val('');
   $("#msgs").animate({ scrollTop: $(document).height() }, "fast");
   $("#loader").hide();
