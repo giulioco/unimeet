@@ -18,49 +18,36 @@
 				</ul>
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-						<p class="position-absolute pt-5 pl-5" id="sidebarEmpty">Start exploring to find matches!</p>
+						
 						<% activity = Activity.joins(:matches).where({ "matches.user_id" => current_user.id}) %>
-						<% activity.each do |activ| %>
-							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-								<div class= "nav flex-row activity-row p-2 text-dark">
-									<div class="oval-cell vertical-center">
-										<div class = "col-2 p-0">
-											<%= display_activity_image(activ, :thumb, "rounded-circle") %>
-										</div>
-										<div class = "col-10 vertical-center cell-activity_name">
-											<h4><%= activ.name%></h4>
+						<% if (activity.blank?) %>
+			              <p class="position-absolute pt-5 pl-5" id="sidebarEmpty">Start exploring to find matches!</p>
+			            <% else %>
+							<% activity.each do |activ| %>
+								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+									<div class= "nav flex-row activity-row p-2 text-dark">
+										<div class="oval-cell vertical-center">
+											<div class = "col-2 p-0">
+												<%= display_activity_image(activ, :thumb, "rounded-circle") %>
+											</div>
+											<div class = "col-10 vertical-center cell-activity_name">
+												<h4><%= activ.name%></h4>
+											</div>
 										</div>
 									</div>
-								</div>
+								<% end %>
 							<% end %>
 						<% end %>
 					</div>
 					<div class="tab-pane fade" id="my-activities" role="tabpanel" aria-labelledby="profile-tab">
-						<h6>
-						<p class="position-absolute pt-5 pl-4 pr-4 center" id="sidebarEmpty">Create an activity, it will show up here!</p></h6>
 						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
-						<% activity.each do |activ| %>
-							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-								<div class= "nav flex-row activity-row p-2 text-dark ">
-									<div class="oval-cell vertical-center">
-									<div class = "col-2 p-0">
-										<%= display_activity_image(activ, :thumb, "rounded-circle") %>
-									</div>
-									<div class = "col-10 vertical-center cell-activity_name">
-										<h4><%= activ.name%></h4>
-									</div>
-								</div>
-							</div>
-							<% end %>
-						<% end %>
-					</div>
-					<div class="tab-pane fade" id="joined-activities" role="tabpanel" aria-labelledby="joined-tab">
-						<p class="position-absolute pt-5 pl-4" id="sidebarEmpty">Join an activity to connect with people!</p>
-						<% activity = Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id}) %>
-						<% activity.each do |activ| %>
-							<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-								<div class= "nav flex-row activity-row p-2 text-dark">
-									<div class="oval-cell vertical-center">
+						<% if (activity.blank?) %>
+			              <h6><p class="position-absolute pt-5 pl-4 pr-4 center" id="sidebarEmpty">Create an activity, it will show up here!</p></h6>
+			            <% else %>
+							<% activity.each do |activ| %>
+								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+									<div class= "nav flex-row activity-row p-2 text-dark ">
+										<div class="oval-cell vertical-center">
 										<div class = "col-2 p-0">
 											<%= display_activity_image(activ, :thumb, "rounded-circle") %>
 										</div>
@@ -69,6 +56,28 @@
 										</div>
 									</div>
 								</div>
+								<% end %>
+							<% end %>
+						<% end %>
+					</div>
+					<div class="tab-pane fade" id="joined-activities" role="tabpanel" aria-labelledby="joined-tab">
+						<% activity = Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id}) %>
+						<% if (activity.blank?) %>
+			              <p class="position-absolute pt-5 pl-4" id="sidebarEmpty">Join an activity to connect with people!</p>
+			            <% else %>
+							<% activity.each do |activ| %>
+								<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+									<div class= "nav flex-row activity-row p-2 text-dark">
+										<div class="oval-cell vertical-center">
+											<div class = "col-2 p-0">
+												<%= display_activity_image(activ, :thumb, "rounded-circle") %>
+											</div>
+											<div class = "col-10 vertical-center cell-activity_name">
+												<h4><%= activ.name%></h4>
+											</div>
+										</div>
+									</div>
+								<% end %>
 							<% end %>
 						<% end %>
 					</div>
