@@ -1,4 +1,5 @@
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/new_activity_card', locals: { activity: @activity }, :remote => true) %>");
+$(".myactivitiesmenu").dropdown("toggle");
 (function() {
   jQuery(function() {
     return $('*[data-imagedrop]').each(function() {
