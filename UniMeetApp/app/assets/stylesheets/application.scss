@@ -16,11 +16,11 @@
 $font-family-base: 'Montserrat', sans-serif;
 
 // colors
-$primary:       #869DE0;
+$primary:       #32465A;
 $secondary:     #D3676E;
 
-$light:         #BFE4FF;
-$dark:          #1F4360;
+$light:         #5BBA6F;
+$dark:          #F7EDE2;
 
 $h2-font-size: 3em;
 
@@ -120,19 +120,25 @@ label {
 
 .oval{
     border-radius: 30px;
-    background: #fff;
+    background: $dark;
+    
     width: 180px;
     height: 65px; 
     &:hover{
-        box-shadow: 0 0 20px #000;
+        box-shadow: 0 0 20px $light;
     }
 }
 .oval-contents{
     text-align: center;
+    color: $primary;
 }
 body.pages.home {
    overflow-y: hidden;
    height: 100%;
+}
+
+.nav-tab {
+    border-color: $primary;
 }
 
 
@@ -164,7 +170,7 @@ body.pages.home {
     }
 }
 .nav-tabs > li > a {
-    margin-left: -14px;
+    margin-left: -15px;
     margin-right: -15px;
 }
 .tab-content {
@@ -835,6 +841,33 @@ font-size: 14px;
     z-index: -1;
 }
 
+.nav-tabs .nav-link  {
+    background: $primary;
+    color: $dark;
+    border: 0px solid $primary;
+    border-radius: 0rem;
+    &:hover{
+        background: $secondary;
+    }
+}
+
+.nav-tabs .nav-link.active {
+    background: $dark;
+    color: $primary;
+    border: 0px solid $primary;
+}
+
+.sidebar-sticky {
+    background: $dark;
+}
+
+.nav-tab {
+    border-color: $primary;
+}
+
+.navbar .sticky-top {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
 
 
 #loader {

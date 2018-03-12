@@ -28,10 +28,10 @@
         <div class = "oval-contents">
         Explore as:
         <% if session[:is_swiping_as_user] %>
-              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%>
+              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-secondary")%>
             <% else %>
               <% if session[:current_activity_id] %>
-               <%= display_activity_image_menu(Activity.find(session[:current_activity_id]), :thumb, "rounded-circle border border-light")%>
+               <%= display_activity_image_menu(Activity.find(session[:current_activity_id]), :thumb, "rounded-circle border border-secondary")%>
               <% end %>
         <% end %>
         </div>
@@ -40,7 +40,7 @@
         <% if not session[:is_swiping_as_user] %>
           <%= link_to pages_home_path, class: "owned-activities-links" do %>
             <div class= "dropdown-item">
-              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light") %>
+              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-secondary") %>
               <span>
                 <%= current_user.first_name%>
               </span>
@@ -91,7 +91,7 @@
     <li class="nav-item dropdown mr-5">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <%= current_user.first_name %>
-        <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%> 
+        <%= display_image_menu(current_user, :thumb, "rounded-circle border border-dark")%> 
       </a>
       <div class="dropdown-menu">
         <%= link_to("View Profile", {action: "show_profile_card", controller: "/pages", id: current_user.id, method: :get, :remote => true}, class: "dropdown-item") %>

@@ -8,9 +8,9 @@
     <div class="notification_list_cover"></div>
     <div class="list_image">
       <% if current_user.id == @match.user_id %>
-        <%= display_activity_image(matched_activity, :thumb, "rounded-circle border border-light") %>
+        <%= display_activity_image(matched_activity, :thumb, "rounded-circle border border-secondary") %>
       <% else %>
-        <%= display_image(matched_user, :thumb, "rounded-circle border border-light") %>
+        <%= display_image(matched_user, :thumb, "rounded-circle border border-secondary") %>
       <% end %>
     </div>
     <div class="list_text_wrapper">
