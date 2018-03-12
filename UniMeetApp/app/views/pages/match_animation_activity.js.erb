@@ -58,6 +58,8 @@
     $('.like_button').prop("disabled",true);
     $('.dislike_button').prop("disabled",true);
     $('#new').html("<%= escape_javascript(render :partial => 'pages/swipe_profile_card', locals: { user: @user }, :remote => true) %>");
+$("#loader").hide();
+    
     $('.swipe-card').toggleClass('rolled').delay(700).queue(function() { 
         SetGlobals();
         InitializeConfetti();

@@ -1,5 +1,7 @@
 $('.buttons').remove();
 $('#card-container').html("<%= escape_javascript(render :partial => 'users/edit_profile_card', :remote => true) %>");
+$("#loader").hide();
+
 (function() {
   jQuery(function() {
     return $('*[data-imagedrop]').each(function() {
