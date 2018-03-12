@@ -37,7 +37,7 @@
           <div class="tab-pane fade" id="activity-members" role="tabpanel" aria-labelledby="members-tab">
             <% profiles = User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]}) %>
             <% profiles.each do |profile| %>
-              <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+              <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0 bg-light") do %>
             <div class= "nav flex-row activity-row p-2 text-dark">
               <div class="oval-cell vertical-center">
                 <!-- home_activity sidebar profiles -->
