@@ -10,7 +10,7 @@
                 <div class="card-body py-0 px-2">                 
                     <h5 class = "card-title m-1"><%= user.first_name %></h5>
                     <% unless user.academic_year.nil? or user.academic_year.empty? %>
-                    <p class = "card-text card-section bg-primary section-year mb-1"><%= user.academic_year %></p>
+                    <p class = "card-text card-section bg-primary text-light section-year mb-1"><%= user.academic_year %></p>
                     <% end %>
                     <% unless user.college_location.nil? or user.college_location.empty? %>
                     <p class = "card-text card-section bg-dark section-college mb-1"><%= user.college_location %></p>
@@ -28,10 +28,10 @@
                 <p class = "card-text card-section bg-secondary mb-1"><%= user.major %></p>
                 <% end %>
                 <% unless user.academic_year.nil? or user.academic_year.empty? %>
-                <p class = "card-text card-section bg-primary mb-1"><%= user.academic_year %></p>
+                <p class = "card-text card-section text-light bg-primary mb-1"><%= user.academic_year %></p>
                 <% end %>
                 <% unless user.college_location.nil? or user.college_location.empty? %>
-                <p class = "card-text card-section bg-dark text-dark mb-1"><%= user.college_location %></p>
+                <p class = "card-text card-section bg-dark text-primary mb-1"><%= user.college_location %></p>
                 <% end %>
                 <% user.interests.each do |interest| %>
                     <p class="badge bg-primary text-light"><%= "#{interest.interest_name}" %></p>
