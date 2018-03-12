@@ -568,7 +568,7 @@ a.owned-activities-links {
     display: none;
     z-index: 999;
     width: 330px;
-    height: 500px;
+    height: 40vh;
     border: 1px solid #e5e5e5;
     position: absolute;
     top: calc(100% + 20px);
@@ -651,7 +651,7 @@ font-size: 14px;
 }
 
 .myactivitiesmenu.show {
-    height: 300px;
+    max-height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -865,7 +865,7 @@ font-size: 14px;
     border-color: $primary;
 }
 
-.navbar .sticky-top {
+.navbar {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
