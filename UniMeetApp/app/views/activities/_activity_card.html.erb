@@ -24,7 +24,7 @@
           <%= link_to({action: "show_profile_card", controller: "pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0 float-left w-25 mr-2") do  %>
             <div class="position-relative"><%= display_image(member, :medium, "w-100 rounded") %></div>
             <p class="badge bg-primary text-light"> <%= member.first_name %></p>
-            <p class="badge bg-light text-dark"> <%= member.major %></p>
+            <p class="badge bg-light text-dark"> <%= member.college_location %></p>
           <% end %>
         <%end %>
       </div>
