@@ -1,3 +1,6 @@
+if (!$('#card-container').length){
+	$('#main_view').html('<div id="card-container"></div>');
+}
 $('.buttons').remove();
 $('#card-container').html("<%= escape_javascript(render :partial => 'users/user_card', locals: { user: @user }, :remote => true) %>");
 $(".notification_wrapper").removeClass("open").removeClass("opened");
@@ -12,3 +15,4 @@ $('a').bind('ajax:complete', function() {
   $("#loader").hide();
 });
 });
+

@@ -8,9 +8,11 @@
     <p class="card-text card-section bg-light" id="activity-description-front"><%= activity.description %></p>
   </div>
 </div>
-<div class="back p-2 bg-white border border-dark">
-  <h5 class="card-title m-1"><%= activity.name %></h5>
-  <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
+<div class="back p-2  border border-dark">
+  <h5 class="card-title m-1"><%= activity.name %></h5>       
+  <% unless activity.max_size == 0 %>
+    <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
+  <% end %>
   <p class="card-text card-section bg-light"><%= activity.description %></p>
   <h6 class="card-text mt-2">Joined Members:</h6>
   <% current_members = User.joins(:memberships).where({ "memberships.activity_id" => activity.id}) %>

@@ -19,7 +19,7 @@ $font-family-base: 'Montserrat', sans-serif;
 $primary:       #32465A;
 $secondary:     #D3676E;
 
-$light:         #5BBA6F;
+$light:         #CCA378;
 $dark:          #F7EDE2;
 
 $h2-font-size: 3em;
@@ -121,11 +121,20 @@ label {
 .oval{
     border-radius: 30px;
     background: $dark;
-    
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
     width: 180px;
     height: 65px; 
     &:hover{
-        box-shadow: 0 0 20px $light;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        transition: all .25s ease;
+        box-shadow: 0 1px 6px $light;
     }
 }
 .oval-contents{
@@ -238,6 +247,7 @@ a.owned-activities-links {
     }
 }
 .swipe-card {
+    background: $dark;
     .activity-description {
         background: $light;
         overflow-y: hidden;
@@ -291,10 +301,14 @@ a.owned-activities-links {
     backface-visibility: hidden;
 }
 .swipe-card .front {
+    cursor: pointer;
    // overflow-x: hidden;
+   background: $dark;
   
 }
 .swipe-card .back {
+    cursor: pointer;
+    background: $dark;
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
@@ -322,6 +336,7 @@ a.owned-activities-links {
     transition: all 1s ease-in-out;
 }
 .swipe-card.flipped {
+    background: $dark;
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
@@ -472,7 +487,8 @@ a.owned-activities-links {
     padding: 10px;
     -o-text-overflow: clip;
     text-overflow: clip;
-    background: #000;
+    background: $secondary;
+    color: #FFF;
     text-decoration: none;
     left: 50%;
     margin-left: 133px;
@@ -514,6 +530,11 @@ a.owned-activities-links {
     a {
         position: absolute;
     }
+}
+
+.buttons_edit_card {
+    margin-top: -45px;
+    position: relative;
 }
 .btn-left {
     right: 50%;
@@ -846,9 +867,37 @@ font-size: 14px;
     color: $dark;
     border: 0px solid $primary;
     border-radius: 0rem;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
     &:hover{
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        transition: all .25s ease;
         background: $secondary;
     }
+}
+
+#myTabContent.tab-pane.nav-link {
+    -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        transition: all .25s ease;
+    background: $dark;
+    &:hover{
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        transition: all .25s ease;
+        background: $light;
+    }
+
 }
 
 .nav-tabs .nav-link.active {

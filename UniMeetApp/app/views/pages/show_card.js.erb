@@ -1,3 +1,6 @@
+if (!$('#card-container').length){
+	$('#main_view').html('<div id="card-container"></div>');
+}
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/activity_card', locals: { activity: @activity }, :remote => true) %>");
 $("#loader").hide();
 $(".notification_wrapper").removeClass("open").removeClass("opened");

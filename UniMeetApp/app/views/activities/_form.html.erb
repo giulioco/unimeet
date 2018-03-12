@@ -39,7 +39,7 @@
   </div>
 
   <!-- Buttons -->
-  <div class="actions row justify-content-center mt-2" align="center">
+  <div class="actions row buttons_edit_card justify-content-center" align="center">
       <% if url != activities_new_path && @activity.project_owner_id == current_user.id %>
         <%= f.submit "Save", class: "btn btn-success mr-2" %>
           <%= link_to "Delete", { action: "destroy", controller: "activities", id: @activity.id, method: :delete }, class: 'btn btn-danger ml-2' %>
