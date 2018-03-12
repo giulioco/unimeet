@@ -18,6 +18,7 @@
 				</ul>
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<p class="position-absolute pt-5 pl-5" id="sidebarEmpty">Start exploring to find matches!</p>
 						<% activity = Activity.joins(:matches).where({ "matches.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
@@ -35,6 +36,7 @@
 						<% end %>
 					</div>
 					<div class="tab-pane fade" id="my-activities" role="tabpanel" aria-labelledby="profile-tab">
+						<p class="position-absolute pt-5 pl-4" id="sidebarEmpty">Create an activity and it will show up here</p>
 						<% activity = Activity.joins(:memberships).where({ "memberships.ownership" => true, "memberships.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
@@ -52,6 +54,7 @@
 						<% end %>
 					</div>
 					<div class="tab-pane fade" id="joined-activities" role="tabpanel" aria-labelledby="joined-tab">
+						<p class="position-absolute pt-5 pl-4" id="sidebarEmpty">Join an activity to connect with people!</p>
 						<% activity = Activity.joins(:memberships).where({ "memberships.user_id" => current_user.id}) %>
 						<% activity.each do |activ| %>
 							<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
