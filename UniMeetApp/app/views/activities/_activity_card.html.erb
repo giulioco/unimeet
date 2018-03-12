@@ -18,12 +18,13 @@
         <h5 class="card-title m-1"><%= activity.name %></h5>
         <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
         <p class="card-text card-section bg-light"><%= activity.description %></p>
+        <h6 class="card-text mt-2">Joined Members:</h6>
         <% current_members = User.joins(:memberships).where({ "memberships.activity_id" => activity.id}) %>
         <% current_members.each do |member| %>
-          <%= link_to({action: "show_profile_card", controller: "pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
-              <!-- ADD CODE FOR EACH MEMBER HERE - REMEMBER TO COPY TO PARTIAL RENDERS -->
-              <p class="badge bg-primary text-light"> <%= member.first_name %></p>
-
+          <%= link_to({action: "show_profile_card", controller: "pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0 float-left w-25 mr-2") do  %>
+            <div class="position-relative"><%= display_image(member, :medium, "w-100 rounded") %></div>
+            <p class="badge bg-primary text-light"> <%= member.first_name %></p>
+            <p class="badge bg-light text-dark"> <%= member.major %></p>
           <% end %>
         <%end %>
       </div>
