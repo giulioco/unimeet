@@ -4,6 +4,13 @@
     <div class="contact-profile">
       <%= image_tag(@chatroom.activity.image.url(:thumb)) %>
       <p><%= @chatroom.activity.name %></p>
+      <div id="close_chat">
+        <%= link_to({action: "close_chatroom", controller: "/pages", method: :get, :remote => true}) do %>
+        <div style="color:#435f7a; cursor:pointer;">
+          <i class="fas fa-window-close" aria-hidden="true"></i>
+        </div>
+        <%end%>
+      </div>
     </div>
     <div class="messages panel-body" id="messages">
       <% if @chatroom.messages.any? %>
@@ -16,10 +23,11 @@
       </div>
       <%end%>
     </div>
-  </div>
-  <div class="message-input">
+    <div class="message-input">
         <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
     </div>
+  </div>
+
 </div>
 </div>
 

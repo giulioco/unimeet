@@ -48,6 +48,8 @@ Rails.application.routes.draw do
   get 'pages/leave_activity' => 'pages/leave_activity'
   get 'pages/show_chat' => 'pages/show_chat'
   get 'pages/back_to_swipe' => 'pages/back_to_swipe'
+  get 'pages/close_chatroom' => 'pages#close_chatroom'
+
 
   devise_for :users, :controllers => {sessions: "sessions", registrations: "registrations"}
   devise_scope :user do

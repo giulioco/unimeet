@@ -16,11 +16,11 @@
 $font-family-base: 'Montserrat', sans-serif;
 
 // colors
-$primary:       #78BBE6;
+$primary:       #435f7a;
 $secondary:     #FF895D;
 
 $light:         #D5EEFF;
-$dark:          #1B435D;
+$dark:          #0D1321;
 
 $h2-font-size: 3em;
 
@@ -698,13 +698,16 @@ font-size: 14px;
   float: left;
 }
 
+.contact-profile {
+    overflow: hidden;
+}
+
 #frame .content .messages {
   height: auto;
   width: 100%;
-  min-height: calc(100% - 120px);
-  max-height: calc(100% - 120px);
-  overflow-y: scroll;
-  overflow-x: hidden;
+  min-height: calc(100% - 60px);
+  max-height: calc(100% - 60px);
+  overflow: hidden;
 }
 @media screen and (max-width: 735px) {
   #frame .content .messages {
@@ -773,12 +776,19 @@ font-size: 14px;
 .chatinput {
     float: left;
     border: none;
-    width: calc(100% - 41px);
+    width: calc(100% - 40px);
+    border-radius: 0;
     padding: 11px 32px 10px 8px;
     text-rendering: optimizeLegibility;
     font-size: 0.8em;
     color: #32465a;
     resize: none;
+}
+
+.message-input {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .chatmessagesubmit {
@@ -805,6 +815,7 @@ font-size: 14px;
 #msgs {
     padding: 0px;
     overflow: auto;
+    height: fit-content;
 }
 
 #message_content {
@@ -812,6 +823,17 @@ font-size: 14px;
     border: 1px solid #ced4da;
 }
 
+.panel {
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
 #new_message {
-    overflow:auto;
+}
+
+#close_chat {
+    float: right;
+    font-size: 30px;
+    margin: 0px 12px 12px 12px;
+
 }
