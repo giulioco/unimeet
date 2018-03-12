@@ -1,1 +1,6 @@
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
 $('#card-container').html("<%= escape_javascript(render :partial => 'pages/full_swipe_card', locals: { activity: @activity }, :remote => true) %>");
+$("#loader").hide();
