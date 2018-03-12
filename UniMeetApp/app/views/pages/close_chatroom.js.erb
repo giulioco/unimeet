@@ -1,11 +1,1 @@
 $('#main_view').html("<%= escape_javascript(render :partial => 'pages/close_chatroom', :remote => true) %>");
-
-$('a').on('ajax:beforeSend', function() {
-  $("#loader").show();
-  alert("LOL");
-});
-
-$('a').bind('ajax:complete', function() {
-  $("#loader").hide();
-  alert("LOL");
-});

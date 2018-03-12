@@ -662,6 +662,7 @@ font-size: 14px;
 #frame .content {
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 #frame .content .message-input {
@@ -788,18 +789,15 @@ font-size: 14px;
   cursor: pointer;
   background: #32465a;
   color: #f5f5f5;
-<<<<<<< HEAD
   vertical-align: top;
   height: 48px;
   width: 48px;
   font-size: 20px;
   vertical-align: top;
   margin-top: -48px;
-=======
   &:hover {
     background: $primary;
   }
->>>>>>> f1434049f83415c8695349a57f1023f1ca1faf37
 }
 
 .section-year {
@@ -846,6 +844,7 @@ font-size: 14px;
   width:100%;
   background: $dark;
   opacity: 0.5;
+  z-index: 1000;
 }
 
 .sk-folding-cube {
