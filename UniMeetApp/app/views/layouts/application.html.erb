@@ -69,7 +69,7 @@
   </ul>
 
   <ul class="nav justify-content-end">
-    <li class="nav-item" id="notificationsitem">
+    <li class="nav-item vertical-center mt-2 mr-4" id="notificationsitem">
       <%= render_notifications_of current_user, {index_content: :with_attributes, remote: true} %>
       <%= javascript_tag do %>
   $(document).click(function(e){

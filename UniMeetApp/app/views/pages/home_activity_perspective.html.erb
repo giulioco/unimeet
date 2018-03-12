@@ -78,7 +78,7 @@
         <% if queue.count > 0 %>
           <% user = queue.first %>
           <div class="card-flipper mx-auto" id="card-flipper">
-            <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+            <div class="card border border-primary swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
               <div id="old">
               <%= render 'pages/swipe_profile_card', user: user%>
             </div>

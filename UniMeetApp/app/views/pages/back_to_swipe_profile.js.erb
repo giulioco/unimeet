@@ -1,3 +1,4 @@
+$("#loader").hide();
 $('#card-container').html("<%= escape_javascript(render :partial => 'pages/full_swipe_profile_card', locals: { user: @user }, :remote => true) %>");
 $(document).ready( function() {
 $('a').on('ajax:beforeSend', function() {

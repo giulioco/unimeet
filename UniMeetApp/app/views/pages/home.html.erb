@@ -97,7 +97,7 @@
   					<% if queue.count > 0 %>
   					<% nextActivityInQueue = queue.first() %>
   						<div class="card-flipper mx-auto" id="card-flipper">
-  						  <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+  						  <div class="card border border-primary swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
   						    <div id="old" style="background-color: <%= '#ff0000' if nextActivityInQueue.max_size == nextActivityInQueue.team_count %>">
   									<%= render 'pages/swipe_card', activity: nextActivityInQueue%>
   								</div>

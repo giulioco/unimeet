@@ -19,8 +19,8 @@ $font-family-base: 'Montserrat', sans-serif;
 $primary:       #32465A;
 $secondary:     #D3676E;
 
-$light:         #CCA378;
-$dark:          #F7EDE2;
+$dark:         #CCA378;
+$light:          #F7EDE2;
 
 $h2-font-size: 3em;
 
@@ -49,13 +49,8 @@ body.home body.home_activity_perspective {
 
 
 
-body.home_activity_perspective {
-    background-color: $light;
-    transition:color 0.25s ease;
-}
-
 #main-title {
-    color: $dark;
+    color: $light;
     &:hover {
         color: $secondary;
         text-decoration: none;
@@ -67,7 +62,7 @@ nav {
 }
 
 .form-group {
-    color: $light;
+    color: $dark;
     input {
         background-color: rgba(255,255,255,0.8);
         
@@ -91,22 +86,22 @@ nav {
 
 label {
     text-align: right;
-    color: $light;
+    color: $dark;
 }
 
 .sub-title {
-    color: $light;
+    color: $dark;
     border-bottom-style: solid;
-    border-bottom-color: $light;
+    border-bottom-color: $dark;
     padding-top: $spacer * .5;
 }
 
 
 .action {
     input {
-        color: $light;
+        color: $dark;
         background-color: transparent;
-        border-color: $light;
+        border-color: $dark;
         border-style: solid;
         height: 40px;
         width: auto;
@@ -120,7 +115,7 @@ label {
 
 .oval{
     border-radius: 30px;
-    background: $dark;
+    background: $light;
     -webkit-transition: all .25s ease;
     -moz-transition: all .25s ease;
     -o-transition: all .25s ease;
@@ -134,7 +129,7 @@ label {
         -o-transition: all .25s ease;
         -ms-transition: all .25s ease;
         transition: all .25s ease;
-        box-shadow: 0 1px 6px $light;
+        box-shadow: 0 1px 6px $dark;
     }
 }
 .oval-contents{
@@ -197,7 +192,7 @@ body.pages.home {
     &:hover {
         box-shadow: 0 0 15px 0 hsla(0,0%,51%,.22);
         outline-right-color: $secondary;
-        background-color: lighten($light, 15%)
+        background-color: lighten($dark, 15%)
     }
 }
 
@@ -247,9 +242,9 @@ a.owned-activities-links {
     }
 }
 .swipe-card {
-    background: $dark;
+    background: $light;
     .activity-description {
-        background: $light;
+        background: $dark;
         overflow-y: hidden;
     }
     .card-title {
@@ -303,12 +298,13 @@ a.owned-activities-links {
 .swipe-card .front {
     cursor: pointer;
    // overflow-x: hidden;
-   background: $dark;
+   background: $light;
   
 }
 .swipe-card .back {
+
     cursor: pointer;
-    background: $dark;
+    background: $light;
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
@@ -336,7 +332,7 @@ a.owned-activities-links {
     transition: all 1s ease-in-out;
 }
 .swipe-card.flipped {
-    background: $dark;
+    background: $light;
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
@@ -545,15 +541,7 @@ a.owned-activities-links {
     margin-left: ($spacer * .25);
 }
 
-.bell {
-    font-size:35px;
-    margin-top:-20px;
-    margin-right:30px;
-    z-index:0;
-    position:absolute;
-    cursor: pointer;
-    color: $dark;
-}
+
 
 .notification_wrapper {
     margin-left: 20px;
@@ -566,7 +554,7 @@ a.owned-activities-links {
 }
 .notification_wrapper .dropdown_notification .notification_count span{
     color: #fff;
-    background-color: #e5e5e5;
+    background-color: $light;
     border-radius: 4px;
     font-size: 12px;
     padding: 4px 8px;
@@ -620,7 +608,7 @@ font-size: 14px;
 .notification_wrapper .notification_list_wrapper .notifications {
 position: relative;
 width: 330px;
-height: calc(500px - 37px - 37px);
+height: calc(40vh - 37px - 37px);
 overflow: scroll;
 }
 .notification_wrapper .notification_list_wrapper .notification_link_wrapper{
@@ -864,7 +852,7 @@ font-size: 14px;
 
 .nav-tabs .nav-link  {
     background: $primary;
-    color: $dark;
+    color: $light;
     border: 0px solid $primary;
     border-radius: 0rem;
     -webkit-transition: all .25s ease;
@@ -888,26 +876,26 @@ font-size: 14px;
         -o-transition: all .25s ease;
         -ms-transition: all .25s ease;
         transition: all .25s ease;
-    background: $dark;
+    background: $light;
     &:hover{
         -webkit-transition: all .25s ease;
         -moz-transition: all .25s ease;
         -o-transition: all .25s ease;
         -ms-transition: all .25s ease;
         transition: all .25s ease;
-        background: $light;
+        background: $dark;
     }
 
 }
 
 .nav-tabs .nav-link.active {
-    background: $dark;
+    background: $light;
     color: $primary;
     border: 0px solid $primary;
 }
 
 .sidebar-sticky {
-    background: $dark;
+    background: $light;
 }
 
 .nav-tab {
@@ -925,9 +913,9 @@ font-size: 14px;
   left: 0;  
   height:100%;
   width:100%;
-  background: $dark;
-  opacity: 0.5;
-  z-index: 1000;
+  background: $primary;
+  opacity: 0.8;
+  z-index: 483647;
 }
 
 .sk-folding-cube {
@@ -957,7 +945,7 @@ font-size: 14px;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: $light;
   -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
           animation: sk-foldCubeAngle 2.4s infinite linear both;
   -webkit-transform-origin: 100% 100%;
@@ -1020,4 +1008,32 @@ font-size: 14px;
   }
 }
 
+#notifications_icon {
+    position:absolute;
+    cursor: pointer;
+    margin-right: -30px;
+    font-size:40px;
+}
+.circleNotification {
+    position:absolute;
+    cursor: pointer;
+    z-index: -1;
+    margin-top: -10px;
+    color: $light;
+    font-size:40px;    
+    left: 6px;
+    margin-top: -8px;
+}
+.notification_count {
+    z-index: 99;
+}
 
+.no_resize {
+    resize: none;
+  box-sizing: border-box;
+}
+
+#flip-button {
+    background: $primary;
+    color : $light;
+}
