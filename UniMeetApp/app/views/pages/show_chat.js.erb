@@ -6,8 +6,11 @@ $('.chatinput').keypress(function(e){
     });
 
 $("#new_message").bind("ajax:complete", function(event,xhr,status){
+  alert("LOL FUN");
   $('.chatinput').val('');
-  $(".messages").animate({ scrollTop: $(".panel").height() }, "fast");
+  //$("#msgs").animate({ scrollTop: $(document).height() }, "fast");
+  $("#loader").hide();
+  $("#msgs").scrollTop = $("#msgs").scrollHeight;
 });
 
 $('.chatinput').keypress(function(e) {
@@ -32,3 +35,11 @@ $('#new_message').on('ajax:beforeSend', function(evt, xhr, settings){
   $('#register-button').prop("disabled", "disabled");
 });
 
+
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});

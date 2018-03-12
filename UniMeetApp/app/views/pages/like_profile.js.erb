@@ -25,3 +25,12 @@ $("#notificationsitem").html("<%= escape_javascript(render_notifications_of curr
 $(".dropdown_notification").click(function(){
             $(this).parent().toggleClass("open");
           });
+$(document).ready( function() {
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});
+});

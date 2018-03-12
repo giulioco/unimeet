@@ -56,11 +56,4 @@ $('#card-title').textfill({
     maxFontPixels: 20
 });
 
-
-$(function () {
-    $(document).ajaxStart(function() {
-       alert("BEFORE");
-    }).ajaxStop(function() {
-       alert("AFTER");
-    });
-});
+$("#loader").hide();

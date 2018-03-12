@@ -4,3 +4,13 @@ $('#card-container').slideToggle(500, function(){
 	$('#card-container').html("<%= escape_javascript(render :partial => 'pages/empty_deck', locals: { type: @type }, :remote => true) %>");
 });
 $('#card-container').slideDown();
+$(document).ready( function() {
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});
+});
+

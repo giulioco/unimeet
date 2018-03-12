@@ -107,6 +107,14 @@
 		</div>
 	</div>
 	<% end %>
+<script>
+$(document).on('ajax:beforeSend', 'a', function() {
+  $("#loader").show();
+});
 
+$(document).on('ajax:complete', 'a', function() {
+ $("#loader").hide();
+});
+</script>
 </body>
 
