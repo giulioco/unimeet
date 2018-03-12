@@ -1,5 +1,8 @@
 $('#main_view').html("<%= escape_javascript(render :partial => 'chatrooms/show', locals: {chatroom: @chatroom}, :remote => true) %>");
-$("#msgs").animate({ scrollTop: document.getElementById("msgs").scrollHeight }, "fast");
+var scrollHeight = document.getElementById("msgs").scrollHeight;
+if (scrollHeight != null){
+  $("#msgs").animate({ scrollTop: scrollHeight }, "fast");
+}
 $('.chatinput').keypress(function(e){
       if(e.which == 13){
            $(this).closest('form').submit();
@@ -8,9 +11,12 @@ $('.chatinput').keypress(function(e){
 
 $("#new_message").bind("ajax:complete", function(event,xhr,status){
   $('.chatinput').val('');
-  $("#msgs").animate({ scrollTop: $(document).height() }, "fast");
   $("#loader").hide();
-  $("#msgs").animate({ scrollTop: document.getElementById("msgs").scrollHeight }, "fast");
+  var scrollHeight = document.getElementById("msgs").scrollHeight;
+  if (scrollHeight != null){
+    $("#msgs").animate({ scrollTop: scrollHeight }, "fast");
+  }
+  
 });
 
 $('.chatinput').keypress(function(e) {

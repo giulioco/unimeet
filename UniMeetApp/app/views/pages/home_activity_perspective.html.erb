@@ -28,8 +28,12 @@
                       </div>
                       <div class = "col-10 cell-profile_name">
                         <h5 class= "m-0"><%= profile.first_name %></h5>
+                        <% unless profile.major.nil? or profile.major.empty? %>
                         <p class="card-section card-text bg-dark text-white m-0"><%= profile.major%></p>
-                        <p class="card-section card-text bg-secondary m-0"><%= profile.college_location%></h5>
+                        <% end %>
+                        <% unless profile.college_location.nil? or profile.college_location.empty? %>
+                        <p class="card-section card-text bg-light m-0"><%= profile.college_location%></h5>
+                        <% end %>
                       </div>
                     </div>
                   </div>
@@ -52,9 +56,12 @@
                     <% if profile.id == Activity.find(session[:current_activity_id]).project_owner_id %>
                       <p class="card-section card-text bg-danger text-light m-0">Owner</p>
                     <% end %> 
-                  
+                  <% unless profile.major.nil? or profile.major.empty? %>
                   <p class="card-section card-text bg-dark text-white m-0"><%= profile.major%></p>
+                  <% end %>
+                  <% unless profile.college_location.nil? or profile.college_location.empty? %>
                   <p class="card-section card-text bg-light m-0"><%= profile.college_location%></h5>
+                  <% end %>
                 </div>
             </div>
           </div>
