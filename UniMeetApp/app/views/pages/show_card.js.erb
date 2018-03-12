@@ -1,4 +1,5 @@
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/activity_card', locals: { activity: @activity }, :remote => true) %>");
+$("#loader").hide();
 $(".notification_wrapper").removeClass("open").removeClass("opened");
 $(document).ready( function() {
 $('a').on('ajax:beforeSend', function() {

@@ -1,5 +1,7 @@
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/activity_card', locals: { activity: @activity }, :remote => true) %>");
 $('#joined-activities').append("<%= escape_javascript(render :partial => 'pages/new_match_cell', locals: { activity: @activity }, :remote => true) %>");
+$("#loader").hide();
+
 $(document).ready( function() {
 $('a').on('ajax:beforeSend', function() {
   $("#loader").show();

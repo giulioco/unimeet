@@ -1,5 +1,7 @@
 $('#card-flipper').css('z-index', '999');
 $('.like_button').prop("disabled",true);
+$("#loader").hide();
+
 $('.dislike_button').prop("disabled",true);
 $('#new').html("<%= escape_javascript(render :partial => 'pages/swipe_card', locals: { activity: @activity }, :remote => true) %>");
 $('.swipe-card').toggleClass('rolled');

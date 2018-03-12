@@ -1,5 +1,6 @@
 $('#home a[href*="/pages/show_card?id=<%=@oldId%>&method=get"]').hide('slow', function(){ $(this).remove();});
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/activity_card', locals: { activity: @nextInQueue }, :remote => true) %>");
+$("#loader").hide();
 $(document).ready( function() {
 $('a').on('ajax:beforeSend', function() {
   $("#loader").show();
