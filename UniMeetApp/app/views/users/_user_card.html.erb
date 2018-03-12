@@ -3,23 +3,36 @@
 <%end%>
 
 <div class="card-flipper mx-auto ">
-  <div class="card border border-dark swipe-card m-0 " onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+  <div class="card border border-primary swipe-card m-0 " onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
         <div id="old">
             <div class="front">
                 <%= display_image(user, :medium, "card-img-top") %>
                 <div class="card-body py-0 px-2">                 
                     <h5 class = "card-title m-1"><%= user.first_name %></h5>
+                    <% unless user.academic_year.nil? or user.academic_year.empty? %>
                     <p class = "card-text card-section bg-primary section-year mb-1"><%= user.academic_year %></p>
-                    <p class = "card-text card-section bg-light section-college mb-1"><%= user.college_location %></p>
+                    <% end %>
+                    <% unless user.college_location.nil? or user.college_location.empty? %>
+                    <p class = "card-text card-section bg-dark section-college mb-1"><%= user.college_location %></p>
+                    <% end %>
+                    <% unless user.major.nil? or user.major.empty? %>
                     <p class = "card-text card-section bg-secondary section-major mb-0"><%= user.major %></p>
+                    <% end %>
                 </div>
             </div>
-            <div class="back p-2 bg-white border border-dark">
+            <div class="back p-2  border border-dark">
                 <!-- DO NOT PUT IN A DIV-->             
                 <h5 class = "card-title m-1"><%= user.first_name %></h5>
+
+                <% unless user.major.nil? or user.major.empty? %>
                 <p class = "card-text card-section bg-secondary mb-1"><%= user.major %></p>
+                <% end %>
+                <% unless user.academic_year.nil? or user.academic_year.empty? %>
                 <p class = "card-text card-section bg-primary mb-1"><%= user.academic_year %></p>
-                <p class = "card-text card-section bg-dark text-light mb-1"><%= user.college_location %></p>
+                <% end %>
+                <% unless user.college_location.nil? or user.college_location.empty? %>
+                <p class = "card-text card-section bg-dark text-dark mb-1"><%= user.college_location %></p>
+                <% end %>
                 <% user.interests.each do |interest| %>
                     <p class="badge bg-primary text-light"><%= "#{interest.interest_name}" %></p>
                 <% end %>

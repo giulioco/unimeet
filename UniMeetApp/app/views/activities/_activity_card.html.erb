@@ -1,9 +1,9 @@
 <%= link_to({action: "back_to_swipe", controller: "/pages", method: :get, :remote => true}, class: "circleBase") do %>
-&times;
+<i class="fas fa-times"></i>
 <%end%>
 <!-- _activity_card1 -->
 <div class="card-flipper mx-auto" id="card-flipper">
-  <div class="card border border-dark card-flip mx-auto swipe-card" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+  <div class="card border border-primary card-flip mx-auto swipe-card" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
     <div id="old">
       <div class="front">
         <%= display_activity_image(activity, :medium, "card-img-top") %>
@@ -11,13 +11,15 @@
           <div class="card-title m-1" id="card-title">
             <span><%= activity.name %></span>
           </div>
-          <p class="card-text card-section bg-light" id="activity-description-front"><%= activity.description %></p>
+          <p class="card-text card-section bg-dark" id="activity-description-front"><%= activity.description %></p>
         </div>
       </div>
-      <div class="back p-2 bg-white border border-dark">
+      <div class="back p-2  border border-dark">
         <h5 class="card-title m-1"><%= activity.name %></h5>
+        <% unless activity.max_size == 0 %>
         <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
-        <p class="card-text card-section bg-light"><%= activity.description %></p>
+        <% end %>
+        <p class="card-text card-section bg-dark"><%= activity.description %></p>
         <h6 class="card-text mt-2">Joined Members:</h6>
         <% current_members = User.joins(:memberships).where({ "memberships.activity_id" => activity.id}) %>
         <% current_members.each do |member| %>

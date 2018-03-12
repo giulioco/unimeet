@@ -6,15 +6,15 @@
         <% end %>
 <p class="circleBase text-light" id="flip-button" onclick="flip()"><i class="fas fa-sync"></i></p>
 <div class="card-flipper mx-auto">
-    <div class="card border border-dark m-0 swipe-card">
+    <div class="card border border-primary m-0 swipe-card">
         <div class="front">
             <% @user = current_user %>
             <div data-imagedrop class="position-relative mb-0" style='background-image: url(<%= image_url(:medium)%>)'>
               <%= f.file_field :image %>
             </div>
           <div class="card-body py-0 px-2">
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "off", class: "form-control position-relative float-left section-college my-1 mr-1 ml-0" %>
-              <%= f.text_field :last_name, autofocus: true, autocomplete: "off", class: "form-control position-relative section-college my-1" %>
+              <%= f.text_field :first_name, autofocus: true, placeholder: "First name", autocomplete: "off", class: "form-control position-relative float-left section-college my-1 mr-1 ml-0" %>
+              <%= f.text_field :last_name, autofocus: true, placeholder: "Last name", autocomplete: "off", class: "form-control position-relative float-right section-college my-1" %>
               <%= f.select(:academic_year, [
                   ['Please Select One',''],
                   ['Freshman','Freshman'],
@@ -37,17 +37,15 @@
                 ['College Ten','College Ten'],
                 ['Off Campus','Off Campus']
                 ], {}, { :class => "form-control section-college mb-1 form-control-sm" }) %>
-              <%= f.text_field :major, autofocus: true, autocomplete: "off", class: "form-control position-relative m-0 form-control-sm" %>
+              <%= f.text_field :major, autofocus: true, placeholder: "Major", autocomplete: "off", class: "form-control position-relative m-0 form-control-sm" %>
 
           </div>
         </div>
-        <div class="back p-2 bg-white border border-dark">
+        <div class="back p-2  border border-dark">
                   <div class="form-group pr-4">
                     
-                    <%= f.label :interests, class: "text-dark" %><br />
-                    <%= f.text_area :interest_list, autofocus: true, autocomplete: "off", class: "form-control m-1" %>
-                    <%= f.label :bio, class: "text-dark" %><br />
-                    <%= f.text_area :bio, autofocus: true, autocomplete: "off", class: "form-control m-1" %>
+                    <%= f.text_area :interest_list, autofocus: true, placeholder: "Interests", autocomplete: "off", class: "form-control no_resize m-1" %>
+                    <%= f.text_area :bio, autofocus: true, placeholder: "About me", autocomplete: "off", class: "form-control no_resize m-1" %>
                   </div>
         </div>
     </div>
@@ -55,7 +53,7 @@
 
 
 <!-- Buttons _edit_prfile_card-->
-<div class="row buttons justify-content-center">
+<div class="row buttons_edit_card justify-content-center">
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info btn-small btn-left mb-2" data-toggle="modal" data-target="#changePassword">Change Password</button>
 

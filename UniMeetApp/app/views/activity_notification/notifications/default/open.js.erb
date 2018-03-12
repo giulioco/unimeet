@@ -1,7 +1,7 @@
 <% if @match.current_user.id == @match.user_id %>
 	$('#card-container').html("<%= escape_javascript(render :partial => '/activities/activity_card', locals: { activity: @matched_activity }, :remote => true) %>");
 <% else %>
-	$('#card-container').html("<%= escape_javascript(render :partial => 'users/user_card', locals: { user: @matched_user }, :remote => true) %>");
+	$('#card-container').html("<%= escape_javascript(render :partial => '/users/user_card', locals: { user: @matched_user }, :remote => true) %>");
 <% end %>
 $(".notification_wrapper").removeClass("open").removeClass("opened");
 $(".notification_count").html("<span class=\"<%= 'unopened' if @target.has_unopened_notifications?(@index_options) %>\"><%= @target.unopened_notification_count(@index_options) %></span>");

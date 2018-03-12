@@ -3,6 +3,8 @@ $('.like_button').prop("disabled",true);
 $('.dislike_button').prop("disabled",true);
 $('#new').html("<%= escape_javascript(render :partial => 'pages/swipe_profile_card', locals: { user: @user }, :remote => true) %>");
 $('.swipe-card').toggleClass('rolled');
+$("#loader").hide();
+
 $('#old').toggleClass('hidden');
 $('#new').toggleClass('shown');
 
@@ -25,3 +27,12 @@ $("#notificationsitem").html("<%= escape_javascript(render_notifications_of curr
 $(".dropdown_notification").click(function(){
             $(this).parent().toggleClass("open");
           });
+$(document).ready( function() {
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});
+});

@@ -7,7 +7,7 @@
 
 <div class="card-flipper mx-auto">
     <!-- devise edit -->
-    <div class="card border border-dark swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
+    <div class="card border border-primary swipe-card m-0" onclick="flip()" ontouchstart="this.classList.toggle('hover');" >
         <div class="front">
             <div data-imagedrop style='background-image: url(<%= image_url(:medium)%>)'>
               <%= f.file_field :image %>
@@ -25,7 +25,7 @@
             </p>
           </div>
         </div>
-        <div class="back p-2 bg-white border border-dark">
+        <div class="back p-2  border border-dark">
             <div class="card-body py-0 px-2">
                 <p class = "card-text">
                   <%= f.select(:college_location, [
@@ -55,7 +55,7 @@
     </p>
     
     <div class="collapse" id="collapsePassword">
-      <div class="card border border-dark">
+      <div class="card border border-primary">
         <div class="card-body">
           <div class="form-group">
             <label for="newpassword">New Password</label> <br />

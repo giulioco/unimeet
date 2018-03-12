@@ -1,11 +1,14 @@
 <%= link_to({action: "show_profile_card", controller: "pages", id: user.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 	<div class= "nav flex-row activity-row p-2 text-dark">
-		<div class = "col-2 p-0">
-		<%= display_image(user, :thumb, "rounded-circle") %>
-		</div>
-		<div class = "col-10">
-      		<h4><%= user.first_name%></h4>
-      		<h5><span class="card-title btn btn-dark ml"><%= user.major%></span><span class="card-title btn btn-warning mr">    <%= user.college_location%></span></h5>
-    	</div>
+    <div class="oval-cell vertical-center">
+      <div class = "col-2 p-0">
+        <%= display_activity_image(user,:thumb, "rounded-circle") %>
+      </div>
+      <div class = "col-10 cell-profile_name">
+        <h5 class= "m-0"><%= user.first_name %></h5>
+        <p class="card-section card-text bg-dark text-white m-0"><%= user.major%></p>
+        <p class="card-section card-text bg-secondary m-0"><%= user.college_location%></h5>
+      </div>
+    </div>
 	</div>
 <% end %>

@@ -1,12 +1,15 @@
 
 <div class="notification_wrapper">
   <a class="dropdown_notification">
+    
+    <div id="notifications_icon vertical-centered">
+    <i class="fas fa-circle circleNotification"></i>
     <p class="notification_count" id="notification_count">
       <span class="<%= 'unopened' if @target.has_unopened_notifications?(parameters) %>">
         <%= @target.unopened_notification_count(parameters) %>
       </span>
     </p>
-    <i class="fas fa-bell bell"></i>
+  </div>
   </a>
   <div class="notification_list_wrapper">
     <div class="notification_header_wrapper">

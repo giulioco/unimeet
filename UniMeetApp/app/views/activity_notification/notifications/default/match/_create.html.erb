@@ -8,9 +8,9 @@
     <div class="notification_list_cover"></div>
     <div class="list_image">
       <% if current_user.id == @match.user_id %>
-        <%= display_activity_image(matched_activity, :thumb, "rounded-circle border border-light") %>
+        <%= display_activity_image(matched_activity, :thumb, "rounded-circle border border-primary") %>
       <% else %>
-        <%= display_image(matched_user, :thumb, "rounded-circle border border-light") %>
+        <%= display_image(matched_user, :thumb, "rounded-circle border border-primary") %>
       <% end %>
     </div>
     <div class="list_text_wrapper">
@@ -91,7 +91,7 @@
     height: 10px;
     position: relative;
     border-radius: 50%;
-    background-color: #27a5eb;
+    background-color: #F7EDE2;
     z-index: 2;
   }
   .unopened_wrapper:hover > .unopned_description_wrapper{
@@ -135,15 +135,30 @@
     padding: 15px 10px;
     position: relative;
     border-bottom: 1px solid #e5e5e5;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
     &::-webkit-scrollbar { 
             display: none; 
         }
   }
   .notification_list.unopened {
-    background-color: #D5EEFF;
+    background-color: #F9D4D6;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
   }
   .notification_list:hover {
-    background-color: #78BBE6;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
+    background-color: #D3676E;
   }
   .notification_list:last-child {
     border-bottom: none;

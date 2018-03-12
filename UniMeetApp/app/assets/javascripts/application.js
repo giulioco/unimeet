@@ -55,3 +55,5 @@ function readCookie(name) {
 $('#card-title').textfill({
     maxFontPixels: 20
 });
+
+$("#loader").hide();

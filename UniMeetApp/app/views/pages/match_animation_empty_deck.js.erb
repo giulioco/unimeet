@@ -70,6 +70,7 @@
      });
     $('#old').toggleClass('hidden');
     $('#new').toggleClass('shown');
+    $("#loader").hide();
 
     setTimeout(function() {
         $('.buttons').remove();
@@ -257,4 +258,15 @@
         };
     })();
 })();
+
+$(document).ready( function() {
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});
+});
+
 

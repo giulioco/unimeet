@@ -1,4 +1,8 @@
 $('#main_view').html("<%= escape_javascript(render :partial => 'chatrooms/show', locals: {chatroom: @chatroom}, :remote => true) %>");
+var scrollHeight = document.getElementById("msgs").scrollHeight;
+if (scrollHeight != null){
+  $("#msgs").animate({ scrollTop: scrollHeight }, "fast");
+}
 $('.chatinput').keypress(function(e){
       if(e.which == 13){
            $(this).closest('form').submit();
@@ -7,7 +11,12 @@ $('.chatinput').keypress(function(e){
 
 $("#new_message").bind("ajax:complete", function(event,xhr,status){
   $('.chatinput').val('');
-  $(".messages").animate({ scrollTop: $(".panel").height() }, "fast");
+  $("#loader").hide();
+  var scrollHeight = document.getElementById("msgs").scrollHeight;
+  if (scrollHeight != null){
+    $("#msgs").animate({ scrollTop: scrollHeight }, "fast");
+  }
+  
 });
 
 $('.chatinput').keypress(function(e) {
@@ -32,4 +41,11 @@ $('#new_message').on('ajax:beforeSend', function(evt, xhr, settings){
   $('#register-button').prop("disabled", "disabled");
 });
 
-$(".messages").animate({ scrollTop: $(".panel").height() }, "fast");
+
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});

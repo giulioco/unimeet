@@ -1,7 +1,7 @@
 <%= form_for @activity, url: url, method: method do |f| %>
   <p class="circleBase text-light" id="flip-button" onclick="flip()"><i class="fas fa-sync"></i></p>
   <div class="card-flipper mx-auto" id="card-flipper">
-    <div class="card border border-dark card-flip mx-auto swipe-card">
+    <div class="card border border-primary card-flip mx-auto swipe-card">
       <% if @activity.errors.any? %>
         <div id="errorExplanation">
           <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
@@ -39,7 +39,7 @@
   </div>
 
   <!-- Buttons -->
-  <div class="actions row justify-content-center mt-2" align="center">
+  <div class="actions row buttons_edit_card justify-content-center" align="center">
       <% if url != activities_new_path && @activity.project_owner_id == current_user.id %>
         <%= f.submit "Save", class: "btn btn-success mr-2" %>
           <%= link_to "Delete", { action: "destroy", controller: "activities", id: @activity.id, method: :delete }, class: 'btn btn-danger ml-2' %>

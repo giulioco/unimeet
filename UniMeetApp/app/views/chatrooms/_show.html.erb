@@ -19,8 +19,10 @@
         <%= render partial: 'messages/message', collection: @chatroom.messages, as: :message %>
       </ul>
       <%else%>
-        <div class="panel-body hidden" id="messages">
-      </div>
+        <div class="panel-body panel-default" id="messages">
+          <ul id="msgs">
+          </ul>
+        </div>
       <%end%>
     </div>
     <div class="message-input">
@@ -31,6 +33,4 @@
 </div>
 </div>
 
-
-  
 

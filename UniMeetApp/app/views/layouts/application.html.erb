@@ -13,7 +13,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-  <script src="jquery.textfill.min.js"></script>
 </head>
 <%= action_cable_meta_tag %>
 <%= content_tag :body, class: "#{controller_name} #{action_name}" do %>
@@ -29,10 +28,10 @@
         <div class = "oval-contents">
         Explore as:
         <% if session[:is_swiping_as_user] %>
-              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%>
+              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-primary")%>
             <% else %>
               <% if session[:current_activity_id] %>
-               <%= display_activity_image_menu(Activity.find(session[:current_activity_id]), :thumb, "rounded-circle border border-light")%>
+               <%= display_activity_image_menu(Activity.find(session[:current_activity_id]), :thumb, "rounded-circle border border-primary")%>
               <% end %>
         <% end %>
         </div>
@@ -41,7 +40,7 @@
         <% if not session[:is_swiping_as_user] %>
           <%= link_to pages_home_path, class: "owned-activities-links" do %>
             <div class= "dropdown-item">
-              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light") %>
+              <%= display_image_menu(current_user, :thumb, "rounded-circle border border-primary") %>
               <span>
                 <%= current_user.first_name%>
               </span>
@@ -63,14 +62,14 @@
         <% end %>
         <div class="dropdown-divider">
         </div>
-        <%= link_to "New Activity", {action: "show_new_activity_card", :controller=>"/pages", :remote => true, method: :get }, {class: 'dropdown-item owned-activities-links'} %>
+        <%= link_to "New Activity", {action: "show_new_activity_card", :controller=>"/pages", :remote => true, method: :get }, {class: 'dropdown-item owned-activities-links new_activity_link_drop'} %>
       </div>
     </li>
     </li>
   </ul>
 
   <ul class="nav justify-content-end">
-    <li class="nav-item" id="notificationsitem">
+    <li class="nav-item vertical-center mt-2 mr-4" id="notificationsitem">
       <%= render_notifications_of current_user, {index_content: :with_attributes, remote: true} %>
       <%= javascript_tag do %>
   $(document).click(function(e){
@@ -92,7 +91,7 @@
     <li class="nav-item dropdown mr-5">
       <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <%= current_user.first_name %>
-        <%= display_image_menu(current_user, :thumb, "rounded-circle border border-light")%> 
+        <%= display_image_menu(current_user, :thumb, "rounded-circle border border-dark")%> 
       </a>
       <div class="dropdown-menu">
         <%= link_to("View Profile", {action: "show_profile_card", controller: "/pages", id: current_user.id, method: :get, :remote => true}, class: "dropdown-item") %>
@@ -129,6 +128,15 @@
         Congratulations, you have a new match!
       </div>
     </div>
+  </div>
+</div>
+
+<div id="loader" style="display: none;">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
   </div>
 </div>
 

@@ -1,5 +1,10 @@
+if (!$('#card-container').length){
+  $('#main_view').html('<div id="card-container"></div>');
+}
 $('.buttons').remove();
 $('#card-container').html("<%= escape_javascript(render :partial => 'users/edit_profile_card', :remote => true) %>");
+$("#loader").hide();
+
 (function() {
   jQuery(function() {
     return $('*[data-imagedrop]').each(function() {
@@ -56,3 +61,12 @@ $('#card-container').html("<%= escape_javascript(render :partial => 'users/edit_
   })();
 
 }).call(this);
+$(document).ready( function() {
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$('a').bind('ajax:complete', function() {
+  $("#loader").hide();
+});
+});

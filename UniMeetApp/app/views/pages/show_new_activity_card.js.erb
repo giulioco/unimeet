@@ -1,4 +1,10 @@
+if (!$('#card-container').length){
+  $('#main_view').html('<div id="card-container"></div>');
+}
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/new_activity_card', locals: { activity: @activity }, :remote => true) %>");
+$(".myactivitiesmenu").dropdown("toggle");
+$("#loader").hide();
+
 (function() {
   jQuery(function() {
     return $('*[data-imagedrop]').each(function() {
@@ -55,3 +61,15 @@ $('#card-container').html("<%= escape_javascript(render :partial => 'activities/
   })();
 
 }).call(this);
+
+$(document).ready( function() {
+$('a').on('ajax:beforeSend', function() {
+  $("#loader").show();
+});
+
+$(document).bind('ajax:complete', function() {
+  $("#loader").hide();
+});
+});
+
+
