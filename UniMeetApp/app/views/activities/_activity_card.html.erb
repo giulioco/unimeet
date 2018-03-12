@@ -18,6 +18,14 @@
         <h5 class="card-title m-1"><%= activity.name %></h5>
         <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
         <p class="card-text card-section bg-light"><%= activity.description %></p>
+        <% current_members = User.joins(:matches).where({ "matches.activity_id" => activity.id}) %>
+        <% current_members.each do |member| %>
+          <%= link_to({action: "show_profile_card", controller: "pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
+              <!-- ADD CODE FOR EACH MEMBER HERE - REMEMBER TO COPY TO PARTIAL RENDERS -->
+
+
+          <% end %>
+        <%end %>
       </div>
     </div>
     <div id="new"></div>
