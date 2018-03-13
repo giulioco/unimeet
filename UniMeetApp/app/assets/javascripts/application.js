@@ -37,6 +37,25 @@ function flip() {
   $('#card-flipper').css('z-index', '999');
   $('.swipe-card').toggleClass('flipped');
   $('#flip-button').toggleClass('flipped');
+  var image_input = null;
+  if ($('#user_image').length){
+    image_input = $('#user_image');
+  } else if ($('#activity_image').length){
+    image_input = $('#activity_image');
+  }
+
+  if (image_input != null){
+    if (image_input.prop('disabled')) {
+      image_input.css( 'cursor', 'pointer' );
+      image_input.prop('disabled', false);
+    }else{
+      image_input.css( 'cursor', 'auto' );
+      image_input.prop('disabled', true);
+    }
+  }
+
+
+  
   setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
   
 };
