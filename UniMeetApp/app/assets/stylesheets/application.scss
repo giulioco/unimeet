@@ -1051,3 +1051,7 @@ font-size: 14px;
     background: $primary;
     color : $light;
 }
+
+#user-image, #activity-image {
+    cursor: pointer;
+}
