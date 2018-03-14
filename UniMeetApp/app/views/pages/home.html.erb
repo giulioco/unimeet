@@ -27,12 +27,12 @@
 								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 									<div class= "nav flex-row activity-row p-2 text-dark">
 										<div class="mini-card education">
-										<div class="overlay"></div>
-										<div class="circle">
-											<%= display_activity_image(activ, :medium, "w-75 rounded-circle") %>
-										</div>
-											<p class="m-0 cell-activity_name"><%= activ.name%></p>
-									</div>
+                      <div class="overlay"></div>
+                      <div class="circle">
+                       <%= display_activity_image(activ, :medium, "w-75 rounded-circle") %>
+                     </div>
+                     <p class="m-0 cell-activity_name"><%= activ.name%></p>
+                   </div>
 									</div>
 								<% end %>
 							<% end %>
