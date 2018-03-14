@@ -3,15 +3,15 @@
   <div class="mini-card education">
     <div class="overlay"></div>
     <div class="circle">
-      <%= display_activity_image(profile, :medium, "w-75 rounded-circle") %>
+      <%= display_activity_image(user, :medium, "w-75 rounded-circle") %>
     </div>
     <div class = "cell-activity_name">
-      <p class= "m-0"><%= profile.first_name %></p>
-      <% unless profile.major.nil? or profile.major.empty? %>
-      <p class="m-0"><%= profile.major%></p>
+      <p class= "m-0"><%= user.first_name %></p>
+      <% unless user.major.nil? or user.major.empty? %>
+      <p class="m-0"><%= user.major%></p>
       <% end %>
-      <% unless profile.college_location.nil? or profile.college_location.empty? %>
-      <p class="m-0"><%= profile.college_location%></p>
+      <% unless user.college_location.nil? or user.college_location.empty? %>
+      <p class="m-0"><%= user.college_location%></p>
       <% end %>
     </div>
   </div>
