@@ -73,7 +73,7 @@ function flip() {
       image_input.prop('disabled', true);
     }
   }
-  //setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
+  setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
 };
 
 function readCookie(name) {
