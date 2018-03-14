@@ -655,8 +655,6 @@ font-size: 14px;
   height: 100%;
   min-height: 131px;
   background: #fff;
-  text-align:right;
-  float:right;
   border-top-right-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -747,7 +745,7 @@ font-size: 14px;
 }
 
 .cell-activity_name {
-    //margin-right:10px;
+    padding-left:150px;
 }
 
 .cell-profile_name {
