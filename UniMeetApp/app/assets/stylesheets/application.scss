@@ -683,7 +683,7 @@ font-size: 14px;
 }
 
 .mini-card:hover p {
-  color: $primary;
+  color: $white;
 }
 
 .mini-card:active {
@@ -694,7 +694,7 @@ font-size: 14px;
 
 .mini-card p {
   position: relative;
-  color: $secondary;
+  color: $primary;
   margin-top: 30px;
   transition: color 0.3s ease-out;
 }
