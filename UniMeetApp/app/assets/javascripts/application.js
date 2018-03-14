@@ -40,14 +40,20 @@ function flip() {
   $('#flip-button').toggleClass('flipped');
   
   if ($('.front').is(":visible")){
+    $('.back').show();
+    console.log("showing card back");
     setTimeout(function() { 
       $('.front').hide();
-      $('.back').show();
+      console.log("hiding card front");
+      
      }, 500);
   }else {
     setTimeout(function() { 
-      $('.back').hide();
       $('.front').show();
+      console.log("showing card front");
+      $('.back').hide();
+      console.log("hiding card back");
+      
      }, 500);
   }
   
