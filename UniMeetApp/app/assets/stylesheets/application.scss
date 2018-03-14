@@ -31,13 +31,18 @@ $h2-font-size: 3em;
 body {
     background-color: $white;
 }
-
+html {
+    min-height: 100%;
+}
 body.new {
-    background: image-url("Background1-min.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background: fixed;
+    background-repeat: no-repeat;
+    background: mix($secondary, $primary);
+    background: linear-gradient(135deg, rgba($secondary,1) 0%,rgba($primary,1) 100%);
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
 }
 body.home body.home_activity_perspective {
     overflow: hidden;
