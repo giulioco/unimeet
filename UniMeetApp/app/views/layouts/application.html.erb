@@ -10,9 +10,12 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "animate" %>
+  <%= stylesheet_link_tag "introjs" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'intro', 'data-turbolinks-track': 'reload' %>
+
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 <%= action_cable_meta_tag %>
 <%= content_tag :body, class: "#{controller_name} #{action_name}" do %>

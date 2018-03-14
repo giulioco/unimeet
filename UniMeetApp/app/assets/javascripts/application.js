@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
+//= require turbolinks
 //= require dropzone
 //= require imagedrop
 //= require confetti
@@ -37,6 +38,20 @@ function flip() {
   $('#card-flipper').css('z-index', '999');
   $('.swipe-card').toggleClass('flipped');
   $('#flip-button').toggleClass('flipped');
+  
+  if ($('.front').is(":visible")){
+    setTimeout(function() { 
+      $('.front').hide();
+      $('.back').show();
+     }, 500);
+  }else {
+    setTimeout(function() { 
+      $('.back').hide();
+      $('.front').show();
+     }, 500);
+  }
+  
+  
   var image_input = null;
   if ($('#user_image').length){
     image_input = $('#user_image');
@@ -53,11 +68,7 @@ function flip() {
       image_input.prop('disabled', true);
     }
   }
-
-
-  
-  setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
-  
+  //setTimeout(function(){$('#card-flipper').css('z-index', 'auto')}, 1000);
 };
 
 function readCookie(name) {
@@ -76,3 +87,7 @@ $('#card-title').textfill({
 });
 
 $("#loader").hide();
+
+$('.card').bind('dblclick',function(e){
+    e.preventDefault();
+});

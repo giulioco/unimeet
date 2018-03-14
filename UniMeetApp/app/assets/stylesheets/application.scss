@@ -259,7 +259,6 @@ a.owned-activities-links {
     height: 515px;
     width: 300px;
     overflow-x: hidden;
-    overflow-y: auto;
     position: relative;
     -webkit-perspective: 800px;
     -moz-perspective: 800px;
@@ -283,26 +282,22 @@ a.owned-activities-links {
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transform-origin: 50% 50%;
-   
 
 }
 .swipe-card div {
-    display: block;
     width: 100%;
     position: absolute;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 .swipe-card .front {
     cursor: pointer;
+    display: block;
    // overflow-x: hidden;
    background: $light;
-  
 }
 .swipe-card .back {
-
+    display: none;
+    height: 100%;
+    overflow: auto;
     cursor: pointer;
     background: $light;
     -webkit-transform: rotateY( 180deg );
@@ -310,7 +305,7 @@ a.owned-activities-links {
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
     transform-style: preserve-3d;
-    display: none;
+    transition: all 1s ease-in-out;
     
 }
 #flip-button {
@@ -332,7 +327,7 @@ a.owned-activities-links {
     transition: all 1s ease-in-out;
 }
 .swipe-card.flipped {
-    background: $light;
+    
     -webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
     -o-transform: rotateY( 180deg );
@@ -341,10 +336,10 @@ a.owned-activities-links {
     transition: all 1s ease-in-out;
     border: none;
     .back {
+        background: $light;
         width: 300px;
         margin-top: -1px;
         margin-left: -1px;
-        display: inherit;
         min-height: 415px;
         border-radius: 0.25rem;
     }
