@@ -22,17 +22,18 @@
                 <% profiles.each do |profile| %>
                   <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
                   <div class= "nav flex-row activity-row p-2 text-dark">
-                    <div class="oval-cell vertical-center">
-                      <div class = "col-2 p-0">
-                        <%= display_activity_image(profile,:thumb, "rounded-circle") %>
+                    <div class="mini-card education">
+                      <div class="overlay"></div>
+                      <div class="circle">
+                        <%= display_activity_image(profile, :medium, "w-75 rounded-circle") %>
                       </div>
-                      <div class = "col-10 cell-profile_name">
-                        <h5 class= "m-0"><%= profile.first_name %></h5>
+                      <div class = "cell-activity_name">
+                        <p class= "m-0"><%= profile.first_name %></p>
                         <% unless profile.major.nil? or profile.major.empty? %>
-                        <p class="card-section card-text bg-dark text-white m-0"><%= profile.major%></p>
+                        <p class="m-0"><%= profile.major%></p>
                         <% end %>
                         <% unless profile.college_location.nil? or profile.college_location.empty? %>
-                        <p class="card-section card-text bg-light m-0"><%= profile.college_location%></h5>
+                        <p class="m-0"><%= profile.college_location%></p>
                         <% end %>
                       </div>
                     </div>
@@ -46,24 +47,21 @@
             <% profiles.each do |profile| %>
               <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0 bg-light") do %>
             <div class= "nav flex-row activity-row p-2 text-dark">
-              <div class="oval-cell vertical-center">
-                <!-- home_activity sidebar profiles -->
-                <div class="col-2 p-0">
-                  <%= display_activity_image(profile,:thumb, "rounded-circle") %>
+              <div class="mini-card education">
+                <div class="overlay"></div>
+                <div class="circle">
+                  <%= display_activity_image(profile, :medium, "w-75 rounded-circle") %>
                 </div>
-                <div class = "col-10 cell-profile_name">
-                  <h5><%= profile.first_name%></h5>
-                    <% if profile.id == Activity.find(session[:current_activity_id]).project_owner_id %>
-                      <p class="card-section card-text bg-danger text-light m-0">Owner</p>
-                    <% end %> 
+                <div class = "cell-activity_name">
+                  <p class= "m-0"><%= profile.first_name %></p>
                   <% unless profile.major.nil? or profile.major.empty? %>
-                  <p class="card-section card-text bg-dark text-white m-0"><%= profile.major%></p>
+                  <p class="m-0"><%= profile.major%></p>
                   <% end %>
                   <% unless profile.college_location.nil? or profile.college_location.empty? %>
-                  <p class="card-section card-text bg-light m-0"><%= profile.college_location%></h5>
+                  <p class="m-0"><%= profile.college_location%></p>
                   <% end %>
                 </div>
-            </div>
+              </div>
           </div>
               <% end %>
               <% end %>
