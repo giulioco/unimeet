@@ -26,14 +26,14 @@
 							<% activity.each do |activ| %>
 								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 									<div class= "nav flex-row activity-row p-2 text-dark">
-										<div class="oval-cell vertical-center">
+										<a href="#" class="mini-card education">
 											<div class = "col-3 p-0">
 												<%= display_activity_image(activ, :thumb, "rounded-circle") %>
 											</div>
 											<div class = "col-9 vertical-center cell-activity_name">
 												<h4><%= activ.name%></h4>
 											</div>
-										</div>
+										</a>
 									</div>
 								<% end %>
 							<% end %>
@@ -47,7 +47,7 @@
 							<% activity.each do |activ| %>
 								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
 									<div class= "nav flex-row activity-row p-2 text-dark ">
-										<div class="oval-cell vertical-center">
+										<div class="mini-card education">
 										<div class = "col-3 p-0">
 											<%= display_activity_image(activ, :thumb, "rounded-circle") %>
 										</div>
