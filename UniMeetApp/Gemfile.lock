@@ -165,6 +165,7 @@ GEM
       rack
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
+    railroady (1.5.3)
     rails (5.1.4)
       actioncable (= 5.1.4)
       actionmailer (= 5.1.4)
@@ -293,6 +294,7 @@ DEPENDENCIES
   paperclip (~> 5.2, >= 5.2.0)
   pg (~> 0.18)
   puma (~> 3.7)
+  railroady
   rails (~> 5.1.4)
   rails-footnotes (~> 4.1, >= 4.1.8)
   redis (~> 3.0)
