@@ -1,54 +1,106 @@
-<div class="container">
-  <div class="sub-title row justify-content-center">
-    <h2><span class="font-weight-bold">Log</span> In</h2>
-  </div>
-  
-  <div class="row">
-    <div class="col-3"></div>
-    <div class="col-7">
-      <!--<p class="notice"><%= notice %></p>-->
-      <p class="alert"><%= alert %></p>
+<div class="container-fluid">
+  <div class="row h-100">
+    <div class="col-6 offset-md-1 my-5">
+    <!-- CAROUSEL -->
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag("carousel/carousel-1.jpeg", class: "d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+         <%= image_tag("carousel/carousel-2.jpeg", class: "d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+         <%= image_tag("carousel/carousel-3.jpeg", class: "d-block w-100") %>
+      </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <div class="form-group row">
-      <label class="col-3 col-form-label">Email: </label>
-      <div class="col-7 input-group">
-         <%= f.text_field :cruzid, autofocus: true, autocomplete: "email", class: "form-control" %>
-        <div class="input-group-append">
-          <div class="input-group-text">@ucsc.edu</div>
+    </div>
+    <div class="col-3 offset-md-1 my-5"=>
+    <!-- SIGNUP -->
+    <!-- Subtitle -->
+      <div class="sub-title row justify-content-center text-primary">
+        <h2><span class="font-weight-bold">Sign</span> Up</h2>
+      </div>
+      
+    <!-- Errors -->
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-7">
+          <!--<p class="notice"><%= notice %></p>-->
+          <p class="alert"></p>
+          <div class="errors"><%= devise_error_messages! %></div>
         </div>
       </div>
-    </div>
-    
-    <div class="form-group row">
-      <label class="col-3 col-form-label">Password: </label>
-      <div class="col-7">
-         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    <!-- Form -->
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <!-- Name Row -->
+        <div class="form-row align-items-center mb-2">
+        <div class="col-md-6"> 
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+                <%= f.text_field :first_name, :placeholder => "First name", autofocus: true, autocomplete: "off", class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6"> 
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+                <%= f.text_field :last_name, :placeholder => "Last name", autofocus: true, autocomplete: "off", class: "form-control" %>
+          </div>
+        </div>
+        </div>
+        
+      <!-- Email Row -->
+      <div class="form-row align-items-center mb-2">
+        <div class="input-group">
+            <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+        </div>
+             <%= f.text_field :cruzid, :placeholder => "CruzID", autofocus: true, class: "form-control" %>
+            <div class="input-group-append">
+              <div class="input-group-text">@ucsc.edu</div>
+            </div>
+        </div>
       </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-7">
-        <% if devise_mapping.rememberable? -%>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-        <% end -%>
-      </div>
-    </div>
-    
-    <div class="action row justify-content-center">
-        <%= f.submit "Log in" %>
-    </div>
-  <% end %>
-  
-  <div class="row">
-    <div class="col-3"></div>
-    <div class="col-7">
-      <%= render "devise/shared/links" %>
+        
+      <!-- Password Row -->  
+        <div class="form-row align-items-center mb-2">
+          <div class="input-group">
+          <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+        </div>
+            <%= f.password_field :password, :placeholder => "Password", autocomplete: "off", class: "form-control" %>
+          </div>
+        </div>
+       
+      <!-- Password Confirmation Row --> 
+      <div class="form-row align-items-center mb-2">
+          <div class="input-group">
+          <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+        </div>
+            <%= f.password_field :password_confirmation, :placeholder => "Confirm password", autocomplete: "off", class: "form-control" %>
+          </div>
+        </div>
+        
+      <!-- Button -->
+         <div class="login row justify-content-center mt-2 ">
+           <%= f.submit "Sign Up" %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>

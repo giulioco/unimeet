@@ -39,6 +39,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def login
+    :user
+  end
+
   
 
 end

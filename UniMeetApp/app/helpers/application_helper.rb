@@ -3,8 +3,16 @@ module ApplicationHelper
     :user
   end
 
+  def login_resource
+    :user
+  end
+
   def resource
       @resource ||= User.new
+  end
+
+  def login
+      @login ||= User.new
   end
 
   def resource_class 

@@ -28,6 +28,12 @@ $h2-font-size: 3em;
 
 @import "bootstrap";
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
 body {
     background-color: $white;
 }
@@ -35,12 +41,14 @@ html {
   min-height: 100%;
 }
 body.new {
-    background: mix($secondary, $primary);
-    background: linear-gradient(135deg, rgba($secondary,1) 0%,rgba($primary,1) 100%);
+    background: mix($secondary, $light);
+    background: linear-gradient(135deg, rgba($secondary,1) 0%,rgba($light,1) 100%);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    height: 100%;
+    position: absolute;
 }
 body.home body.home_activity_perspective {
     overflow: hidden;
@@ -105,6 +113,23 @@ label {
         color: $dark;
         background-color: transparent;
         border-color: $dark;
+        border-style: solid;
+        height: 40px;
+        width: auto;
+        border-radius: $border-radius;
+        &:hover {
+            color: $secondary;
+            border-color: $secondary;
+        }
+    }
+}
+
+.login {
+    input {
+        cursor: pointer;
+        color: $primary;
+        background-color: transparent;
+        border-color: $primary;
         border-style: solid;
         height: 40px;
         width: auto;
@@ -1148,3 +1173,23 @@ font-size: 14px;
 #user-image, #activity-image {
     cursor: pointer;
 }
+
+.forgot_password_link {
+    color: $light;
+    font-size: 12px;
+    top: 40px;
+    position: absolute;
+    cursor: pointer;
+    &:hover {
+        color:$secondary;
+    }
+
+}
+
+.fill-height {
+    min-height: 100%;
+    height:auto !important; /* cross-browser */
+    height: 100%; /* cross-browser */
+}
+.container-fluid,
+.row-fluid { height: inherit; }

@@ -103,7 +103,33 @@
       </div>
     </li>
   </ul>
-    <% end %>
+  <% else %>
+
+    <%= form_for(login, as: login_resource, url: new_session_path(login_resource), :html => { :class => 'navbar-form navbar-right form-inline' }) do |f| %>
+      <div class="input-group mr-2">
+       <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+        </div>
+         <%= f.text_field :cruzid, autofocus: true, autocomplete: "cruzid_", :placeholder => "CruzID", class: "form-control" %>
+      <div class="input-group-append">
+        <span class="input-group-text">@ucsc.edu</span>
+       </div>
+      </div>
+      <div class="input-group mr-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+        </div>
+      <%= f.password_field :password, autocomplete: "off",:placeholder => "Password", class: "form-control" %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot password?", new_password_path(login_resource), class: "forgot_password_link" %>
+    <% end -%>
+    </div>
+    <div class="input-group mr-2">
+      <%= f.submit "Log in", class: "btn btn-default" %>
+    </div>
+  <% end %>
+
+  <% end %>
   
 </nav>
 
