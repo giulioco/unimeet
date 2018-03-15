@@ -1,3 +1,4 @@
+$('.buttons').remove();
 <% if @match.current_user.id == @match.user_id %>
 	$('#card-container').html("<%= escape_javascript(render :partial => '/activities/activity_card', locals: { activity: @matched_activity }, :remote => true) %>");
 <% else %>
@@ -11,3 +12,4 @@ $(".notification_count").html("<span class=\"<%= 'unopened' if @target.has_unope
 <% else %>
   $('<%= ".notification_#{@notification.id}" %>').html("<%= escape_javascript( render_notification(@notification, fallback: :default) ) %>");
 <% end %>
+$("#loader").hide();

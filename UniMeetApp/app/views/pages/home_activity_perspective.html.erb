@@ -20,7 +20,7 @@
               <p class="position-absolute pt-5 pl-4" id="sidebarEmpty">Start exploring to match with people!</p>
             <% else %>
                 <% profiles.each do |profile| %>
-                  <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
+                  <%= link_to({action: "show_profile_card", controller: "/pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0") do  %>
                   <div class= "nav flex-row activity-row p-2 text-dark">
                     <div class="mini-card education">
                       <div class="overlay"></div>
@@ -45,7 +45,7 @@
           <div class="tab-pane fade" id="activity-members" role="tabpanel" aria-labelledby="members-tab">
             <% profiles = User.joins(:memberships).where({ "memberships.activity_id" => session[:current_activity_id]}) %>
             <% profiles.each do |profile| %>
-              <%= link_to({action: "show_profile_card", controller: "pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0 bg-light") do %>
+              <%= link_to({action: "show_profile_card", controller: "/pages", id: profile.id, method: :get, :remote => true}, class: "nav-link p-0 bg-light") do %>
             <div class= "nav flex-row activity-row p-2 text-dark">
               <div class="mini-card education">
                 <div class="overlay"></div>
@@ -94,8 +94,8 @@
           </div>
           <!-- Buttons -->
           <div class="buttons" >
-            <%= link_to "Dislike", {action: "dislike_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-danger btn-right dislike_button'} %>
-            <%= link_to "Like", {action: "like_profile", controller: "pages", id: user.id, :remote => true}, {class: 'btn btn-success btn-left like_button'} %>
+            <%= link_to "Dislike", {action: "dislike_profile", controller: "/pages", id: user.id, :remote => true}, {class: 'btn btn-danger btn-right dislike_button'} %>
+            <%= link_to "Like", {action: "like_profile", controller: "/pages", id: user.id, :remote => true}, {class: 'btn btn-success btn-left like_button'} %>
           </div>
         <% else %>
         <div id="card-container">

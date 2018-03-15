@@ -39,19 +39,17 @@
       <%= yield :notification_content %>
     <% end %>
     <div class="unopened_wrapper"></div>
-  <% else %>
-    <% if current_user.id == @match.user_id %>
-      <% if session[:is_swiping_as_user] %>
-        <%= link_to(action: "show_card", controller: "/pages", id: matched_activity.id , method: :get, :remote => true) do %>
-          <%= yield :notification_content %>
-        <% end %>
-      <% else %>
-        <%= link_to pages_home_path(:activity_id => matched_activity.id) do %>
-          <%= yield :notification_content %>
-        <% end %>
+  <% elsif current_user.id == @match.user_id %>
+    <% if session[:is_swiping_as_user] %>
+      <%= link_to(action: "show_card", controller: "/pages", id: matched_activity.id , method: :get, :remote => true) do %>
+        <%= yield :notification_content %>
       <% end %>
     <% else %>
+      <%= link_to pages_home_path(:activity_id => matched_activity.id) do %>
+        <%= yield :notification_content %>
+      <% end %>
     <% end %>
+  <% else %>
     <% if session[:is_swiping_as_user] %>
       <%= link_to pages_home_activity_perspective_path(:id => matched_activity.id, :user_id => matched_user.id) do %>
         <%= yield :notification_content %>
@@ -62,7 +60,6 @@
       <% end %>
     <% end %>
   <% end %>
-    
 <% end %>
 
   <%#= link_to "Move", move_notification_path_for(notification) %>

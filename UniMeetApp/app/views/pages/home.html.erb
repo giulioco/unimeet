@@ -24,8 +24,8 @@
 			              <p class="position-absolute pt-5 pl-5" id="sidebarEmpty">Start exploring to find matches!</p>
 			            <% else %>
 							<% activity.each do |activ| %>
-								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-									<div class= "nav flex-row activity-row p-2 text-dark">
+								<%= link_to({action: "show_card", controller: "/pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+									<div class= "nav flex-row activity-row p-1 text-dark">
 										<div class="mini-card education">
                       <div class="overlay"></div>
                       <div class="circle">
@@ -44,8 +44,8 @@
 			              <h6><p class="position-absolute pt-5 pl-4 pr-4 center" id="sidebarEmpty">Create an activity, it will show up here!</p></h6>
 			            <% else %>
 							<% activity.each do |activ| %>
-								<%= link_to({action: "show_card", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-									<div class= "nav flex-row activity-row p-2 text-dark ">
+								<%= link_to({action: "show_card", controller: "/pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+									<div class= "nav flex-row activity-row p-1 text-dark ">
 										<div class="mini-card education">
 										<div class="overlay"></div>
 										<div class="circle">
@@ -64,8 +64,8 @@
 			              <p class="position-absolute pt-5 pl-4" id="sidebarEmpty">Join an activity to connect with people!</p>
 			            <% else %>
 							<% activity.each do |activ| %>
-								<%= link_to({action: "show_chat", controller: "pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
-									<div class= "nav flex-row activity-row p-2 text-dark">
+								<%= link_to({action: "show_chat", controller: "/pages", id: activ.id, method: :get, :remote => true}, class: "nav-link p-0") do %>
+									<div class= "nav flex-row activity-row p-1 text-dark">
 										<div class="mini-card education">
 										<div class="overlay"></div>
 										<div class="circle">

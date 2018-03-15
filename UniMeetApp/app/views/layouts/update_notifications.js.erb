@@ -1,5 +1,0 @@
-$(document).ready(function(){
-	$(document).mousemove(function(event){
-	  $("#notificationsitem").html("<%= escape_javascript(render_notifications_of current_user, {remote: true}) %>");
-	});
-});

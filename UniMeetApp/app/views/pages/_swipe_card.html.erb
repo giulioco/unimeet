@@ -17,7 +17,7 @@
   <h6 class="card-text mt-2">Joined Members:</h6>
   <% current_members = User.joins(:memberships).where({ "memberships.activity_id" => activity.id}) %>
   <% current_members.each do |member| %>
-    <%= link_to({action: "show_profile_card", controller: "pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0 float-left w-25 mr-2") do  %>
+    <%= link_to({action: "show_profile_card", controller: "/pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0 float-left w-25 mr-2") do  %>
       <div class="position-relative"><%= display_image(member, :medium, "w-100 rounded") %></div>
       <p class="badge bg-primary text-light mb-0"> <%= member.first_name %></p>
       <p class="badge bg-light text-dark"> <%= member.college_location %></p>
