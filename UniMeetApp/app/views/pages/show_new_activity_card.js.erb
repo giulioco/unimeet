@@ -1,6 +1,7 @@
 if (!$('#card-container').length){
   $('#main_view').html('<div id="card-container"></div>');
 }
+$('.buttons').remove();
 $('#card-container').html("<%= escape_javascript(render :partial => 'activities/new_activity_card', locals: { activity: @activity }, :remote => true) %>");
 $(".myactivitiesmenu").dropdown("toggle");
 $("#loader").hide();
