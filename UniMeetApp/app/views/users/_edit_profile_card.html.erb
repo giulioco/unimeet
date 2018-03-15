@@ -16,13 +16,13 @@
               <%= f.text_field :first_name, autofocus: true, placeholder: "First name", autocomplete: "off", class: "form-control position-relative float-left section-college my-1 mr-1 ml-0" %>
               <%= f.text_field :last_name, autofocus: true, placeholder: "Last name", autocomplete: "off", class: "form-control position-relative float-right section-college my-1" %>
               <%= f.select(:academic_year, [
-                  ['Please Select One',''],
-                  ['Freshman','Freshman'],
-                  ['Sophomore','Sophomore'],
-                  ['Junior','Junior'],
-                  ['Senior','Senior'],
-                  ['Graduate','Graduate']
-                  ], {}, { :class => "form-control section-year mb-1 form-control-sm" }) %>
+                ['Please Select One',''],
+                ['Freshman','Freshman'],
+                ['Sophomore','Sophomore'],
+                ['Junior','Junior'],
+                ['Senior','Senior'],
+                ['Graduate','Graduate']
+                ], {}, { :class => "form-control section-year mb-1 form-control-sm" }) %>
               <%= f.select(:college_location, [
                 ['Please Select One',''],
                 ['Cowell','Cowell'],
@@ -42,11 +42,11 @@
           </div>
         </div>
         <div class="back p-2  border border-dark">
-                  <div class="form-group pr-4">
-                    
-                    <%= f.text_area :interest_list, autofocus: true, placeholder: "Interests", autocomplete: "off", class: "form-control no_resize m-1" %>
-                    <%= f.text_area :bio, autofocus: true, placeholder: "About me", autocomplete: "off", class: "form-control no_resize m-1" %>
-                  </div>
+          <div class="form-group pr-4">
+            
+            <%= f.text_area :interest_list, autofocus: true, placeholder: "Interests", autocomplete: "off", class: "form-control no_resize m-1" %>
+            <%= f.text_area :bio, autofocus: true, placeholder: "About me", autocomplete: "off", class: "form-control no_resize m-1" %>
+          </div>
         </div>
     </div>
 </div>
