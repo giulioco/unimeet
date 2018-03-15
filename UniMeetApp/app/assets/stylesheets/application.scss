@@ -1211,3 +1211,19 @@ font-size: 14px;
 }
 .container-fluid,
 .row-fluid { height: inherit; }
+
+.carousel-bottom-text {
+    display: block;
+    background-color: rgba(50,70,90,0.7);
+    height: 72px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 2% 0;
+    
+    p{
+      color: $light;
+      font-size: 1.4em;
+      font-weight: 100;
+    }
+}
