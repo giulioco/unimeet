@@ -2,19 +2,23 @@
   <div class="row h-100">
     <div class="col-6 offset-md-1 my-5">
     <!-- CAROUSEL -->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <%= image_tag("carousel/carousel-1.jpeg", class: "d-block w-100") %>
+        <div class="carousel-bottom-text"><p class="text-center align-middle">Find and explore actities around campus</p></div>
       </div>
       <div class="carousel-item">
         <%= video_tag("squiggle.mp4", autoplay: :autoplay, loop: :loop, preload: :auto, class: "d-block w-100") %>
+        <div class="carousel-bottom-text"><p class="text-center align-middle">Connect with slugs with UCSC only verification</p></div>
       </div>
       <div class="carousel-item">
          <%= image_tag("carousel/carousel-2.jpeg", class: "d-block w-100") %>
+         <div class="carousel-bottom-text"><p class="text-center align-middle">Create an activity--it only takes a second</p></div>
       </div>
       <div class="carousel-item">
          <%= image_tag("carousel/carousel-3.jpeg", class: "d-block w-100") %>
+         <div class="carousel-bottom-text"><p class="text-center align-middle">Spin activites to match </p></div>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -25,6 +29,7 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+    
   </div>
     </div>
     <div class="col-3 offset-md-1 my-5"=>
