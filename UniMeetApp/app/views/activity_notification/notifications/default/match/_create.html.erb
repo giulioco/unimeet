@@ -26,7 +26,7 @@
           <% end %>
         <% end %>
         <br>
-        <span><%= notification.created_at.strftime("%b %d %H:%M") %></span>
+        <span><%= notification.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b %d %I:%M %p")%></span>
       </p>
     </div>
   </div>
