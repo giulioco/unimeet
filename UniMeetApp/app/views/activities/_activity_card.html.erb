@@ -20,7 +20,7 @@
         <p class="card-text card-section bg-dark text-light"><%= capacity(activity) %></p>
         <% end %>
         <p class="card-text card-section bg-dark"><%= activity.description %></p>
-        <h6 class="card-text mt-2">Joined Members:</h6>
+        <h6 class="card-text mt-2">Members:</h6>
         <% current_members = User.joins(:memberships).where({ "memberships.activity_id" => activity.id}) %>
         <% current_members.each do |member| %>
           <%= link_to({action: "show_profile_card", controller: "/pages", id: member.id, method: :get, :remote => true}, class: "nav-link p-0 float-left w-25 mr-2") do  %>
