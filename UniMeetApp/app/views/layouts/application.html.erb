@@ -106,6 +106,7 @@
   <% else %>
 
     <%= form_for(login, as: login_resource, url: new_session_path(login_resource), :html => { :class => 'navbar-form navbar-right form-inline' }) do |f| %>
+      <div class= "col-5">
       <div class="input-group mr-2">
        <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
@@ -115,6 +116,8 @@
         <span class="input-group-text">@ucsc.edu</span>
        </div>
       </div>
+      </div>
+      <div class="col-5">
       <div class="input-group mr-2">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -123,6 +126,7 @@
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <%= link_to "Forgot password?", new_password_path(login_resource), class: "forgot_password_link" %>
     <% end -%>
+    </div>
     </div>
     <div class="input-group mr-2">
       <%= f.submit "Log in", class: "btn btn-default" %>
