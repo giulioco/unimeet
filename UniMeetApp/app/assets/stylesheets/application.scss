@@ -46,6 +46,7 @@ body.new {
     background-size: cover;
     -o-background-size: cover;
     height: calc(100% - 84px);
+    min-width:100%;
     position: absolute;
 }
 body.home body.home_activity_perspective {
