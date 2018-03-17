@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: UniMeetApp_production
-  username: UniMeetApp
-  password: <%= ENV['UNIMEETAPP_DATABASE_PASSWORD'] %>
+  database: UniMeetApp_development
+  username: UniMeetDev
+  password: cmps115w18
