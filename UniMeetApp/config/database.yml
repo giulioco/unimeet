@@ -87,3 +87,5 @@ production:
   database: UniMeetApp_development
   username: UniMeetDev
   password: cmps115w18
+  host: unimeetapp-development.ckfbsrxa15vu.us-west-1.rds.amazonaws.com
+  port: 5432
