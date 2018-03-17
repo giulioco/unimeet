@@ -45,9 +45,9 @@ gem 'groupdate', '~> 2.5', '>= 2.5.2'
 gem 'paperclip', '~> 5.2', '>= 5.2.0'
 # use dropzone to implement drag and drop and preview functionality
 gem 'dropzonejs-rails'
-
 gem 'em-hiredis'
 gem 'unicorn'
+gem 'ffi', '1.9.22'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'render_anywhere', :require => false
