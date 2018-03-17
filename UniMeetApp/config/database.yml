@@ -84,8 +84,8 @@ test:
 #
 production:
   <<: *default
-  database: UniMeetApp_development
-  username: UniMeetDev
-  password: cmps115w18
-  host: unimeetapp-development.ckfbsrxa15vu.us-west-1.rds.amazonaws.com
-  port: 5432
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  port: <%= ENV['RDS_PORT'] %>
