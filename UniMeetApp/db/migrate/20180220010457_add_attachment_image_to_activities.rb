@@ -1,4 +1,4 @@
-class AddAttachmentImageToActivities < ActiveRecord::Migration[5.0]
+class AddAttachmentImageToActivities < ActiveRecord::Migration[5.1]
   def self.up
     change_table :activities do |t|
       t.attachment :image
